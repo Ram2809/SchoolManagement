@@ -6,6 +6,7 @@ public class Student {
 	private String dateOfBirth;
 	private String standard;
 	private String address;
+
 	public Student(Integer rollNo, String name, String dateOfBirth, String standard, String address) {
 		super();
 		this.rollNo = rollNo;
@@ -14,7 +15,7 @@ public class Student {
 		this.standard = standard;
 		this.address = address;
 	}
-	
+
 	public Integer getRollNo() {
 		return rollNo;
 	}
@@ -62,4 +63,3 @@ public class Student {
 	}
 
 }
-

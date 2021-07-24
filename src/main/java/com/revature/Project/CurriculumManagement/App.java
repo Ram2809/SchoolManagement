@@ -13,6 +13,7 @@ public class App {
 	  System.out.println("Enter the number of students:");
 	  Integer noOfStudents=Integer.parseInt(br.readLine());
 	  List<Student> studentList=new ArrayList<Student>();
+	  System.out.println("Enter the student details:");
 	  for(Integer i=0;i<noOfStudents;i++)
 	  {
 		  Integer id=Integer.parseInt(br.readLine());
