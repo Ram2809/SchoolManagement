@@ -16,7 +16,7 @@ import com.revature.Project.CurriculumManagement.model.Topics;
 public class App {
 	public static void main(String[] args) throws IOException {
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-		
+
 		List<Classes> classList = new ArrayList<Classes>();
 		Classes classes = new Classes();
 		System.out.println("Enter the class details:");
