@@ -3,7 +3,7 @@ package com.revature.Project.CurriculumManagement.model;
 public class Classes {
 	private Integer classId;
 	private String className;
-	
+
 	public Classes() {
 		super();
 	}

@@ -8,7 +8,7 @@ public class Teacher {
 	private String qualification;
 	private String designation;
 	private String classTeacher;
-	
+
 	public Teacher() {
 		super();
 	}

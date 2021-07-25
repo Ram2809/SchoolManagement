@@ -6,7 +6,7 @@ public class Student {
 	private String dateOfBirth;
 	private String standard;
 	private String address;
-	
+
 	public Student() {
 		super();
 	}

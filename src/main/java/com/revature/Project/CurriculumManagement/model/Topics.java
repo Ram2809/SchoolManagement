@@ -3,7 +3,7 @@ package com.revature.Project.CurriculumManagement.model;
 public class Topics {
 	private String topicId;
 	private String topicName;
-	
+
 	public Topics() {
 		super();
 	}
@@ -34,5 +34,5 @@ public class Topics {
 	public String toString() {
 		return "Topics [topicId=" + topicId + ", topicName=" + topicName + "]";
 	}
-	
+
 }
