@@ -1,4 +1,4 @@
-package com.revature.Project.CurriculumManagement;
+package com.revature.Project.CurriculumManagement.model;
 
 public class Student {
 	private Integer rollNo;
@@ -6,6 +6,10 @@ public class Student {
 	private String dateOfBirth;
 	private String standard;
 	private String address;
+	
+	public Student() {
+		super();
+	}
 
 	public Student(Integer rollNo, String name, String dateOfBirth, String standard, String address) {
 		super();
