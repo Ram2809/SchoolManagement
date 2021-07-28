@@ -1,4 +1,4 @@
-package com.revature.Project.CurriculumManagement;
+package com.revature.curriculummanagement;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.revature.Project.CurriculumManagement.model.Classes;
-import com.revature.Project.CurriculumManagement.model.Student;
-import com.revature.Project.CurriculumManagement.model.Subject;
-import com.revature.Project.CurriculumManagement.model.Teacher;
-import com.revature.Project.CurriculumManagement.model.Topics;
+import com.revature.curriculummanagement.model.Classes;
+import com.revature.curriculummanagement.model.Student;
+import com.revature.curriculummanagement.model.Subject;
+import com.revature.curriculummanagement.model.Teacher;
+import com.revature.curriculummanagement.model.Topics;
 
 public class App {
 	public static void main(String[] args) throws IOException {

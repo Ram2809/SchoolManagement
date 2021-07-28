@@ -1,7 +1,7 @@
-package com.revature.Project.CurriculumManagement.controller;
+package com.revature.curriculummanagement.controller;
 
-import com.revature.Project.CurriculumManagement.model.Student;
-import com.revature.Project.CurriculumManagement.service.StudentServiceImpl;
+import com.revature.curriculummanagement.model.Student;
+import com.revature.curriculummanagement.service.StudentServiceImpl;
 
 public class StudentController {
 	StudentServiceImpl studentServiceImpl = new StudentServiceImpl();
@@ -12,5 +12,8 @@ public class StudentController {
 
 	public void getStudentDetails(Student student) {
 		studentServiceImpl.getStudentDetails(student);
+	}
+	public void updateStudentDetails(Student student) {
+		studentServiceImpl.updateStudentDetails(student);
 	}
 }

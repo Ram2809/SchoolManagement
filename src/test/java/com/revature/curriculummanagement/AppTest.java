@@ -1,4 +1,4 @@
-package com.revature.Project.CurriculumManagement;
+package com.revature.curriculummanagement;
 
 import org.junit.jupiter.api.Test;
 

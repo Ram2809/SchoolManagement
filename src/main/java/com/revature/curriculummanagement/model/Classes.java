@@ -1,4 +1,4 @@
-package com.revature.Project.CurriculumManagement.model;
+package com.revature.curriculummanagement.model;
 
 public class Classes {
 	private Integer classId;

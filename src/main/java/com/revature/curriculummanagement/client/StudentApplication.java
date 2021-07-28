@@ -1,4 +1,4 @@
-package com.revature.Project.CurriculumManagement.client;
+package com.revature.curriculummanagement.client;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,9 +7,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.revature.Project.CurriculumManagement.controller.StudentController;
-import com.revature.Project.CurriculumManagement.exception.InvalidChoiceException;
-import com.revature.Project.CurriculumManagement.model.Student;
+import com.revature.curriculummanagement.controller.StudentController;
+import com.revature.curriculummanagement.exception.InvalidChoiceException;
+import com.revature.curriculummanagement.exception.StudentNotFoundException;
+import com.revature.curriculummanagement.model.Student;
 
 public class StudentApplication {
 	static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
@@ -51,7 +52,7 @@ public class StudentApplication {
 		studentController.getStudentDetails(student);
 	}
 
-	public static void main(String[] args) throws NumberFormatException, IOException, InvalidChoiceException {
+	public static void main(String[] args) throws NumberFormatException, IOException, InvalidChoiceException,StudentNotFoundException{
 		// TODO Auto-generated method stub
 		System.out.println("1.Insert");
 		System.out.println("2.Updation");
@@ -59,6 +60,7 @@ public class StudentApplication {
 		System.out.println("4.Retrival");
 		insertStudent();
 		getStudent();
+		studentController.updateStudentDetails(student);
 		//Integer userChoice = Integer.parseInt(bufferedReader.readLine());
 		/*switch (userChoice) {
 		case 1:

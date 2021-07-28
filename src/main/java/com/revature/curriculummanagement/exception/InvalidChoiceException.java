@@ -1,4 +1,4 @@
-package com.revature.Project.CurriculumManagement.exception;
+package com.revature.curriculummanagement.exception;
 
 public class InvalidChoiceException extends Exception {
 	public InvalidChoiceException(String message) {

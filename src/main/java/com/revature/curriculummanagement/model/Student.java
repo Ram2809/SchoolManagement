@@ -1,4 +1,4 @@
-package com.revature.Project.CurriculumManagement.model;
+package com.revature.curriculummanagement.model;
 
 public class Student {
 	private Integer rollNo;
@@ -19,6 +19,8 @@ public class Student {
 		this.standard = standard;
 		this.address = address;
 	}
+
+	
 
 	public Integer getRollNo() {
 		return rollNo;
