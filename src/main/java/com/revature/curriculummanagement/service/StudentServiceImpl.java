@@ -12,10 +12,12 @@ import com.revature.curriculummanagement.exception.StudentNotFoundException;
 import com.revature.curriculummanagement.model.Student;
 
 public class StudentServiceImpl implements StudentService {
-	List<Student> studentList = new ArrayList<Student>();
-	BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+	static List<Student> studentList = new ArrayList<Student>();
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
 	public void addStudentDetails(Student student) {
-		studentList.add(student);
+		studentList.add(new Student(student.getRollNo(), student.getName(), student.getDateOfBirth(),
+				student.getStandard(), student.getAddress()));
 	}
 
 	public void getStudentDetails(Student student) {
@@ -24,23 +26,29 @@ public class StudentServiceImpl implements StudentService {
 			System.out.println(studentIterator.next());
 		}
 	}
-	public void updateStudentDetails(Student student) throws IOException,StudentNotFoundException
-	{
-		System.out.println("Enter the id to update:");
-		Integer updateStudentId=Integer.parseInt(br.readLine());
-		List<Integer> idList=new ArrayList<>();
-		int index=0;
-		idList=studentList.stream().map(id->student.getRollNo()).collect(Collectors.toList());
-		if(!idList.contains(updateStudentId))
-		{
-			throw new StudentNotFoundException("Student id not found, enter the valid id!");
+
+	public void updateStudentDetails(Student student) throws NumberFormatException, IOException {
+		System.out.println("Enter the student id:");
+		Integer updateId = Integer.parseInt(br.readLine());
+		System.out.println("Enter the name:");
+		String updateName = br.readLine();
+		for (Student students : studentList) {
+			if (students.getRollNo().equals(updateId)) {
+				students.setName(updateName);
+				break;
+			}
 		}
-		else
-		{
-			index=idList.indexOf(updateStudentId);
+	}
+
+	public void deleteStudentDetails(Student student) throws NumberFormatException, IOException {
+		System.out.println("Enter the student id:");
+		Integer deleteId = Integer.parseInt(br.readLine());
+		Iterator<Student> studentIterator = studentList.iterator();
+		while (studentIterator.hasNext()) {
+			if (studentIterator.next().getRollNo().equals(deleteId)) {
+				studentIterator.remove();
+				break;
+			}
 		}
-		String userStudentName=br.readLine();
-		student.setName(userStudentName);
-		getStudentDetails(student);
 	}
 }

@@ -1,5 +1,7 @@
 package com.revature.curriculummanagement.controller;
 
+import java.io.IOException;
+
 import com.revature.curriculummanagement.model.Student;
 import com.revature.curriculummanagement.service.StudentServiceImpl;
 
@@ -13,7 +15,12 @@ public class StudentController {
 	public void getStudentDetails(Student student) {
 		studentServiceImpl.getStudentDetails(student);
 	}
-	public void updateStudentDetails(Student student) {
+
+	public void updateStudentDetails(Student student) throws NumberFormatException, IOException {
 		studentServiceImpl.updateStudentDetails(student);
+	}
+
+	public void deleteStudentDetails(Student student) throws NumberFormatException, IOException {
+		studentServiceImpl.deleteStudentDetails(student);
 	}
 }

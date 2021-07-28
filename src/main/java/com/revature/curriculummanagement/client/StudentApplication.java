@@ -18,10 +18,10 @@ public class StudentApplication {
 	static StudentController studentController = new StudentController();
 
 	public static void insertStudent() throws NumberFormatException, IOException {
-		System.out.println("Enter the number of students:");
+		System.out.println("Enter the no. of students:");
 		Integer noOfStudents = Integer.parseInt(bufferedReader.readLine());
 		System.out.println("Enter the student details:");
-		for (Integer i = 0; i < noOfStudents; i++) {
+		for (int i = 0; i < noOfStudents; i++) {
 			Integer studentId = Integer.parseInt(bufferedReader.readLine());
 			String studentName = bufferedReader.readLine();
 			String studentDateOfBirth = bufferedReader.readLine();
@@ -32,52 +32,51 @@ public class StudentApplication {
 			student.setDateOfBirth(studentDateOfBirth);
 			student.setStandard(studentStandard);
 			student.setAddress(studentAddress);
-
-			// studentList.add(new Student(student.getRollNo(), student.getName(),
-			// student.getDateOfBirth(),
-			// student.getStandard(), student.getAddress()));
+			studentController.addStudentDetails(student);
 		}
-		studentController.addStudentDetails(student);
 	}
 
-	public static void updateStudent() {
-
+	public static void updateStudent() throws NumberFormatException, IOException {
+		studentController.updateStudentDetails(student);
 	}
 
-	public static void deleteStudent() {
-
+	public static void deleteStudent() throws NumberFormatException, IOException {
+		studentController.deleteStudentDetails(student);
 	}
 
 	public static void getStudent() {
 		studentController.getStudentDetails(student);
 	}
 
-	public static void main(String[] args) throws NumberFormatException, IOException, InvalidChoiceException,StudentNotFoundException{
+	public static void main(String[] args) throws NumberFormatException, IOException, InvalidChoiceException {
 		// TODO Auto-generated method stub
-		System.out.println("1.Insert");
-		System.out.println("2.Updation");
-		System.out.println("3.Deletion");
-		System.out.println("4.Retrival");
-		insertStudent();
-		getStudent();
-		studentController.updateStudentDetails(student);
-		//Integer userChoice = Integer.parseInt(bufferedReader.readLine());
-		/*switch (userChoice) {
-		case 1:
-			insertStudent();
-			break;
-		case 2:
-			updateStudent();
-			break;
-		case 3:
-			deleteStudent();
-			break;
-		case 4:
-			getStudent();
-			break;
-		default:
-			throw new InvalidChoiceException("Enter the valid choice!");
-		}*/
+		while (true) {
+			System.out.println("1.Insert");
+			System.out.println("2.Retrieval");
+			System.out.println("3.Updation");
+			System.out.println("4.Deletion");
+			System.out.println("5.Exit");
+			System.out.println("Enter the choice:");
+			Integer userChoice = Integer.parseInt(bufferedReader.readLine());
+			switch (userChoice) {
+			case 1:
+				insertStudent();
+				break;
+			case 2:
+				getStudent();
+				break;
+			case 3:
+				updateStudent();
+				break;
+			case 4:
+				deleteStudent();
+				break;
+			case 5:
+				System.exit(0);
+				break;
+			default:
+				throw new InvalidChoiceException("Enter the valid choice!");
+			}
+		}
 	}
-
 }

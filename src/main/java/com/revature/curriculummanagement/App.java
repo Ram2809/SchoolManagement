@@ -24,6 +24,7 @@ public class App {
 		String className = bufferedReader.readLine();
 		classes.setClassId(classId);
 		classes.setClassName(className);
+	
 		classList.add(new Classes(classes.getClassId(), classes.getClassName()));
 		Iterator<Classes> classIterator = classList.iterator();
 		while (classIterator.hasNext()) {
