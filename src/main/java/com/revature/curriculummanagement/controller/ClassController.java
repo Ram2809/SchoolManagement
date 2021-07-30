@@ -19,8 +19,7 @@ public class ClassController {
 		classServiceImpl.getClassDetails(classes);
 	}
 
-	public void updateClassDetails(Classes classes)
-			throws NumberFormatException, IOException, InvalidChoiceException {
+	public void updateClassDetails(Classes classes) throws NumberFormatException, IOException, InvalidChoiceException {
 		classServiceImpl.updateClassDetails(classes);
 	}
 
