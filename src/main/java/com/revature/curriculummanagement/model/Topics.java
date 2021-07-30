@@ -1,38 +1,38 @@
 package com.revature.curriculummanagement.model;
 
 public class Topics {
-	private String topicId;
-	private String topicName;
+	private String unitNo;
+	private String unitName;
 
 	public Topics() {
 		super();
 	}
 
-	public Topics(String topicId, String topicName) {
+	public Topics(String unitNo, String unitName) {
 		super();
-		this.topicId = topicId;
-		this.topicName = topicName;
+		this.unitNo = unitNo;
+		this.unitName = unitName;
 	}
 
-	public String getTopicId() {
-		return topicId;
+	public String getTopicNo() {
+		return unitNo;
 	}
 
-	public void setTopicId(String topicId) {
-		this.topicId = topicId;
+	public void setTopicNo(String unitNo) {
+		this.unitNo = unitNo;
 	}
 
 	public String getTopicName() {
-		return topicName;
+		return unitName;
 	}
 
-	public void setTopicName(String topicName) {
-		this.topicName = topicName;
+	public void setTopicName(String unitName) {
+		this.unitName = unitName;
 	}
 
 	@Override
 	public String toString() {
-		return "Topics [topicId=" + topicId + ", topicName=" + topicName + "]";
+		return "Topics [unitNo=" + unitNo + ", unitName=" + unitName + "]";
 	}
 
 }

@@ -1,38 +1,48 @@
 package com.revature.curriculummanagement.model;
 
 public class Classes {
-	private Integer classId;
-	private String className;
+	private Integer classRoomNo;
+	private String standard;
+	private String section;
 
 	public Classes() {
 		super();
 	}
 
-	public Classes(Integer classId, String className) {
+	public Classes(Integer classRoomNo, String standard, String section) {
 		super();
-		this.classId = classId;
-		this.className = className;
+		this.classRoomNo = classRoomNo;
+		this.standard = standard;
+		this.section = section;
 	}
 
-	public Integer getClassId() {
-		return classId;
+	public Integer getClassRoomNo() {
+		return classRoomNo;
 	}
 
-	public void setClassId(Integer classId) {
-		this.classId = classId;
+	public void setClassRoomNo(Integer classRoomNo) {
+		this.classRoomNo = classRoomNo;
 	}
 
-	public String getClassName() {
-		return className;
+	public String getStandard() {
+		return standard;
 	}
 
-	public void setClassName(String className) {
-		this.className = className;
+	public void setStandard(String standard) {
+		this.standard = standard;
+	}
+
+	public String getSection() {
+		return section;
+	}
+
+	public void setSection(String section) {
+		this.section = section;
 	}
 
 	@Override
 	public String toString() {
-		return "Classes [classId=" + classId + ", className=" + className + "]";
+		return "Classes [classRoomNo=" + classRoomNo + ", standard=" + standard + ", section=" + section + "]";
 	}
 
 }

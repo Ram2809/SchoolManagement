@@ -2,6 +2,7 @@ package com.revature.curriculummanagement.controller;
 
 import java.io.IOException;
 
+import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.model.Student;
 import com.revature.curriculummanagement.service.StudentServiceImpl;
 
@@ -16,7 +17,8 @@ public class StudentController {
 		studentServiceImpl.getStudentDetails(student);
 	}
 
-	public void updateStudentDetails(Student student) throws NumberFormatException, IOException {
+	public void updateStudentDetails(Student student)
+			throws NumberFormatException, IOException, InvalidChoiceException {
 		studentServiceImpl.updateStudentDetails(student);
 	}
 

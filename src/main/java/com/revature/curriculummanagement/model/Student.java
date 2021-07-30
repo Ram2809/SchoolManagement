@@ -6,21 +6,22 @@ public class Student {
 	private String dateOfBirth;
 	private String standard;
 	private String address;
+	private String classRoomNo;
 
 	public Student() {
 		super();
 	}
 
-	public Student(Integer rollNo, String name, String dateOfBirth, String standard, String address) {
+	public Student(Integer rollNo, String name, String dateOfBirth, String standard, String address,
+			String classRoomNo) {
 		super();
 		this.rollNo = rollNo;
 		this.name = name;
 		this.dateOfBirth = dateOfBirth;
 		this.standard = standard;
 		this.address = address;
+		this.classRoomNo = classRoomNo;
 	}
-
-	
 
 	public Integer getRollNo() {
 		return rollNo;
@@ -62,10 +63,18 @@ public class Student {
 		this.address = address;
 	}
 
+	public String getClassRoomNo() {
+		return classRoomNo;
+	}
+
+	public void setClassRoomNo(String classRoomNo) {
+		this.classRoomNo = classRoomNo;
+	}
+
 	@Override
 	public String toString() {
 		return "Student [rollNo=" + rollNo + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", standard="
-				+ standard + ", address=" + address + "]";
+				+ standard + ", address=" + address + ", classRoomNo=" + classRoomNo + "]";
 	}
 
 }

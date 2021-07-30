@@ -7,14 +7,13 @@ public class Teacher {
 	private String address;
 	private String qualification;
 	private String designation;
-	private String classTeacher;
 
 	public Teacher() {
 		super();
 	}
 
 	public Teacher(Integer id, String name, String dateOfBirth, String address, String qualification,
-			String designation, String classTeacher) {
+			String designation) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -22,7 +21,6 @@ public class Teacher {
 		this.address = address;
 		this.qualification = qualification;
 		this.designation = designation;
-		this.classTeacher = classTeacher;
 	}
 
 	public Integer getId() {
@@ -73,19 +71,10 @@ public class Teacher {
 		this.designation = designation;
 	}
 
-	public String getClassTeacher() {
-		return classTeacher;
-	}
-
-	public void setClassTeacher(String classTeacher) {
-		this.classTeacher = classTeacher;
-	}
-
 	@Override
 	public String toString() {
 		return "Teacher [id=" + id + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", address=" + address
-				+ ", qualification=" + qualification + ", designation=" + designation + ", classTeacher=" + classTeacher
-				+ "]";
+				+ ", qualification=" + qualification + ", designation=" + designation + "]";
 	}
 
 }
