@@ -9,11 +9,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.revature.curriculummanagement.controller.ClassController;
-import com.revature.curriculummanagement.controller.StudentController;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.model.Classes;
-import com.revature.curriculummanagement.model.HeadMaster;
-import com.revature.curriculummanagement.model.Student;
 
 public class ClassApplication {
 	static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));

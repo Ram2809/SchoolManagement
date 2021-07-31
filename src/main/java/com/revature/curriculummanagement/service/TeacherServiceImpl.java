@@ -11,11 +11,13 @@ import com.revature.curriculummanagement.exception.TeacherNotFoundException;
 import com.revature.curriculummanagement.model.Student;
 import com.revature.curriculummanagement.model.Teacher;
 
-public class TeacherServiceImpl implements TeacherService{
-	TeacherDAOImpl teacherDAOImpl=new TeacherDAOImpl();
+public class TeacherServiceImpl implements TeacherService {
+	TeacherDAOImpl teacherDAOImpl = new TeacherDAOImpl();
+
 	public void addTeacherDetails(Teacher teacher) {
 		teacherDAOImpl.addTeacherDetails(teacher);
 	}
+
 	public void updateTeacherDetails(Integer updateId)
 			throws NumberFormatException, IOException, InvalidChoiceException, SQLException {
 		teacherDAOImpl.updateTeacherDetails(updateId);
@@ -31,7 +33,7 @@ public class TeacherServiceImpl implements TeacherService{
 	}
 
 	public List<Teacher> getParticularTeacherDetails(Integer fetchId)
-			throws NumberFormatException, IOException, SQLException,TeacherNotFoundException {
+			throws NumberFormatException, IOException, SQLException, TeacherNotFoundException {
 		return teacherDAOImpl.getParticularTeacherDetails(fetchId);
 	}
 

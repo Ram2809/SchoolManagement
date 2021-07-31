@@ -10,6 +10,7 @@ import com.revature.curriculummanagement.model.Teacher;
 
 public interface TeacherService {
 	void addTeacherDetails(Teacher teacher);
+
 	List<Teacher> getTeacherDetails() throws NumberFormatException, IOException, SQLException;
 
 	void updateTeacherDetails(Integer updateId)

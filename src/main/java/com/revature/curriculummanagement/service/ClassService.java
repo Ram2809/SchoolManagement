@@ -6,7 +6,6 @@ import java.util.List;
 
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.model.Classes;
-import com.revature.curriculummanagement.model.HeadMaster;
 
 public interface ClassService {
 	void addClassDetails(Classes classes) throws SQLException, IOException;

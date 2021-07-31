@@ -6,32 +6,33 @@ import java.util.List;
 
 import com.revature.curriculummanagement.dao.DiscussionDAOImpl;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
+import com.revature.curriculummanagement.exception.QuestionNotFoundException;
 import com.revature.curriculummanagement.model.Discussion;
-import com.revature.curriculummanagement.model.Student;
 
 public class DiscussionServiceImpl {
-	DiscussionDAOImpl discussionDAOImpl=new DiscussionDAOImpl();
+	DiscussionDAOImpl discussionDAOImpl = new DiscussionDAOImpl();
+
 	public void addDiscussionDetails(Discussion discussion) throws SQLException, IOException {
 		discussionDAOImpl.addDiscussionDetails(discussion);
 	}
 
-	/*public void updateStudentDetails(Integer updateId)
+	public void updateDiscussionDetails(String questionNo)
 			throws NumberFormatException, IOException, InvalidChoiceException, SQLException {
-		studentDAOImpl.updateStudentDetails(updateId);
+		discussionDAOImpl.updateDiscussionDetails(questionNo);
 	}
 
-	public void deleteStudentDetails(Integer deleteId)
-			throws NumberFormatException, IOException, SQLException, StudentNotFoundException {
-		studentDAOImpl.deleteStudentDetails(deleteId);
+	public void deleteDiscussionDetails(String questionNo)
+			throws NumberFormatException, IOException, SQLException, QuestionNotFoundException {
+		discussionDAOImpl.deleteDiscussionDetails(questionNo);
 	}
 
-	public List<Student> getStudentDetails() throws NumberFormatException, IOException, SQLException {
-		return studentDAOImpl.getStudentDetails();
+	public List<Discussion> getDiscussionDetails() throws NumberFormatException, IOException, SQLException {
+		return discussionDAOImpl.getDiscussionDetails();
 	}
 
-	public List<Student> getParticularStudentDetails(Integer fetchId)
-			throws NumberFormatException, IOException, SQLException, StudentNotFoundException {
-		return studentDAOImpl.getParticularStudentDetails(fetchId);
-	}*/
+	public List<Discussion> getParticularDiscussionDetails(String questionNo)
+			throws NumberFormatException, IOException, SQLException, QuestionNotFoundException {
+		return discussionDAOImpl.getParticularDiscussionDetails(questionNo);
+	}
 
 }

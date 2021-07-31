@@ -9,6 +9,7 @@ import com.revature.curriculummanagement.model.Teacher;
 
 public interface TeacherDAO {
 	void addTeacherDetails(Teacher teacher);
+
 	void updateTeacherDetails(Integer updateId) throws SQLException, IOException;
 
 	void deleteTeacherDetails(Integer deleteId) throws SQLException, IOException, TeacherNotFoundException;

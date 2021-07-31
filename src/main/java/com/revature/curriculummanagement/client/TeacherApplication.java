@@ -10,9 +10,7 @@ import java.util.List;
 
 import com.revature.curriculummanagement.controller.TeacherController;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
-import com.revature.curriculummanagement.exception.StudentNotFoundException;
 import com.revature.curriculummanagement.exception.TeacherNotFoundException;
-import com.revature.curriculummanagement.model.Student;
 import com.revature.curriculummanagement.model.Teacher;
 
 public class TeacherApplication {
@@ -20,7 +18,7 @@ public class TeacherApplication {
 	static Teacher teacher = new Teacher();
 	static TeacherController teacherController = new TeacherController();
 	static List<Teacher> teacherList = new ArrayList<>();
-	
+
 	public static void insertTeacher() throws NumberFormatException, IOException, SQLException {
 		System.out.println("Enter the teacher details:");
 		System.out.println("Enter the teacher id:");
@@ -32,9 +30,9 @@ public class TeacherApplication {
 		System.out.println("Enter the teacher address:");
 		String teacherAddress = bufferedReader.readLine();
 		System.out.println("Enter the qualifiaction:");
-		String qualification=bufferedReader.readLine();
+		String qualification = bufferedReader.readLine();
 		System.out.println("Enter the subject name");
-		String subjectName=bufferedReader.readLine();
+		String subjectName = bufferedReader.readLine();
 		teacher.setId(teacherId);
 		teacher.setName(teacherName);
 		teacher.setDateOfBirth(teacherDateOfBirth);
@@ -43,17 +41,20 @@ public class TeacherApplication {
 		teacher.setSubject(subjectName);
 		teacherController.addTeacherDetails(teacher);
 	}
+
 	public static void updateTeacher() throws NumberFormatException, IOException, InvalidChoiceException, SQLException {
 		System.out.println("Enter the id:");
 		Integer updateId = Integer.parseInt(bufferedReader.readLine());
 		teacherController.updateTeacherDetails(updateId);
 	}
+
 	public static void deleteTeacher()
-			throws NumberFormatException, IOException, SQLException,TeacherNotFoundException {
+			throws NumberFormatException, IOException, SQLException, TeacherNotFoundException {
 		System.out.println("Enter the teacher id:");
 		Integer deleteId = Integer.parseInt(bufferedReader.readLine());
 		teacherController.deleteTeacherDetails(deleteId);
 	}
+
 	public static void getTeacher() throws NumberFormatException, IOException, SQLException {
 		teacherList = teacherController.getTeacherDetails();
 		Iterator<Teacher> teacherIterator = teacherList.iterator();
@@ -73,7 +74,9 @@ public class TeacherApplication {
 			System.out.println(teacherParticularIterator.next());
 		}
 	}
-	public static void main(String[] args)throws NumberFormatException, IOException, InvalidChoiceException, SQLException, TeacherNotFoundException {
+
+	public static void main(String[] args)
+			throws NumberFormatException, IOException, InvalidChoiceException, SQLException, TeacherNotFoundException {
 		// TODO Auto-generated method stub
 		while (true) {
 			System.out.println("Teacher Application");

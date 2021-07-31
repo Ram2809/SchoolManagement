@@ -1,19 +1,11 @@
 package com.revature.curriculummanagement.service;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Collectors;
-
 import com.revature.curriculummanagement.dao.ClassDAOImpl;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
-import com.revature.curriculummanagement.exception.StudentNotFoundException;
 import com.revature.curriculummanagement.model.Classes;
-import com.revature.curriculummanagement.model.Student;
 
 public class ClassServiceImpl implements ClassService {
 

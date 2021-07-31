@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.revature.curriculummanagement.exception.StudentNotFoundException;
-import com.revature.curriculummanagement.model.Classes;
 import com.revature.curriculummanagement.model.Student;
 
 public interface StudentDAO {

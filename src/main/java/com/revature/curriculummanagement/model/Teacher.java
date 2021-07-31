@@ -12,8 +12,7 @@ public class Teacher {
 		super();
 	}
 
-	public Teacher(Integer id, String name, String dateOfBirth, String address, String qualification,
-			String subject) {
+	public Teacher(Integer id, String name, String dateOfBirth, String address, String qualification, String subject) {
 		super();
 		this.id = id;
 		this.name = name;

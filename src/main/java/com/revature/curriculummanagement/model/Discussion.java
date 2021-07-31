@@ -1,10 +1,9 @@
 package com.revature.curriculummanagement.model;
 
-
 public class Discussion {
 	private Integer subjectId;
 	private Integer unitId;
-	private Integer questionNo;
+	private String questionNo;
 	private String question;
 	private String answer;
 	private String date;
@@ -13,14 +12,14 @@ public class Discussion {
 		super();
 	}
 
-	public Discussion(Integer subjectId, Integer unitId, Integer questionNo, String question, String answer,
+	public Discussion(String questionNo, String question, String answer, Integer unitId,Integer subjectId, 
 			String date) {
 		super();
-		this.subjectId = subjectId;
-		this.unitId = unitId;
 		this.questionNo = questionNo;
 		this.question = question;
 		this.answer = answer;
+		this.unitId = unitId;
+		this.subjectId = subjectId;
 		this.date = date;
 	}
 
@@ -40,11 +39,11 @@ public class Discussion {
 		this.unitId = unitId;
 	}
 
-	public Integer getQuestionNo() {
+	public String getQuestionNo() {
 		return questionNo;
 	}
 
-	public void setQuestionNo(Integer questionNo) {
+	public void setQuestionNo(String questionNo) {
 		this.questionNo = questionNo;
 	}
 

@@ -8,13 +8,14 @@ public class TimeTable {
 	private String periodFour;
 	private String periodFive;
 	private String periodSix;
+	private Integer classRoomNo;
 
 	public TimeTable() {
 		super();
 	}
 
 	public TimeTable(String day, String periodOne, String periodTwo, String periodThree, String periodFour,
-			String periodFive, String periodSix) {
+			String periodFive, String periodSix, Integer classRoomNo) {
 		super();
 		this.day = day;
 		this.periodOne = periodOne;
@@ -23,6 +24,7 @@ public class TimeTable {
 		this.periodFour = periodFour;
 		this.periodFive = periodFive;
 		this.periodSix = periodSix;
+		this.classRoomNo = classRoomNo;
 	}
 
 	public String getDay() {
@@ -81,11 +83,19 @@ public class TimeTable {
 		this.periodSix = periodSix;
 	}
 
+	public Integer getClassRoomNo() {
+		return classRoomNo;
+	}
+
+	public void setClassRoomNo(Integer classRoomNo) {
+		this.classRoomNo = classRoomNo;
+	}
+
 	@Override
 	public String toString() {
 		return "TimeTable [day=" + day + ", periodOne=" + periodOne + ", periodTwo=" + periodTwo + ", periodThree="
 				+ periodThree + ", periodFour=" + periodFour + ", periodFive=" + periodFive + ", periodSix=" + periodSix
-				+ "]";
+				+ ", classRoomNo=" + classRoomNo + "]";
 	}
 
 }

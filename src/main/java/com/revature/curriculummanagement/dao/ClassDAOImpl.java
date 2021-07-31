@@ -12,7 +12,6 @@ import java.util.List;
 
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.model.Classes;
-import com.revature.curriculummanagement.model.HeadMaster;
 import com.revature.curriculummanagement.util.DBUtil;
 
 public class ClassDAOImpl implements ClassDAO {

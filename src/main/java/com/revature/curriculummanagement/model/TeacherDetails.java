@@ -1,7 +1,7 @@
 package com.revature.curriculummanagement.model;
 
 public class TeacherDetails {
-	private Integer teacher_id;
+	private Integer teacherId;
 	private Integer classRoomNo;
 	private Integer subjectId;
 
@@ -9,19 +9,19 @@ public class TeacherDetails {
 		super();
 	}
 
-	public TeacherDetails(Integer teacher_id, Integer classRoomNo, Integer subjectId) {
+	public TeacherDetails(Integer teacherId, Integer classRoomNo, Integer subjectId) {
 		super();
-		this.teacher_id = teacher_id;
+		this.teacherId = teacherId;
 		this.classRoomNo = classRoomNo;
 		this.subjectId = subjectId;
 	}
 
 	public Integer getTeacher_id() {
-		return teacher_id;
+		return teacherId;
 	}
 
-	public void setTeacher_id(Integer teacher_id) {
-		this.teacher_id = teacher_id;
+	public void setTeacher_id(Integer teacherId) {
+		this.teacherId = teacherId;
 	}
 
 	public Integer getClassRoomNo() {
@@ -42,7 +42,7 @@ public class TeacherDetails {
 
 	@Override
 	public String toString() {
-		return "TeacherDetails [teacher_id=" + teacher_id + ", classRoomNo=" + classRoomNo + ", subjectId=" + subjectId
+		return "TeacherDetails [teacherId=" + teacherId + ", classRoomNo=" + classRoomNo + ", subjectId=" + subjectId
 				+ "]";
 	}
 
