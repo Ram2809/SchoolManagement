@@ -4,21 +4,18 @@ public class Student {
 	private Integer rollNo;
 	private String name;
 	private String dateOfBirth;
-	private String standard;
 	private String address;
-	private String classRoomNo;
+	private Integer classRoomNo;
 
 	public Student() {
 		super();
 	}
 
-	public Student(Integer rollNo, String name, String dateOfBirth, String standard, String address,
-			String classRoomNo) {
+	public Student(Integer rollNo, String name, String dateOfBirth, String address, Integer classRoomNo) {
 		super();
 		this.rollNo = rollNo;
 		this.name = name;
 		this.dateOfBirth = dateOfBirth;
-		this.standard = standard;
 		this.address = address;
 		this.classRoomNo = classRoomNo;
 	}
@@ -47,14 +44,6 @@ public class Student {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public String getStandard() {
-		return standard;
-	}
-
-	public void setStandard(String standard) {
-		this.standard = standard;
-	}
-
 	public String getAddress() {
 		return address;
 	}
@@ -63,18 +52,18 @@ public class Student {
 		this.address = address;
 	}
 
-	public String getClassRoomNo() {
+	public Integer getClassRoomNo() {
 		return classRoomNo;
 	}
 
-	public void setClassRoomNo(String classRoomNo) {
+	public void setClassRoomNo(Integer classRoomNo) {
 		this.classRoomNo = classRoomNo;
 	}
 
 	@Override
 	public String toString() {
-		return "Student [rollNo=" + rollNo + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", standard="
-				+ standard + ", address=" + address + ", classRoomNo=" + classRoomNo + "]";
+		return "Student [rollNo=" + rollNo + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", address=" + address
+				+ ", classRoomNo=" + classRoomNo + "]";
 	}
 
 }

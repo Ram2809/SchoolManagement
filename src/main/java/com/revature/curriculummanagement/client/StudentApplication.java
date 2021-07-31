@@ -3,6 +3,7 @@ package com.revature.curriculummanagement.client;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -16,62 +17,91 @@ public class StudentApplication {
 	static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 	static Student student = new Student();
 	static StudentController studentController = new StudentController();
+	static List<Student> studentList = new ArrayList<>();
 
-	public static void insert() throws NumberFormatException, IOException {
-		System.out.println("Enter the no. of students:");
-		Integer noOfStudents = Integer.parseInt(bufferedReader.readLine());
+	public static void insertStudent() throws NumberFormatException, IOException, SQLException {
 		System.out.println("Enter the student details:");
-		for (int i = 0; i < noOfStudents; i++) {
-			Integer studentId = Integer.parseInt(bufferedReader.readLine());
-			String studentName = bufferedReader.readLine();
-			String studentDateOfBirth = bufferedReader.readLine();
-			String studentStandard = bufferedReader.readLine();
-			String studentAddress = bufferedReader.readLine();
-			student.setRollNo(studentId);
-			student.setName(studentName);
-			student.setDateOfBirth(studentDateOfBirth);
-			student.setStandard(studentStandard);
-			student.setAddress(studentAddress);
-			studentController.addStudentDetails(student);
+		System.out.println("Enter the student id:");
+		Integer studentId = Integer.parseInt(bufferedReader.readLine());
+		System.out.println("Enter the student name:");
+		String studentName = bufferedReader.readLine();
+		System.out.println("Enter the student dob:");
+		String studentDateOfBirth = bufferedReader.readLine();
+		System.out.println("Enter the student address:");
+		String studentAddress = bufferedReader.readLine();
+		System.out.println("Enter the class room no:");
+		Integer classRoomNo = Integer.parseInt(bufferedReader.readLine());
+		student.setRollNo(studentId);
+		student.setName(studentName);
+		student.setDateOfBirth(studentDateOfBirth);
+		student.setAddress(studentAddress);
+		student.setClassRoomNo(classRoomNo);
+		studentController.addStudentDetails(student);
+	}
+
+	public static void updateStudent() throws NumberFormatException, IOException, InvalidChoiceException, SQLException {
+		System.out.println("Enter the id:");
+		Integer updateId = Integer.parseInt(bufferedReader.readLine());
+		studentController.updateStudentDetails(updateId);
+	}
+
+	public static void deleteStudent()
+			throws NumberFormatException, IOException, SQLException, StudentNotFoundException {
+		System.out.println("Enter the student id:");
+		Integer deleteId = Integer.parseInt(bufferedReader.readLine());
+		studentController.deleteStudentDetails(deleteId);
+	}
+
+	public static void getStudent() throws NumberFormatException, IOException, SQLException {
+		studentList = studentController.getStudentDetails();
+		Iterator<Student> studentIterator = studentList.iterator();
+		while (studentIterator.hasNext()) {
+			System.out.println(studentIterator.next());
 		}
 	}
 
-	public static void updateStudent() throws NumberFormatException, IOException, InvalidChoiceException {
-		studentController.updateStudentDetails(student);
+	public static void getParticularStudent()
+			throws NumberFormatException, IOException, SQLException, StudentNotFoundException {
+		System.out.println("Enter the id:");
+		Integer fetchId = Integer.parseInt(bufferedReader.readLine());
+		List<Student> studentParicularList = new ArrayList<Student>();
+		studentParicularList = studentController.getParticularStudentDetails(fetchId);
+		Iterator<Student> studentParticularIterator = studentParicularList.iterator();
+		while (studentParticularIterator.hasNext()) {
+			System.out.println(studentParticularIterator.next());
+		}
 	}
 
-	public static void deleteStudent() throws NumberFormatException, IOException {
-		studentController.deleteStudentDetails(student);
-	}
-
-	public static void getStudent() {
-		studentController.getStudentDetails(student);
-	}
-
-	public static void main(String[] args) throws NumberFormatException, IOException, InvalidChoiceException {
+	public static void main(String[] args)
+			throws NumberFormatException, IOException, InvalidChoiceException, SQLException, StudentNotFoundException {
 		// TODO Auto-generated method stub
 		while (true) {
+			System.out.println("Student Application");
 			System.out.println("1.Insert");
-			System.out.println("2.Retrieval");
-			System.out.println("3.Updation");
-			System.out.println("4.Deletion");
-			System.out.println("5.Exit");
+			System.out.println("2.Update");
+			System.out.println("3.Delete");
+			System.out.println("4.Retrieval");
+			System.out.println("5.Paricular student data");
+			System.out.println("6.Exit");
 			System.out.println("Enter the choice:");
 			Integer userChoice = Integer.parseInt(bufferedReader.readLine());
 			switch (userChoice) {
 			case 1:
-				insertClass();
+				insertStudent();
 				break;
 			case 2:
-				getClass();
+				updateStudent();
 				break;
 			case 3:
-				updateClass();
+				deleteStudent();
 				break;
 			case 4:
-				deleteClass();
+				getStudent();
 				break;
 			case 5:
+				getParticularStudent();
+				break;
+			case 6:
 				System.exit(0);
 				break;
 			default:

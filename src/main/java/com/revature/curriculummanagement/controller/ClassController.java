@@ -1,29 +1,30 @@
 package com.revature.curriculummanagement.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.model.Classes;
-import com.revature.curriculummanagement.model.Student;
 import com.revature.curriculummanagement.service.ClassServiceImpl;
-import com.revature.curriculummanagement.service.StudentServiceImpl;
 
 public class ClassController {
-	ClassServiceImpl classServiceImpl = new ClassServiceImpl();
+	static ClassServiceImpl classServiceImpl = new ClassServiceImpl();
 
-	public void addclassDetails(Classes classes) {
+	public void addClassDetails(Classes classes) throws SQLException, IOException {
 		classServiceImpl.addClassDetails(classes);
 	}
 
-	public void getClassDetails(Classes classes) {
-		classServiceImpl.getClassDetails(classes);
+	public static List<Classes> getClassDetails() throws SQLException, IOException {
+		return classServiceImpl.getClassDetails();
 	}
 
-	public void updateClassDetails(Classes classes) throws NumberFormatException, IOException, InvalidChoiceException {
-		classServiceImpl.updateClassDetails(classes);
+	public void updateClassDetails(Integer roomNo)
+			throws NumberFormatException, IOException, InvalidChoiceException, SQLException {
+		classServiceImpl.updateClassDetails(roomNo);
 	}
 
-	public void deleteClassDetails(Classes classes) throws NumberFormatException, IOException {
-		classServiceImpl.deleteClassDetails(classes);
+	public void deleteClassDetails(Integer roomNo) throws NumberFormatException, IOException, SQLException {
+		classServiceImpl.deleteClassDetails(roomNo);
 	}
 }

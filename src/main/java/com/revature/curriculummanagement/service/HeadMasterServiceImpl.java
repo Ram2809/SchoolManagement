@@ -2,6 +2,7 @@ package com.revature.curriculummanagement.service;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import com.revature.curriculummanagement.dao.HeadMasterDAOImpl;
 import com.revature.curriculummanagement.model.HeadMaster;
@@ -17,4 +18,11 @@ public class HeadMasterServiceImpl implements HeadMasterService {
 		headMasterDAOImpl.updateHeadMasterDetails(updateId, newName);
 	}
 
+	public void deleteHeadMasterDetails(Integer deleteId) throws SQLException, IOException {
+		headMasterDAOImpl.deleteHeadMasterDetails(deleteId);
+	}
+
+	public List<HeadMaster> getHeadMasterDetails() throws SQLException, IOException {
+		return headMasterDAOImpl.getHeadMasterDetails();
+	}
 }
