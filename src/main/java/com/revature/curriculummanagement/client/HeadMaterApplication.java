@@ -10,6 +10,10 @@ import java.util.List;
 
 import com.revature.curriculummanagement.controller.HeadMasterController;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
+import com.revature.curriculummanagement.exception.QuestionNotFoundException;
+import com.revature.curriculummanagement.exception.StudentNotFoundException;
+import com.revature.curriculummanagement.exception.SubjectNotFoundException;
+import com.revature.curriculummanagement.exception.TeacherNotFoundException;
 import com.revature.curriculummanagement.model.HeadMaster;
 
 public class HeadMaterApplication {
@@ -51,8 +55,7 @@ public class HeadMaterApplication {
 		}
 	}
 
-	public static void main(String[] args)
-			throws NumberFormatException, IOException, InvalidChoiceException, SQLException {
+	public static void performHMCRUD() throws NumberFormatException, IOException, SQLException, InvalidChoiceException {
 		System.out.println("Head Master Application");
 		while (true) {
 			System.out.println("1.Insert");
@@ -74,6 +77,59 @@ public class HeadMaterApplication {
 				break;
 			case 4:
 				getHeadMaster();
+				break;
+			case 5:
+				System.exit(0);
+				break;
+			default:
+				throw new InvalidChoiceException("Enter the valid choice!");
+			}
+		}
+	}
+
+	public static void main(String[] args)
+			throws NumberFormatException, IOException, InvalidChoiceException, SQLException, StudentNotFoundException,
+			SubjectNotFoundException, TeacherNotFoundException, QuestionNotFoundException {
+		System.out.println("Welcome to Head Master Section\n");
+		while (true) {
+			System.out.println("1.Head Master section");
+			System.out.println("2.Student Section");
+			System.out.println("3.Teacher Section");
+			System.out.println("4.Class Section");
+			System.out.println("5.Subject Section");
+			System.out.println("6.Teacher Assign Section");
+			System.out.println("7.Time Table Section");
+			System.out.println("8.Discussion Section");
+			System.out.println("9.Exit");
+			System.out.println("Enter your choice:");
+			int userChoice = Integer.parseInt(bufferedReader.readLine());
+			switch (userChoice) {
+			case 1:
+				performHMCRUD();
+				break;
+			case 2:
+				StudentApplication.main(args);
+				break;
+			case 3:
+				TeacherApplication.main(args);
+				break;
+			case 4:
+				ClassApplication.main(args);
+				break;
+			case 5:
+				SubjectApplication.main(args);
+				break;
+			case 6:
+				TeacherAssign.main(args);
+				break;
+			case 7:
+				TimeTableApplication.main(args);
+				break;
+			case 8:
+				DiscussionApplication.main(args);
+				break;
+			case 9:
+				System.exit(0);
 				break;
 			default:
 				throw new InvalidChoiceException("Enter the valid choice!");

@@ -4,15 +4,13 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.revature.curriculummanagement.dao.StudentDAOImpl;
 import com.revature.curriculummanagement.dao.TeacherAssignDAOImpl;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.StudentNotFoundException;
 import com.revature.curriculummanagement.exception.TeacherNotFoundException;
-import com.revature.curriculummanagement.model.Student;
 import com.revature.curriculummanagement.model.TeacherDetails;
 
-public class TeacherAssignServiceImpl implements TeacherAssignService{
+public class TeacherAssignServiceImpl implements TeacherAssignService {
 	TeacherAssignDAOImpl teacherAssignDAOImpl = new TeacherAssignDAOImpl();
 
 	public void addTeacherAssignDetails(TeacherDetails teacherDetails) throws SQLException, IOException {
@@ -33,9 +31,9 @@ public class TeacherAssignServiceImpl implements TeacherAssignService{
 		return teacherAssignDAOImpl.getTeacherAssignDetails();
 	}
 
-	public List<TeacherDetails> getParticularTeacherAssignDetails(Integer teacherId)
-			throws NumberFormatException, IOException, SQLException, StudentNotFoundException, TeacherNotFoundException {
+	public List<TeacherDetails> getParticularTeacherAssignDetails(Integer teacherId) throws NumberFormatException,
+			IOException, SQLException, StudentNotFoundException, TeacherNotFoundException {
 		return teacherAssignDAOImpl.getParticularTeacherAssignDetails(teacherId);
 	}
-	
+
 }

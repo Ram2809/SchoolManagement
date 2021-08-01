@@ -4,12 +4,14 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.revature.curriculummanagement.dao.DiscussionDAO;
 import com.revature.curriculummanagement.dao.DiscussionDAOImpl;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.QuestionNotFoundException;
 import com.revature.curriculummanagement.model.Discussion;
+import com.revature.curriculummanagement.model.Student;
 
-public class DiscussionServiceImpl {
+public class DiscussionServiceImpl implements DiscussionService {
 	DiscussionDAOImpl discussionDAOImpl = new DiscussionDAOImpl();
 
 	public void addDiscussionDetails(Discussion discussion) throws SQLException, IOException {
@@ -33,6 +35,11 @@ public class DiscussionServiceImpl {
 	public List<Discussion> getParticularDiscussionDetails(String questionNo)
 			throws NumberFormatException, IOException, SQLException, QuestionNotFoundException {
 		return discussionDAOImpl.getParticularDiscussionDetails(questionNo);
+	}
+
+	public void getDiscussionStatusByUnit(String unitNo) {
+		discussionDAOImpl.getDiscussionStatusByUnit(unitNo);
+
 	}
 
 }

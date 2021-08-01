@@ -21,4 +21,6 @@ public interface StudentService {
 
 	List<Student> getParticularStudentDetails(Integer fetchId)
 			throws NumberFormatException, IOException, SQLException, StudentNotFoundException;
+
+	void getStudentDetailsByClassRoom(Integer roomNo);
 }

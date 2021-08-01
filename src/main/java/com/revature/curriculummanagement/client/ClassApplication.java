@@ -56,7 +56,7 @@ public class ClassApplication {
 			throws NumberFormatException, IOException, InvalidChoiceException, SQLException {
 		// TODO Auto-generated method stub
 		while (true) {
-			System.out.println("Class Application");
+			System.out.println("Class Application\n");
 			System.out.println("1.Insert");
 			System.out.println("2.Update");
 			System.out.println("3.Delete");

@@ -18,4 +18,6 @@ public interface StudentDAO {
 
 	List<Student> getParticularStudentDetails(Integer fetchId)
 			throws SQLException, IOException, StudentNotFoundException;
+
+	void getStudentDetailsByClassRoom(Integer roomNo);
 }

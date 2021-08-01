@@ -36,9 +36,8 @@ public class SubjectDAOImpl implements SubjectDAO {
 
 	public void addSubjectDetails(Subject subject) throws SQLException, IOException {
 		try (Connection con = DBUtil.getConnection();) {
-			PreparedStatement pst = null;
 			String query = "INSERT INTO subject VALUES(?,?,?)";
-			pst = con.prepareStatement(query);
+			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, subject.getSubId());
 			pst.setString(2, subject.getSubName());
 			pst.setInt(3, subject.getClassId());
@@ -142,6 +141,25 @@ public class SubjectDAOImpl implements SubjectDAO {
 			e.printStackTrace();
 		}
 		return subjectParticularList;
+	}
+
+	public void getSubjectStatus(Integer subjectId) {
+		try (Connection con = DBUtil.getConnection();) {
+			PreparedStatement pst = null;
+			String query = "select class.RoomNo,class.Standard,class.Section,subject.Id,subject.Name,teacherdetails.teacherId,teacher.name,topics.unitNo,topics.unitName,topics.beginDate,discussion.date as completedDate,topics.status from class join subject on class.RoomNo=subject.classId join topics on subject.Id=topics.subjectId join teacherdetails on topics.subjectId=teacherdetails.subjectId join teacher on teacherdetails.teacherId=teacher.id join discussion on topics.unitNo=discussion.unitNo where subject.Id=?";
+			pst = con.prepareStatement(query);
+			pst.setInt(1, subjectId);
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3) + " " + rs.getInt(4)
+						+ " " + rs.getString(5) + " " + rs.getInt(6) + " " + rs.getString(7) + " " + rs.getString(8)
+						+ " " + rs.getString(9) + " " + rs.getString(10) + " " + rs.getString(11) + " "
+						+ rs.getBoolean(12));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }

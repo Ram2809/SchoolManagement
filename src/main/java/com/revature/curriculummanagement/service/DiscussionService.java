@@ -10,7 +10,7 @@ import com.revature.curriculummanagement.model.Discussion;
 import com.revature.curriculummanagement.model.Student;
 
 public interface DiscussionService {
-	void addStudentDetails(Student student) throws SQLException, IOException;
+	void addDiscussionDetails(Discussion discussion) throws SQLException, IOException;
 
 	List<Discussion> getDiscussionDetails() throws NumberFormatException, IOException, SQLException;
 
@@ -22,4 +22,6 @@ public interface DiscussionService {
 
 	List<Discussion> getParticularDiscussionDetails(String questioNo)
 			throws NumberFormatException, IOException, SQLException, QuestionNotFoundException;
+
+	void getDiscussionStatusByUnit(String unitNo);
 }

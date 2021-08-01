@@ -18,4 +18,6 @@ public interface SubjectDAO {
 
 	List<Subject> getParticularSubjectDetails(Integer subjectId)
 			throws SQLException, IOException, SubjectNotFoundException;
+
+	void getSubjectStatus(Integer subjectId);
 }

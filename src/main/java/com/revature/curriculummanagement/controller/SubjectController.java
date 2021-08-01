@@ -34,4 +34,8 @@ public class SubjectController {
 			throws NumberFormatException, IOException, SQLException, SubjectNotFoundException {
 		return subjectServiceImpl.getParticularSubjectDetails(subjectId);
 	}
+
+	public void getSubjectStatus(Integer subjectId) {
+		subjectServiceImpl.getSubjectStatus(subjectId);
+	}
 }

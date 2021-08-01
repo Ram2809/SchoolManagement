@@ -38,15 +38,14 @@ public class TopicsDAOImpl implements TopicsDAO {
 	public void addTopicsDetails(Topics topics) throws SQLException, IOException {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
-			String query = "INSERT INTO topics VALUES(?,?,?,?,?,?,?)";
+			String query = "INSERT INTO topics VALUES(?,?,?,?,?,?)";
 			pst = con.prepareStatement(query);
 			pst.setString(1, topics.getUnitNo());
 			pst.setString(2, topics.getUnitName());
 			pst.setString(3, topics.getStartDate());
-			pst.setString(4, topics.getEndDate());
-			pst.setBoolean(5, topics.isStatus());
-			pst.setInt(6, topics.getSubjectId());
-			pst.setInt(7, topics.getClassRoomNo());
+			pst.setBoolean(4, topics.isStatus());
+			pst.setInt(5, topics.getSubjectId());
+			pst.setInt(6, topics.getClassRoomNo());
 			pst.executeUpdate();
 			System.out.println("Rows inserted!");
 		} catch (Exception e) {
@@ -64,8 +63,7 @@ public class TopicsDAOImpl implements TopicsDAO {
 			}
 			System.out.println("1.Update unit name");
 			System.out.println("2.Update starting date");
-			System.out.println("3.Update ending date");
-			System.out.println("4.Update status");
+			System.out.println("3.Update status");
 			System.out.println("Enter your choice:");
 			Integer userChoice = Integer.parseInt(bufferedReader.readLine());
 			switch (userChoice) {
@@ -90,16 +88,6 @@ public class TopicsDAOImpl implements TopicsDAO {
 				System.out.println("Rows updated!");
 				break;
 			case 3:
-				System.out.println("Enter the new completed date:");
-				String updateCompletedDate = bufferedReader.readLine();
-				query = "UPDATE topics SET completedDate=? WHERE unitNo=?";
-				pst = con.prepareStatement(query);
-				pst.setString(1, updateCompletedDate);
-				pst.setString(2, unitNo);
-				pst.executeUpdate();
-				System.out.println("Rows updated!");
-				break;
-			case 4:
 				System.out.println("Enter the new status:");
 				Boolean updateStatus = Boolean.parseBoolean(bufferedReader.readLine());
 				query = "UPDATE topics SET status=? WHERE unitNo=?";
@@ -141,8 +129,8 @@ public class TopicsDAOImpl implements TopicsDAO {
 			pst = con.prepareStatement(query);
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
-				topicsList.add(new Topics(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
-						rs.getBoolean(5), rs.getInt(6), rs.getInt(7)));
+				topicsList.add(new Topics(rs.getString(1), rs.getString(2), rs.getString(3), rs.getBoolean(4),
+						rs.getInt(5), rs.getInt(6)));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -164,8 +152,8 @@ public class TopicsDAOImpl implements TopicsDAO {
 			pst.setString(1, unitNo);
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
-				topicsParticularList.add(new Topics(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
-						rs.getBoolean(5), rs.getInt(6), rs.getInt(7)));
+				topicsParticularList.add(new Topics(rs.getString(1), rs.getString(2), rs.getString(3), rs.getBoolean(4),
+						rs.getInt(5), rs.getInt(6)));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

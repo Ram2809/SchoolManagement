@@ -1,6 +1,7 @@
 package com.revature.curriculummanagement.model;
 
 public class TimeTable {
+	private Integer classRoomNo;
 	private String day;
 	private String periodOne;
 	private String periodTwo;
@@ -8,15 +9,15 @@ public class TimeTable {
 	private String periodFour;
 	private String periodFive;
 	private String periodSix;
-	private Integer classRoomNo;
 
 	public TimeTable() {
 		super();
 	}
 
-	public TimeTable(String day, String periodOne, String periodTwo, String periodThree, String periodFour,
-			String periodFive, String periodSix, Integer classRoomNo) {
+	public TimeTable(Integer classRoomNo, String day, String periodOne, String periodTwo, String periodThree,
+			String periodFour, String periodFive, String periodSix) {
 		super();
+		this.classRoomNo = classRoomNo;
 		this.day = day;
 		this.periodOne = periodOne;
 		this.periodTwo = periodTwo;
@@ -24,7 +25,6 @@ public class TimeTable {
 		this.periodFour = periodFour;
 		this.periodFive = periodFive;
 		this.periodSix = periodSix;
-		this.classRoomNo = classRoomNo;
 	}
 
 	public String getDay() {

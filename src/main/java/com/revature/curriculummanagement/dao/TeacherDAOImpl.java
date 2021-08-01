@@ -11,9 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
-import com.revature.curriculummanagement.exception.StudentNotFoundException;
 import com.revature.curriculummanagement.exception.TeacherNotFoundException;
-import com.revature.curriculummanagement.model.Student;
 import com.revature.curriculummanagement.model.Teacher;
 import com.revature.curriculummanagement.util.DBUtil;
 
@@ -184,5 +182,20 @@ public class TeacherDAOImpl implements TeacherDAO {
 			e.printStackTrace();
 		}
 		return teacherParticularList;
+	}
+
+	public void getTeacherDetailsByClassRoom(Integer roomNo) {
+		try (Connection con = DBUtil.getConnection();) {
+			PreparedStatement pst = null;
+			String query = "select teacher.Id as TeacherId,teacher.name as TeacherName,teacherdetails.subjectId as SubjectId,subject.name as SubjectName from teacher join teacherdetails on teacher.id=teacherdetails.teacherId join subject on teacherdetails.subjectId=subject.Id where classRoomNo=?";
+			pst = con.prepareStatement(query);
+			pst.setInt(1, roomNo);
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getInt(3) + " " + rs.getString(4));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

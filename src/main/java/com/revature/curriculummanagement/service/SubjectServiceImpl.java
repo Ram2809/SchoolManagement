@@ -9,11 +9,10 @@ import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.SubjectNotFoundException;
 import com.revature.curriculummanagement.model.Subject;
 
-public class SubjectServiceImpl {
+public class SubjectServiceImpl implements SubjectService {
 	SubjectDAOImpl subjectDAOImpl = new SubjectDAOImpl();
 
-	public void addSubjectDetails(Subject subject) throws SQLException, IOException
-	{
+	public void addSubjectDetails(Subject subject) throws SQLException, IOException {
 		subjectDAOImpl.addSubjectDetails(subject);
 	}
 
@@ -34,5 +33,9 @@ public class SubjectServiceImpl {
 	public List<Subject> getParticularSubjectDetails(Integer subjectId)
 			throws NumberFormatException, IOException, SQLException, SubjectNotFoundException {
 		return subjectDAOImpl.getParticularSubjectDetails(subjectId);
+	}
+
+	public void getSubjectStatus(Integer subjectId) {
+		subjectDAOImpl.getSubjectStatus(subjectId);
 	}
 }

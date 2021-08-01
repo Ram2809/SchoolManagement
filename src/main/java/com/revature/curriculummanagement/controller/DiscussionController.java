@@ -34,4 +34,8 @@ public class DiscussionController {
 			throws NumberFormatException, IOException, SQLException, QuestionNotFoundException {
 		return discussionServiceImpl.getParticularDiscussionDetails(questionNo);
 	}
+
+	public void getDiscussionStatusByUnit(String unitNo) {
+		discussionServiceImpl.getDiscussionStatusByUnit(unitNo);
+	}
 }

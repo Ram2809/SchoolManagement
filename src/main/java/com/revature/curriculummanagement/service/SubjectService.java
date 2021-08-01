@@ -21,4 +21,6 @@ public interface SubjectService {
 
 	List<Subject> getParticularSubjectDetails(Integer subjectId)
 			throws NumberFormatException, IOException, SQLException, SubjectNotFoundException;
+
+	void getSubjectStatus(Integer subjectId);
 }

@@ -15,7 +15,7 @@
 	<appender name="fileAppender"
 		class="org.apache.log4j.RollingFileAppender">
 		<param name="File"
-			value="C:\Users\RamkumarC\Documents\workspace-spring-tool-suite-4-4.11.0.RELEASE.HospitalManagementLog.log" />
+			value="C:\Users\RamkumarC\Documents\workspace-spring-tool-suite-4-4.11.0.RELEASE.CurriculumManagementLog.log" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern"
 				value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />

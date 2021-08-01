@@ -4,7 +4,6 @@ public class Topics {
 	private String unitNo;
 	private String unitName;
 	private String startDate;
-	private String endDate;
 	private boolean status;
 	private Integer subjectId;
 	private Integer classRoomNo;
@@ -13,13 +12,12 @@ public class Topics {
 		super();
 	}
 
-	public Topics(String unitNo, String unitName, String startDate, String endDate, boolean status, Integer subjectId,
+	public Topics(String unitNo, String unitName, String startDate, boolean status, Integer subjectId,
 			Integer classRoomNo) {
 		super();
 		this.unitNo = unitNo;
 		this.unitName = unitName;
 		this.startDate = startDate;
-		this.endDate = endDate;
 		this.status = status;
 		this.subjectId = subjectId;
 		this.classRoomNo = classRoomNo;
@@ -49,14 +47,6 @@ public class Topics {
 		this.startDate = startDate;
 	}
 
-	public String getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
-	}
-
 	public boolean isStatus() {
 		return status;
 	}
@@ -83,8 +73,8 @@ public class Topics {
 
 	@Override
 	public String toString() {
-		return "Topics [unitNo=" + unitNo + ", unitName=" + unitName + ", startDate=" + startDate + ", endDate="
-				+ endDate + ", status=" + status + ", subjectId=" + subjectId + ", classRoomNo=" + classRoomNo + "]";
+		return "Topics [unitNo=" + unitNo + ", unitName=" + unitName + ", startDate=" + startDate + ", status=" + status
+				+ ", subjectId=" + subjectId + ", classRoomNo=" + classRoomNo + "]";
 	}
 
 }

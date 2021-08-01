@@ -71,7 +71,7 @@ public class TeacherAssign {
 			SQLException, SubjectNotFoundException, StudentNotFoundException, TeacherNotFoundException {
 		// TODO Auto-generated method stub
 		while (true) {
-			System.out.println("Teacher Assign Application");
+			System.out.println("Teacher Assign Application\n");
 			System.out.println("1.Insert");
 			System.out.println("2.Update");
 			System.out.println("3.Delete");

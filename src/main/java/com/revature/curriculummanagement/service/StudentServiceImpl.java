@@ -34,4 +34,8 @@ public class StudentServiceImpl implements StudentService {
 		return studentDAOImpl.getParticularStudentDetails(fetchId);
 	}
 
+	public void getStudentDetailsByClassRoom(Integer roomNo) {
+		studentDAOImpl.getStudentDetailsByClassRoom(roomNo);
+	}
+
 }

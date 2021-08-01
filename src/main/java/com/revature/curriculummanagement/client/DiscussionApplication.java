@@ -31,7 +31,7 @@ public class DiscussionApplication {
 		System.out.println("Enter the subject id:");
 		Integer subjectId = Integer.parseInt(bufferedReader.readLine());
 		System.out.println("Enter the unit no:");
-		Integer unitNo = Integer.parseInt(bufferedReader.readLine());
+		String unitNo = bufferedReader.readLine();
 		System.out.println("Enter the discussion date:");
 		String date = bufferedReader.readLine();
 		discussion.setQuestionNo(questionNo);
@@ -77,16 +77,23 @@ public class DiscussionApplication {
 		}
 	}
 
+	public static void discussionByUnit() throws IOException {
+		System.out.println("Enter the unit no:");
+		String unitNo = bufferedReader.readLine();
+		discussionController.getDiscussionStatusByUnit(unitNo);
+	}
+
 	public static void main(String[] args) throws NumberFormatException, IOException, SQLException,
 			InvalidChoiceException, QuestionNotFoundException, StudentNotFoundException {
 		while (true) {
-			System.out.println("Discussion Application");
+			System.out.println("Discussion Application\n");
 			System.out.println("1.Insert");
 			System.out.println("2.Update");
 			System.out.println("3.Delete");
 			System.out.println("4.Retrieval");
 			System.out.println("5.Paricular discussion data");
-			System.out.println("6.Exit");
+			System.out.println("6.Get discussion details by unitNo");
+			System.out.println("7.Exit");
 			System.out.println("Enter the choice:");
 			Integer userChoice = Integer.parseInt(bufferedReader.readLine());
 			switch (userChoice) {
@@ -106,6 +113,9 @@ public class DiscussionApplication {
 				getParticularDiscussion();
 				break;
 			case 6:
+				discussionByUnit();
+				break;
+			case 7:
 				System.exit(0);
 				break;
 			default:

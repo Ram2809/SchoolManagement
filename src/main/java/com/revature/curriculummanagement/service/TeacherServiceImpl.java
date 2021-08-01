@@ -6,9 +6,7 @@ import java.util.List;
 
 import com.revature.curriculummanagement.dao.TeacherDAOImpl;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
-import com.revature.curriculummanagement.exception.StudentNotFoundException;
 import com.revature.curriculummanagement.exception.TeacherNotFoundException;
-import com.revature.curriculummanagement.model.Student;
 import com.revature.curriculummanagement.model.Teacher;
 
 public class TeacherServiceImpl implements TeacherService {
@@ -35,6 +33,10 @@ public class TeacherServiceImpl implements TeacherService {
 	public List<Teacher> getParticularTeacherDetails(Integer fetchId)
 			throws NumberFormatException, IOException, SQLException, TeacherNotFoundException {
 		return teacherDAOImpl.getParticularTeacherDetails(fetchId);
+	}
+
+	public void getTeacherDetailsByClassRoom(Integer roomNo) {
+		teacherDAOImpl.getTeacherDetailsByClassRoom(roomNo);
 	}
 
 }

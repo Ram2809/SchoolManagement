@@ -66,16 +66,23 @@ public class SubjectApplication {
 		}
 	}
 
+	public static void subjectStatus() throws NumberFormatException, IOException {
+		System.out.println("Enter the subject id:");
+		Integer subjectId = Integer.parseInt(bufferedReader.readLine());
+		subjectController.getSubjectStatus(subjectId);
+	}
+
 	public static void main(String[] args)
 			throws NumberFormatException, IOException, SQLException, InvalidChoiceException, SubjectNotFoundException {
 		while (true) {
-			System.out.println("Subject Application");
+			System.out.println("Subject Application\n");
 			System.out.println("1.Insert");
 			System.out.println("2.Update");
 			System.out.println("3.Delete");
 			System.out.println("4.Retrieval");
 			System.out.println("5.Particular subject data");
-			System.out.println("6.Exit");
+			System.out.println("6.Get subject status");
+			System.out.println("7.Exit");
 			System.out.println("Enter the choice:");
 			Integer userChoice = Integer.parseInt(bufferedReader.readLine());
 			switch (userChoice) {
@@ -95,6 +102,9 @@ public class SubjectApplication {
 				getParticularSubject();
 				break;
 			case 6:
+				subjectStatus();
+				break;
+			case 7:
 				System.exit(0);
 				break;
 			default:

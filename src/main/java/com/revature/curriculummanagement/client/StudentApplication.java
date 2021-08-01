@@ -72,17 +72,24 @@ public class StudentApplication {
 		}
 	}
 
+	public static void getStudentByClassRoom() throws NumberFormatException, IOException {
+		System.out.println("Enter the class room no:");
+		Integer roomNo = Integer.parseInt(bufferedReader.readLine());
+		studentController.getStudentDetailsByClassRoom(roomNo);
+	}
+
 	public static void main(String[] args)
 			throws NumberFormatException, IOException, InvalidChoiceException, SQLException, StudentNotFoundException {
 		// TODO Auto-generated method stub
 		while (true) {
-			System.out.println("Student Application");
+			System.out.println("Student Application\n");
 			System.out.println("1.Insert");
 			System.out.println("2.Update");
 			System.out.println("3.Delete");
 			System.out.println("4.Retrieval");
 			System.out.println("5.Paricular student data");
-			System.out.println("6.Exit");
+			System.out.println("6.Get students by classroom");
+			System.out.println("7.Exit");
 			System.out.println("Enter the choice:");
 			Integer userChoice = Integer.parseInt(bufferedReader.readLine());
 			switch (userChoice) {
@@ -102,6 +109,9 @@ public class StudentApplication {
 				getParticularStudent();
 				break;
 			case 6:
+				getStudentByClassRoom();
+				break;
+			case 7:
 				System.exit(0);
 				break;
 			default:

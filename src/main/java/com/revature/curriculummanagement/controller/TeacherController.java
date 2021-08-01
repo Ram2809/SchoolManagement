@@ -34,4 +34,8 @@ public class TeacherController {
 			throws NumberFormatException, IOException, SQLException, TeacherNotFoundException {
 		return teacherServiceImpl.getParticularTeacherDetails(fetchId);
 	}
+
+	public void getTeacherDetailsByClassRoom(Integer roomNo) {
+		teacherServiceImpl.getTeacherDetailsByClassRoom(roomNo);
+	}
 }

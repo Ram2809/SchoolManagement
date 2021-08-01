@@ -2,7 +2,7 @@ package com.revature.curriculummanagement.model;
 
 public class Discussion {
 	private Integer subjectId;
-	private Integer unitId;
+	private String unitId;
 	private String questionNo;
 	private String question;
 	private String answer;
@@ -12,7 +12,7 @@ public class Discussion {
 		super();
 	}
 
-	public Discussion(String questionNo, String question, String answer, Integer unitId,Integer subjectId, 
+	public Discussion(String questionNo, String question, String answer, String unitId, Integer subjectId,
 			String date) {
 		super();
 		this.questionNo = questionNo;
@@ -31,11 +31,11 @@ public class Discussion {
 		this.subjectId = subjectId;
 	}
 
-	public Integer getUnitId() {
+	public String getUnitId() {
 		return unitId;
 	}
 
-	public void setUnitId(Integer unitId) {
+	public void setUnitId(String unitId) {
 		this.unitId = unitId;
 	}
 

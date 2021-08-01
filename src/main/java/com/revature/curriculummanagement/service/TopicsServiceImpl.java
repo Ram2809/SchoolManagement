@@ -9,7 +9,7 @@ import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.TopicNotFoundException;
 import com.revature.curriculummanagement.model.Topics;
 
-public class TopicsServiceImpl implements TopicsService{
+public class TopicsServiceImpl implements TopicsService {
 	TopicsDAOImpl topicsDAOImpl = new TopicsDAOImpl();
 
 	public void addTopicsDetails(Topics topics) throws SQLException, IOException {

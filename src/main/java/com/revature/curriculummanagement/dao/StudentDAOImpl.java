@@ -170,4 +170,21 @@ public class StudentDAOImpl implements StudentDAO {
 		return studentParticularList;
 	}
 
+	public void getStudentDetailsByClassRoom(Integer roomNo) {
+		try (Connection con = DBUtil.getConnection();) {
+			PreparedStatement pst = null;
+			String query = "SELECT student.RollNo,student.Name,student.Date_of_Birth,student.Address,class.standard,class.section FROM student JOIN class ON student.classRoomNo=class.roomNo WHERE classRoomNo=?";
+			pst = con.prepareStatement(query);
+			pst.setInt(1, roomNo);
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3) + " " + rs.getString(4)
+						+ " " + rs.getString(5) + " " + rs.getString(6));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
 }

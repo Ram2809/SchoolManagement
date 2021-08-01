@@ -27,8 +27,6 @@ public class TopicApplication {
 		String unitName = bufferedReader.readLine();
 		System.out.println("Enter the starting date:");
 		String startingDate = bufferedReader.readLine();
-		System.out.println("Enter the ending date:");
-		String completedDate = bufferedReader.readLine();
 		System.out.println("Enter the completed status:");
 		boolean status = Boolean.parseBoolean(bufferedReader.readLine());
 		System.out.println("Enter the subject id:");
@@ -38,7 +36,6 @@ public class TopicApplication {
 		topics.setUnitNo(unitNo);
 		topics.setUnitName(unitName);
 		topics.setStartDate(startingDate);
-		topics.setEndDate(completedDate);
 		topics.setStatus(status);
 		topics.setSubjectId(subjectId);
 		topics.setClassRoomNo(classRoomNo);
@@ -80,7 +77,7 @@ public class TopicApplication {
 	public static void main(String[] args)
 			throws NumberFormatException, IOException, SQLException, InvalidChoiceException, TopicNotFoundException {
 		while (true) {
-			System.out.println("Topic Application");
+			System.out.println("Topic Application\n");
 			System.out.println("1.Insert");
 			System.out.println("2.Update");
 			System.out.println("3.Delete");

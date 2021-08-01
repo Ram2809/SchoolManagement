@@ -15,15 +15,27 @@ import com.revature.curriculummanagement.exception.StudentNotFoundException;
 import com.revature.curriculummanagement.exception.TeacherNotFoundException;
 import com.revature.curriculummanagement.model.TeacherDetails;
 import com.revature.curriculummanagement.util.DBUtil;
-import static com.revature.curriculummanagement.dao.TeacherDAOImpl.*;
 
 public class TeacherAssignDAOImpl implements TeacherAssignDAO {
 	static List<TeacherDetails> teacherAssignList = new ArrayList<>();
 	static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+	static List<Integer> teacherIdList = new ArrayList<>();
 
-	@Override
+	public static void getTeacherId() {
+		try (Connection con = DBUtil.getConnection();) {
+			PreparedStatement pst = null;
+			String query = "select teacherId from teacherdetails";
+			pst = con.prepareStatement(query);
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				teacherIdList.add(rs.getInt(1));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	public void addTeacherAssignDetails(TeacherDetails teacherDetails) throws SQLException, IOException {
-		// TODO Auto-generated method stub
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "INSERT INTO teacherDetails VALUES(?,?,?)";
@@ -38,13 +50,11 @@ public class TeacherAssignDAOImpl implements TeacherAssignDAO {
 		}
 	}
 
-	@Override
 	public void updateTeacherAssignDetails(Integer teacherId) throws SQLException, IOException {
-		// TODO Auto-generated method stub
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "";
-			getTeacherId();// static import
+			getTeacherId();
 			if (!teacherIdList.contains(teacherId)) {
 				throw new TeacherNotFoundException("Teacher not found,Enter the valid id!");
 			}
@@ -81,7 +91,6 @@ public class TeacherAssignDAOImpl implements TeacherAssignDAO {
 		}
 	}
 
-	@Override
 	public void deleteTeacherAssignDetails(Integer teacherId)
 			throws SQLException, IOException, StudentNotFoundException {
 
@@ -101,9 +110,7 @@ public class TeacherAssignDAOImpl implements TeacherAssignDAO {
 		}
 	}
 
-	@Override
 	public List<TeacherDetails> getTeacherAssignDetails() throws SQLException, IOException {
-
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "SELECT * FROM teacherdetails";
@@ -118,7 +125,6 @@ public class TeacherAssignDAOImpl implements TeacherAssignDAO {
 		return teacherAssignList;
 	}
 
-	@Override
 	public List<TeacherDetails> getParticularTeacherAssignDetails(Integer teacherId)
 			throws SQLException, IOException, StudentNotFoundException, TeacherNotFoundException {
 		List<TeacherDetails> teacherAssignParticularList = new ArrayList<>();

@@ -18,4 +18,6 @@ public interface TeacherDAO {
 
 	List<Teacher> getParticularTeacherDetails(Integer fetchId)
 			throws SQLException, IOException, TeacherNotFoundException;
+
+	void getTeacherDetailsByClassRoom(Integer roomNo);
 }

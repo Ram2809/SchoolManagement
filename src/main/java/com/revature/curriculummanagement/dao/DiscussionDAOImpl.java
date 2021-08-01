@@ -42,7 +42,7 @@ public class DiscussionDAOImpl implements DiscussionDAO {
 			pst.setString(1, discussion.getQuestionNo());
 			pst.setString(2, discussion.getQuestion());
 			pst.setString(3, discussion.getAnswer());
-			pst.setInt(4, discussion.getUnitId());
+			pst.setString(4, discussion.getUnitId());
 			pst.setInt(5, discussion.getSubjectId());
 			pst.setString(6, discussion.getDate());
 			int count = pst.executeUpdate();
@@ -129,7 +129,7 @@ public class DiscussionDAOImpl implements DiscussionDAO {
 			pst = con.prepareStatement(query);
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
-				discussionList.add(new Discussion(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4),
+				discussionList.add(new Discussion(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
 						rs.getInt(5), rs.getString(6)));
 			}
 		} catch (Exception e) {
@@ -153,12 +153,29 @@ public class DiscussionDAOImpl implements DiscussionDAO {
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
 				discussionParticularList.add(new Discussion(rs.getString(1), rs.getString(2), rs.getString(3),
-						rs.getInt(4), rs.getInt(5), rs.getString(6)));
+						rs.getString(4), rs.getInt(5), rs.getString(6)));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return discussionParticularList;
+	}
+
+	public void getDiscussionStatusByUnit(String unitNo) {
+		try (Connection con = DBUtil.getConnection();) {
+			PreparedStatement pst = null;
+			String query = "select class.roomNo,class.standard,class.section,subject.id,subject.name,topics.unitNo,topics.unitName,discussion.questionNo,discussion.question,discussion.answer,discussion.date from class join subject on class.roomNo=subject.classId join topics on subject.id=topics.subjectId join discussion on topics.unitNo=discussion.unitNo where topics.unitNo=?";
+			pst = con.prepareStatement(query);
+			pst.setString(1, unitNo);
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3) + " " + rs.getInt(4)
+						+ " " + rs.getString(5) + " " + rs.getString(6) + " " + rs.getString(7) + " " + rs.getString(8)
+						+ " " + rs.getString(9) + " " + rs.getString(10) + " " + rs.getString(11));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }
