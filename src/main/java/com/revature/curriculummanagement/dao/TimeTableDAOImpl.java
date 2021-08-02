@@ -207,7 +207,7 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 	public void getTimeTableByclassRoom(Integer roomNo) {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
-			String query = "select day,periodOne,periodTwo,periodThree,periodFour,periodFive,periodSix from timetable where classRoomNo=?";
+			String query = "SELECT day,periodOne,periodTwo,periodThree,periodFour,periodFive,periodSix FROM timetable WHERE classRoomNo=?";
 			pst = con.prepareStatement(query);
 			pst.setInt(1, roomNo);
 			ResultSet rs = pst.executeQuery();
@@ -223,7 +223,7 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 	public void getTimeTableByclassStandard(Integer roomNo) {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
-			String query = "select class.RoomNo,class.Standard,class.Section,timetable.day,timetable.periodOne,timetable.periodTwo,timetable.periodThree,timetable.periodFour,timetable.periodFive,timetable.periodSix from class join timetable on class.RoomNo=timetable.classRoomNo where roomNo=?";
+			String query = "SELECT class.RoomNo,class.Standard,class.Section,timetable.day,timetable.periodOne,timetable.periodTwo,timetable.periodThree,timetable.periodFour,timetable.periodFive,timetable.periodSix FROM class JOIN timetable ON class.RoomNo=timetable.classRoomNo WHERE roomNo=?";
 			pst = con.prepareStatement(query);
 			pst.setInt(1, roomNo);
 			ResultSet rs = pst.executeQuery();

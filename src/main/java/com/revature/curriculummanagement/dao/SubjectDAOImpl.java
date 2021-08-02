@@ -146,7 +146,7 @@ public class SubjectDAOImpl implements SubjectDAO {
 	public void getSubjectStatus(Integer subjectId) {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
-			String query = "select class.RoomNo,class.Standard,class.Section,subject.Id,subject.Name,teacherdetails.teacherId,teacher.name,topics.unitNo,topics.unitName,topics.beginDate,discussion.date as completedDate,topics.status from class join subject on class.RoomNo=subject.classId join topics on subject.Id=topics.subjectId join teacherdetails on topics.subjectId=teacherdetails.subjectId join teacher on teacherdetails.teacherId=teacher.id join discussion on topics.unitNo=discussion.unitNo where subject.Id=?";
+			String query = "SELECT class.RoomNo,class.Standard,class.Section,subject.Id,subject.Name,teacherdetails.teacherId,teacher.name,topics.unitNo,topics.unitName,topics.beginDate,discussion.date AS completedDate,topics.status FROM class JOIN subject ON class.RoomNo=subject.classId JOIN topics ON subject.Id=topics.subjectId JOIN teacherdetails ON topics.subjectId=teacherdetails.subjectId JOIN teacher ON teacherdetails.teacherId=teacher.id JOIN discussion ON topics.unitNo=discussion.unitNo WHERE subject.Id=?";
 			pst = con.prepareStatement(query);
 			pst.setInt(1, subjectId);
 			ResultSet rs = pst.executeQuery();

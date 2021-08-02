@@ -187,7 +187,7 @@ public class TeacherDAOImpl implements TeacherDAO {
 	public void getTeacherDetailsByClassRoom(Integer roomNo) {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
-			String query = "select teacher.Id as TeacherId,teacher.name as TeacherName,teacherdetails.subjectId as SubjectId,subject.name as SubjectName from teacher join teacherdetails on teacher.id=teacherdetails.teacherId join subject on teacherdetails.subjectId=subject.Id where classRoomNo=?";
+			String query = "SELECT teacher.Id AS TeacherId,teacher.name AS TeacherName,teacherdetails.subjectId AS SubjectId,subject.name AS SubjectName from teacher JOIN teacherdetails ON teacher.id=teacherdetails.teacherId JOIN subject ON teacherdetails.subjectId=subject.Id WHERE classRoomNo=?";
 			pst = con.prepareStatement(query);
 			pst.setInt(1, roomNo);
 			ResultSet rs = pst.executeQuery();
