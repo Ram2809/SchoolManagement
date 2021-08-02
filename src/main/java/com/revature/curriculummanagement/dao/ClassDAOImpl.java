@@ -77,7 +77,7 @@ public class ClassDAOImpl implements ClassDAO {
 			pst = con.prepareStatement(query);
 			pst.setInt(1, roomNo);
 			int count = pst.executeUpdate();
-			System.out.println(count + " " + "Rows deleted!");
+			System.out.println(count + " " + "Row deleted!");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
