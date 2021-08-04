@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Logger;
 
 import com.revature.curriculummanagement.controller.TimeTableController;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
@@ -77,6 +78,7 @@ public class TimeTableApplication {
 	public static void main(String[] args)
 			throws NumberFormatException, IOException, InvalidChoiceException, SQLException {
 		// TODO Auto-generated method stub
+		Logger logger = Logger.getLogger("TimeTableApplication.class");
 		while (true) {
 			System.out.println("TimeTable Application\n");
 			System.out.println("1.Insert");
@@ -91,27 +93,35 @@ public class TimeTableApplication {
 			Integer userChoice = Integer.parseInt(bufferedReader.readLine());
 			switch (userChoice) {
 			case 1:
+				logger.info("In timetable controller -> add method");
 				insertTimeTable();
 				break;
 			case 2:
+				logger.info("In timetable controller -> update method");
 				updateTimeTable();
 				break;
 			case 3:
+				logger.info("In timetable controller -> delete method");
 				deleteTimeTable();
 				break;
 			case 4:
+				logger.info("In timetable controller -> get method");
 				getTimeTable();
 				break;
 			case 5:
+				logger.info("In timetable controller -> get particular time table method");
 				getParticularTimeTable();
 				break;
 			case 6:
+				logger.info("In timetable controller -> get time table by class room method");
 				timeTableByclassRoom();
 				break;
 			case 7:
+				logger.info("In timetable controller -> get time table by standard method");
 				timeTableByclassStandard();
 				break;
 			case 8:
+				logger.info("Exits from time table application");
 				System.exit(0);
 				break;
 			default:

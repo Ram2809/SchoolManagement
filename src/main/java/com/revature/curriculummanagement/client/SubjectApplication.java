@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.revature.curriculummanagement.controller.SubjectController;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.SubjectNotFoundException;
@@ -74,6 +76,7 @@ public class SubjectApplication {
 
 	public static void main(String[] args)
 			throws NumberFormatException, IOException, SQLException, InvalidChoiceException, SubjectNotFoundException {
+		Logger logger = Logger.getLogger("SubjectApplication.class");
 		while (true) {
 			System.out.println("Subject Application\n");
 			System.out.println("1.Insert");
@@ -87,24 +90,31 @@ public class SubjectApplication {
 			Integer userChoice = Integer.parseInt(bufferedReader.readLine());
 			switch (userChoice) {
 			case 1:
+				logger.info("In subject controller -> add method");
 				insertSubject();
 				break;
 			case 2:
+				logger.info("In subject controller -> update method");
 				updateSubject();
 				break;
 			case 3:
+				logger.info("In subject controller -> delete method");
 				deleteSubject();
 				break;
 			case 4:
+				logger.info("In subject controller -> get method");
 				getSubject();
 				break;
 			case 5:
+				logger.info("In subject controller -> get particular subject data method");
 				getParticularSubject();
 				break;
 			case 6:
+				logger.info("In subject controller -> get subject status method");
 				subjectStatus();
 				break;
 			case 7:
+				logger.info("Exits from student application");
 				System.exit(0);
 				break;
 			default:

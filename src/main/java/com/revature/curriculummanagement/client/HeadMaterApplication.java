@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.revature.curriculummanagement.controller.HeadMasterController;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.QuestionNotFoundException;
@@ -21,6 +23,7 @@ public class HeadMaterApplication {
 	static HeadMaster headMaster = new HeadMaster();
 	static HeadMasterController headMasterController = new HeadMasterController();
 	static List<HeadMaster> headMasterList = new ArrayList<>();
+	static Logger logger = Logger.getLogger("HeadMasterApplication.class");
 
 	public static void insertHeadMaster() throws NumberFormatException, IOException, SQLException {
 		System.out.println("Enter the head master details:");
@@ -67,18 +70,23 @@ public class HeadMaterApplication {
 			Integer userChoice = Integer.parseInt(bufferedReader.readLine());
 			switch (userChoice) {
 			case 1:
+				logger.info("In head master controller -> add method");
 				insertHeadMaster();
 				break;
 			case 2:
+				logger.info("In head master controller -> update method");
 				updateHeadMaster();
 				break;
 			case 3:
+				logger.info("In head master controller -> delete method");
 				deleteHeadMaster();
 				break;
 			case 4:
+				logger.info("In head master controller -> get method");
 				getHeadMaster();
 				break;
 			case 5:
+				logger.info("Exits from head master application");
 				System.exit(0);
 				break;
 			default:

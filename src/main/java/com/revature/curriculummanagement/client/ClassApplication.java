@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.revature.curriculummanagement.controller.ClassController;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.model.Classes;
@@ -55,6 +57,8 @@ public class ClassApplication {
 	public static void main(String[] args)
 			throws NumberFormatException, IOException, InvalidChoiceException, SQLException {
 		// TODO Auto-generated method stub
+		Logger logger = Logger.getLogger("ClassApplication.class");
+		logger.info("In class application");
 		while (true) {
 			System.out.println("Class Application\n");
 			System.out.println("1.Insert");
@@ -66,18 +70,23 @@ public class ClassApplication {
 			Integer userChoice = Integer.parseInt(bufferedReader.readLine());
 			switch (userChoice) {
 			case 1:
+				logger.info("In class controller -> add method");
 				insertClass();
 				break;
 			case 2:
+				logger.info("In class controller -> update method");
 				updateClass();
 				break;
 			case 3:
+				logger.info("In class controller -> delete method");
 				deleteClass();
 				break;
 			case 4:
+				logger.info("In class controller -> get method");
 				getClassDetail();
 				break;
 			case 5:
+				logger.info("Exits from class application");
 				System.exit(0);
 				break;
 			default:

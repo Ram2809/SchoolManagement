@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.revature.curriculummanagement.controller.TeacherController;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.TeacherNotFoundException;
@@ -83,6 +85,7 @@ public class TeacherApplication {
 
 	public static void main(String[] args)
 			throws NumberFormatException, IOException, InvalidChoiceException, SQLException, TeacherNotFoundException {
+		Logger logger = Logger.getLogger("TeacherApplication.class");
 		// TODO Auto-generated method stub
 		while (true) {
 			System.out.println("Teacher Application\n");
@@ -97,24 +100,31 @@ public class TeacherApplication {
 			Integer userChoice = Integer.parseInt(bufferedReader.readLine());
 			switch (userChoice) {
 			case 1:
+				logger.info("In teacher controller -> add method");
 				insertTeacher();
 				break;
 			case 2:
+				logger.info("In teacher controller -> update method");
 				updateTeacher();
 				break;
 			case 3:
+				logger.info("In teacher controller -> delete method");
 				deleteTeacher();
 				break;
 			case 4:
+				logger.info("In teacher controller -> get method");
 				getTeacher();
 				break;
 			case 5:
+				logger.info("In teacher controller -> get particular teacher data method");
 				getParticularTeacher();
 				break;
 			case 6:
+				logger.info("In teacher controller -> get teacher for given classroom method");
 				getTeacherByClassRoom();
 				break;
 			case 7:
+				logger.info("Exits from teacher application");
 				System.exit(0);
 				break;
 			default:

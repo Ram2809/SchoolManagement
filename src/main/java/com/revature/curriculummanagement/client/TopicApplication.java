@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.revature.curriculummanagement.controller.TopicsController;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.TopicNotFoundException;
@@ -76,6 +78,7 @@ public class TopicApplication {
 
 	public static void main(String[] args)
 			throws NumberFormatException, IOException, SQLException, InvalidChoiceException, TopicNotFoundException {
+		Logger logger = Logger.getLogger("TopicApplication.class");
 		while (true) {
 			System.out.println("Topic Application\n");
 			System.out.println("1.Insert");
@@ -88,21 +91,27 @@ public class TopicApplication {
 			Integer userChoice = Integer.parseInt(bufferedReader.readLine());
 			switch (userChoice) {
 			case 1:
+				logger.info("In topics controller -> add method");
 				insertTopics();
 				break;
 			case 2:
+				logger.info("In topics controller -> update method");
 				updateTopics();
 				break;
 			case 3:
+				logger.info("In topics controller -> delete method");
 				deleteTopics();
 				break;
 			case 4:
+				logger.info("In topics controller -> get method");
 				getTopics();
 				break;
 			case 5:
+				logger.info("In topics controller -> get particular topic method");
 				getParticularTopic();
 				break;
 			case 6:
+				logger.info("Exits from topics application");
 				System.exit(0);
 				break;
 			default:

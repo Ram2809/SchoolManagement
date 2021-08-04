@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.revature.curriculummanagement.controller.DiscussionController;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.QuestionNotFoundException;
@@ -85,6 +87,8 @@ public class DiscussionApplication {
 
 	public static void main(String[] args) throws NumberFormatException, IOException, SQLException,
 			InvalidChoiceException, QuestionNotFoundException, StudentNotFoundException {
+		Logger logger = Logger.getLogger("DiscussionApplication.class");
+		logger.info("In discussion application");
 		while (true) {
 			System.out.println("Discussion Application\n");
 			System.out.println("1.Insert");
@@ -98,24 +102,31 @@ public class DiscussionApplication {
 			Integer userChoice = Integer.parseInt(bufferedReader.readLine());
 			switch (userChoice) {
 			case 1:
+				logger.info("In discussion controller -> add method");
 				insertDiscussion();
 				break;
 			case 2:
+				logger.info("In discussion controller -> update method");
 				updateDiscussion();
 				break;
 			case 3:
+				logger.info("In discussion controller -> delete method");
 				deleteDiscussion();
 				break;
 			case 4:
+				logger.info("In discussion controller -> get method");
 				getDiscussion();
 				break;
 			case 5:
+				logger.info("In discussion controller -> get particular discussion method");
 				getParticularDiscussion();
 				break;
 			case 6:
+				logger.info("In discussion controller -> get discussion by unit method");
 				discussionByUnit();
 				break;
 			case 7:
+				logger.info("Exits from class application");
 				System.exit(0);
 				break;
 			default:
