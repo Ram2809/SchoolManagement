@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.revature.curriculummanagement.dao.TeacherAssignDAO;
 import com.revature.curriculummanagement.dao.TeacherAssignDAOImpl;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.StudentNotFoundException;
@@ -13,7 +14,7 @@ import com.revature.curriculummanagement.exception.TeacherNotFoundException;
 import com.revature.curriculummanagement.model.TeacherDetails;
 
 public class TeacherAssignServiceImpl implements TeacherAssignService {
-	TeacherAssignDAOImpl teacherAssignDAOImpl = new TeacherAssignDAOImpl();
+	TeacherAssignDAO teacherAssignDAOImpl = new TeacherAssignDAOImpl();
 	static Logger logger = Logger.getLogger("TeacherAssignServiceImpl.class");
 
 	public void addTeacherAssignDetails(TeacherDetails teacherDetails) throws SQLException, IOException {

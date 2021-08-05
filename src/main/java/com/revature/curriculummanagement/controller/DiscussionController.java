@@ -9,10 +9,11 @@ import org.apache.log4j.Logger;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.QuestionNotFoundException;
 import com.revature.curriculummanagement.model.Discussion;
+import com.revature.curriculummanagement.service.DiscussionService;
 import com.revature.curriculummanagement.service.DiscussionServiceImpl;
 
 public class DiscussionController {
-	DiscussionServiceImpl discussionServiceImpl = new DiscussionServiceImpl();
+	DiscussionService discussionServiceImpl = new DiscussionServiceImpl();
 	static Logger logger = Logger.getLogger("DiscussionController.class");
 
 	public void addDiscussionDetails(Discussion discussion) throws SQLException, IOException {
@@ -26,7 +27,7 @@ public class DiscussionController {
 	}
 
 	public void updateDiscussionDetails(String questionNo)
-			throws NumberFormatException, IOException, InvalidChoiceException, SQLException {
+			throws NumberFormatException, IOException, InvalidChoiceException, SQLException, QuestionNotFoundException {
 		logger.info("In discussion service -> update method");
 		discussionServiceImpl.updateDiscussionDetails(questionNo);
 	}

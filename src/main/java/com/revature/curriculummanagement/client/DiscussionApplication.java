@@ -46,7 +46,7 @@ public class DiscussionApplication {
 	}
 
 	public static void updateDiscussion()
-			throws NumberFormatException, IOException, InvalidChoiceException, SQLException {
+			throws NumberFormatException, IOException, InvalidChoiceException, SQLException, QuestionNotFoundException {
 		System.out.println("Enter the id:");
 		String questionNo = bufferedReader.readLine();
 		discussionController.updateDiscussionDetails(questionNo);

@@ -14,7 +14,7 @@ import com.revature.curriculummanagement.model.Discussion;
 import com.revature.curriculummanagement.model.Student;
 
 public class DiscussionServiceImpl implements DiscussionService {
-	DiscussionDAOImpl discussionDAOImpl = new DiscussionDAOImpl();
+	DiscussionDAO discussionDAOImpl = new DiscussionDAOImpl();
 	static Logger logger = Logger.getLogger("DiscussionServiceImpl.class");
 
 	public void addDiscussionDetails(Discussion discussion) throws SQLException, IOException {

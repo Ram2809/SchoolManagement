@@ -9,10 +9,11 @@ import org.apache.log4j.Logger;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.StudentNotFoundException;
 import com.revature.curriculummanagement.model.Student;
+import com.revature.curriculummanagement.service.StudentService;
 import com.revature.curriculummanagement.service.StudentServiceImpl;
 
 public class StudentController {
-	StudentServiceImpl studentServiceImpl = new StudentServiceImpl();
+	StudentService studentServiceImpl = new StudentServiceImpl();
 	static Logger logger = Logger.getLogger("StudentController.class");
 
 	public void addStudentDetails(Student student) throws SQLException, IOException {

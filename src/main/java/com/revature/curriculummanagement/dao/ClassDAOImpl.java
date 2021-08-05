@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.curriculummanagement.exception.DatabaseException;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.model.Classes;
 import com.revature.curriculummanagement.util.DBUtil;
@@ -18,7 +19,7 @@ public class ClassDAOImpl implements ClassDAO {
 	static List<Classes> classList = new ArrayList<>();
 	static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-	public void addClassDetails(Classes classes) throws SQLException, IOException {
+	public void addClassDetails(Classes classes) throws DatabaseException {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "INSERT INTO class VALUES(?,?,?)";
@@ -28,12 +29,13 @@ public class ClassDAOImpl implements ClassDAO {
 			pst.setString(3, classes.getSection());
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows inserted!");
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
+			throw new DatabaseException(e.getMessage());
 		}
 	}
 
-	public void updateClassDetails(Integer roomNo) throws SQLException, IOException {
+	public void updateClassDetails(Integer roomNo) {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "";

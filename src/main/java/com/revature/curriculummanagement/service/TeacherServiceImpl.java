@@ -6,13 +6,14 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.revature.curriculummanagement.dao.TeacherDAO;
 import com.revature.curriculummanagement.dao.TeacherDAOImpl;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.TeacherNotFoundException;
 import com.revature.curriculummanagement.model.Teacher;
 
 public class TeacherServiceImpl implements TeacherService {
-	TeacherDAOImpl teacherDAOImpl = new TeacherDAOImpl();
+	TeacherDAO teacherDAOImpl = new TeacherDAOImpl();
 	static Logger logger = Logger.getLogger("TeacherServiceImpl.class");
 
 	public void addTeacherDetails(Teacher teacher) {

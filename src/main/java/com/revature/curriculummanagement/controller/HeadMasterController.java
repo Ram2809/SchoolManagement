@@ -7,10 +7,11 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.revature.curriculummanagement.model.HeadMaster;
+import com.revature.curriculummanagement.service.HeadMasterService;
 import com.revature.curriculummanagement.service.HeadMasterServiceImpl;
 
 public class HeadMasterController {
-	static HeadMasterServiceImpl headMasterServiceImpl = new HeadMasterServiceImpl();
+	static HeadMasterService headMasterServiceImpl = new HeadMasterServiceImpl();
 	static Logger logger = Logger.getLogger("HeadMasterController.class");
 
 	public static void addHeadMasterDetails(HeadMaster headMaster) throws SQLException, IOException {

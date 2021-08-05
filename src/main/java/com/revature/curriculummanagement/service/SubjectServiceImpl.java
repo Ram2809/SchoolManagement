@@ -6,13 +6,14 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.revature.curriculummanagement.dao.SubjectDAO;
 import com.revature.curriculummanagement.dao.SubjectDAOImpl;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.SubjectNotFoundException;
 import com.revature.curriculummanagement.model.Subject;
 
 public class SubjectServiceImpl implements SubjectService {
-	SubjectDAOImpl subjectDAOImpl = new SubjectDAOImpl();
+	SubjectDAO subjectDAOImpl = new SubjectDAOImpl();
 	static Logger logger = Logger.getLogger("SubjectServiceImpl.class");
 
 	public void addSubjectDetails(Subject subject) throws SQLException, IOException {

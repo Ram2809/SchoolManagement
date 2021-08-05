@@ -8,15 +8,20 @@ import org.apache.log4j.Logger;
 
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.model.Classes;
+import com.revature.curriculummanagement.service.ClassService;
 import com.revature.curriculummanagement.service.ClassServiceImpl;
 
 public class ClassController {
-	static ClassServiceImpl classServiceImpl = new ClassServiceImpl();
+	static ClassService classServiceImpl = new ClassServiceImpl();
 	static Logger logger = Logger.getLogger("ClassController.class");
 
-	public void addClassDetails(Classes classes) throws SQLException, IOException {
-		logger.info("In class service -> add method");
-		classServiceImpl.addClassDetails(classes);
+	public void addClassDetails(Classes classes) {
+		try {
+			logger.info("In class service -> add method");
+			classServiceImpl.addClassDetails(classes);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static List<Classes> getClassDetails() throws SQLException, IOException {

@@ -6,11 +6,12 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.revature.curriculummanagement.dao.HeadMasterDAO;
 import com.revature.curriculummanagement.dao.HeadMasterDAOImpl;
 import com.revature.curriculummanagement.model.HeadMaster;
 
 public class HeadMasterServiceImpl implements HeadMasterService {
-	HeadMasterDAOImpl headMasterDAOImpl = new HeadMasterDAOImpl();
+	HeadMasterDAO headMasterDAOImpl = new HeadMasterDAOImpl();
 	static Logger logger = Logger.getLogger("HeadMasterServiceImpl.class");
 
 	public void addHeadMasterDetails(HeadMaster headMaster) throws SQLException, IOException {

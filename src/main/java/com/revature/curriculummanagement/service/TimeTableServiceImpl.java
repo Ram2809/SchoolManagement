@@ -6,11 +6,12 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.revature.curriculummanagement.dao.TimeTableDAO;
 import com.revature.curriculummanagement.dao.TimeTableDAOImpl;
 import com.revature.curriculummanagement.model.TimeTable;
 
 public class TimeTableServiceImpl implements TimeTableService {
-	TimeTableDAOImpl timeTableDAOImpl = new TimeTableDAOImpl();
+	TimeTableDAO timeTableDAOImpl = new TimeTableDAOImpl();
 	static Logger logger = Logger.getLogger("TimeTableServiceImpl.class");
 
 	public void addTimeTableDetails() throws NumberFormatException, IOException {

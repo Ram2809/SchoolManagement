@@ -9,10 +9,11 @@ import org.apache.log4j.Logger;
 import com.revature.curriculummanagement.exception.StudentNotFoundException;
 import com.revature.curriculummanagement.model.Student;
 import com.revature.curriculummanagement.model.TimeTable;
+import com.revature.curriculummanagement.service.TimeTableService;
 import com.revature.curriculummanagement.service.TimeTableServiceImpl;
 
 public class TimeTableController {
-	TimeTableServiceImpl timeTableServiceImpl = new TimeTableServiceImpl();
+	TimeTableService timeTableServiceImpl = new TimeTableServiceImpl();
 	static Logger logger = Logger.getLogger("TimeTableController.class");
 
 	public void addTimeTableDetails() throws NumberFormatException, IOException {

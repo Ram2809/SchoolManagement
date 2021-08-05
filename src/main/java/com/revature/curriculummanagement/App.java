@@ -20,7 +20,7 @@ public class App {
 	public static void main(String[] args)
 			throws IOException, NumberFormatException, InvalidChoiceException, SQLException, StudentNotFoundException,
 			SubjectNotFoundException, TeacherNotFoundException, QuestionNotFoundException, TopicNotFoundException {
-		Logger logger=Logger.getLogger("App.class");
+		Logger logger = Logger.getLogger("App.class");
 		HeadMaterApplication headMasterApplication = new HeadMaterApplication();
 		TeacherOperations teacherOperations = new TeacherOperations();
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));

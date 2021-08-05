@@ -10,10 +10,11 @@ import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.StudentNotFoundException;
 import com.revature.curriculummanagement.exception.TeacherNotFoundException;
 import com.revature.curriculummanagement.model.TeacherDetails;
+import com.revature.curriculummanagement.service.TeacherAssignService;
 import com.revature.curriculummanagement.service.TeacherAssignServiceImpl;
 
 public class TeacherAssignController {
-	TeacherAssignServiceImpl teacherAssignServiceImpl = new TeacherAssignServiceImpl();
+	TeacherAssignService teacherAssignServiceImpl = new TeacherAssignServiceImpl();
 	static Logger logger = Logger.getLogger("TeacherAssignController.class");
 
 	public void addTeacherAssignDetails(TeacherDetails teacherDetails) throws SQLException, IOException {
