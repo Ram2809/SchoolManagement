@@ -4,25 +4,32 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.revature.curriculummanagement.dao.HeadMasterDAOImpl;
 import com.revature.curriculummanagement.model.HeadMaster;
 
 public class HeadMasterServiceImpl implements HeadMasterService {
 	HeadMasterDAOImpl headMasterDAOImpl = new HeadMasterDAOImpl();
+	static Logger logger = Logger.getLogger("HeadMasterServiceImpl.class");
 
 	public void addHeadMasterDetails(HeadMaster headMaster) throws SQLException, IOException {
+		logger.info("In head master DAO -> add method");
 		headMasterDAOImpl.addHeadMasterDetails(headMaster);
 	}
 
 	public void updateHeadMasterDetails(Integer updateId, String newName) throws SQLException, IOException {
+		logger.info("In head master DAO -> update method");
 		headMasterDAOImpl.updateHeadMasterDetails(updateId, newName);
 	}
 
 	public void deleteHeadMasterDetails(Integer deleteId) throws SQLException, IOException {
+		logger.info("In head master DAO -> delete method");
 		headMasterDAOImpl.deleteHeadMasterDetails(deleteId);
 	}
 
 	public List<HeadMaster> getHeadMasterDetails() throws SQLException, IOException {
+		logger.info("In head master DAO -> get method");
 		return headMasterDAOImpl.getHeadMasterDetails();
 	}
 }
