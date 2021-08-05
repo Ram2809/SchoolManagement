@@ -13,7 +13,8 @@ import com.revature.curriculummanagement.service.DiscussionServiceImpl;
 
 public class DiscussionController {
 	DiscussionServiceImpl discussionServiceImpl = new DiscussionServiceImpl();
-	static Logger logger=Logger.getLogger("DiscussionController.class");
+	static Logger logger = Logger.getLogger("DiscussionController.class");
+
 	public void addDiscussionDetails(Discussion discussion) throws SQLException, IOException {
 		logger.info("In discussion service -> add method");
 		discussionServiceImpl.addDiscussionDetails(discussion);

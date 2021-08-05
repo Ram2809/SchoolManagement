@@ -11,7 +11,7 @@ import com.revature.curriculummanagement.service.StudentServiceImpl;
 
 public class StudentController {
 	StudentServiceImpl studentServiceImpl = new StudentServiceImpl();
-
+	static Logger logger=Logger.get
 	public void addStudentDetails(Student student) throws SQLException, IOException {
 		studentServiceImpl.addStudentDetails(student);
 	}
