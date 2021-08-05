@@ -1,2 +1,86 @@
 2021-08-04 22:24:15 INFO  class:27 - In Curriculum Management App
 2021-08-04 22:24:27 INFO  class:37 - In head master section
+2021-08-05 16:44:23 INFO  class:27 - In Curriculum Management App
+2021-08-05 16:44:35 INFO  class:37 - In head master section
+2021-08-05 16:44:40 INFO  class:61 - In class application
+2021-08-05 16:44:45 INFO  class:85 - In class controller -> get method
+2021-08-05 16:44:45 INFO  class:23 - In class service -> get method
+2021-08-05 16:44:45 INFO  class:35 - In class DAO -> get method
+2021-08-05 16:45:01 INFO  class:77 - In class controller -> update method
+2021-08-05 16:45:06 INFO  class:29 - In class service -> update method
+2021-08-05 16:45:06 INFO  class:25 - In class DAO -> update method
+2021-08-05 16:46:06 INFO  class:77 - In class controller -> update method
+2021-08-05 16:46:09 INFO  class:29 - In class service -> update method
+2021-08-05 16:46:09 INFO  class:25 - In class DAO -> update method
+2021-08-05 16:46:14 INFO  class:77 - In class controller -> update method
+2021-08-05 16:46:18 INFO  class:29 - In class service -> update method
+2021-08-05 16:46:18 INFO  class:25 - In class DAO -> update method
+2021-08-05 16:46:29 INFO  class:77 - In class controller -> update method
+2021-08-05 16:46:32 INFO  class:29 - In class service -> update method
+2021-08-05 16:46:32 INFO  class:25 - In class DAO -> update method
+2021-08-05 16:46:49 INFO  class:85 - In class controller -> get method
+2021-08-05 16:46:49 INFO  class:23 - In class service -> get method
+2021-08-05 16:46:49 INFO  class:35 - In class DAO -> get method
+2021-08-05 16:47:01 INFO  class:89 - Exits from class application
+2021-08-05 16:48:10 INFO  class:27 - In Curriculum Management App
+2021-08-05 16:48:19 INFO  class:37 - In head master section
+2021-08-05 16:48:29 INFO  class:112 - In student controller -> get method
+2021-08-05 16:48:29 INFO  class:24 - In student service -> get method
+2021-08-05 16:48:29 INFO  class:36 - In student DAO -> get method
+2021-08-05 16:49:06 INFO  class:100 - In student controller -> add method
+2021-08-05 16:49:39 INFO  class:19 - In student service -> add method
+2021-08-05 16:49:39 INFO  class:19 - In student DAO -> add method
+2021-08-05 16:50:20 INFO  class:100 - In student controller -> add method
+2021-08-05 16:50:52 INFO  class:19 - In student service -> add method
+2021-08-05 16:50:52 INFO  class:19 - In student DAO -> add method
+2021-08-05 16:50:53 INFO  class:100 - In student controller -> add method
+2021-08-05 16:51:29 INFO  class:19 - In student service -> add method
+2021-08-05 16:51:29 INFO  class:19 - In student DAO -> add method
+2021-08-05 16:51:31 INFO  class:112 - In student controller -> get method
+2021-08-05 16:51:31 INFO  class:24 - In student service -> get method
+2021-08-05 16:51:31 INFO  class:36 - In student DAO -> get method
+2021-08-05 16:51:46 INFO  class:120 - In student controller -> get student by classroom method
+2021-08-05 16:51:48 INFO  class:47 - In student service -> get student details by class room method
+2021-08-05 16:51:48 INFO  class:47 - In student DAO -> get student details by class room method
+2021-08-05 16:52:09 INFO  class:120 - In student controller -> get student by classroom method
+2021-08-05 16:52:11 INFO  class:47 - In student service -> get student details by class room method
+2021-08-05 16:52:11 INFO  class:47 - In student DAO -> get student details by class room method
+2021-08-05 16:52:24 INFO  class:116 - In student controller -> get particular student data method
+2021-08-05 16:52:29 INFO  class:42 - In student service -> get particular student details method
+2021-08-05 16:52:29 INFO  class:42 - In student DAO -> get particular student details method
+2021-08-05 16:52:36 INFO  class:124 - Exits from student application
+2021-08-05 18:11:47 INFO  class:123 - In teacher controller -> get teacher for given classroom method
+2021-08-05 18:11:50 INFO  class:47 - In teacher service -> get teacher details by class room method
+2021-08-05 18:11:50 INFO  class:47 - In teacher DAO -> get teacher details by class room method
+2021-08-05 18:12:04 INFO  class:123 - In teacher controller -> get teacher for given classroom method
+2021-08-05 18:12:07 INFO  class:47 - In teacher service -> get teacher details by class room method
+2021-08-05 18:12:07 INFO  class:47 - In teacher DAO -> get teacher details by class room method
+2021-08-05 18:12:23 INFO  class:127 - Exits from teacher application
+2021-08-05 18:18:19 INFO  class:19 - In time table service -> add method
+2021-08-05 18:18:19 INFO  class:17 - In time table DAO -> add method
+2021-08-05 18:27:54 INFO  class:45 - In time table service -> get time table for specific class room method
+2021-08-05 18:27:54 INFO  class:43 - In time table DAO -> get time table by class room method
+2021-08-05 18:29:12 INFO  class:50 - In time table service -> get time table for specific standard method
+2021-08-05 18:29:12 INFO  class:49 - In time table DAO -> get time table by standard method
+2021-08-05 18:32:54 INFO  class:94 - In topics controller -> add method
+2021-08-05 18:33:38 INFO  class:19 - In topics service -> add method
+2021-08-05 18:58:34 INFO  class:93 - In subject controller -> add method
+2021-08-05 18:58:45 INFO  class:19 - In subject service -> add method
+2021-08-05 18:58:45 INFO  class:19 - In subject DAO -> add method
+2021-08-05 19:06:47 INFO  class:93 - In subject controller -> add method
+2021-08-05 19:07:05 INFO  class:19 - In subject service -> add method
+2021-08-05 19:07:05 INFO  class:19 - In subject DAO -> add method
+2021-08-05 19:07:09 INFO  class:97 - In subject controller -> update method
+2021-08-05 19:07:13 INFO  class:30 - In subject service -> update method
+2021-08-05 19:07:13 INFO  class:25 - In subject DAO -> update method
+2021-08-05 19:07:29 INFO  class:113 - In subject controller -> get subject status method
+2021-08-05 19:07:33 INFO  class:47 - In subject service -> get subject status method
+2021-08-05 19:07:33 INFO  class:47 - In subject DAO -> get subject status method
+2021-08-05 19:07:44 INFO  class:113 - In subject controller -> get subject status method
+2021-08-05 19:07:48 INFO  class:47 - In subject service -> get subject status method
+2021-08-05 19:07:48 INFO  class:47 - In subject DAO -> get subject status method
+2021-08-05 19:08:10 INFO  class:117 - Exits from student application
+2021-08-05 19:08:35 INFO  class:97 - In subject controller -> update method
+2021-08-05 19:08:37 INFO  class:30 - In subject service -> update method
+2021-08-05 19:08:37 INFO  class:25 - In subject DAO -> update method
+2021-08-05 19:08:44 INFO  class:117 - Exits from student application

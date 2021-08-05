@@ -29,7 +29,7 @@ public class SubjectApplication {
 		String subjectName = bufferedReader.readLine();
 		System.out.println("Enter the class id:");
 		Integer classId = Integer.parseInt(bufferedReader.readLine());
-		subject.setClassId(subjectId);
+		subject.setSubId(subjectId);
 		subject.setSubName(subjectName);
 		subject.setClassId(classId);
 		subjectController.addSubjectDetails(subject);
