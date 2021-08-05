@@ -28,13 +28,13 @@ public class HeadMasterDAOImpl implements HeadMasterDAO {
 		}
 	}
 
-	public void updateHeadMasterDetails(Integer updateId, String newName) throws SQLException, IOException {
+	public void updateHeadMasterDetails(Integer id, String newName) throws SQLException, IOException {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "UPDATE headMaster SET name=? WHERE id=?";
 			pst = con.prepareStatement(query);
 			pst.setString(1, newName);
-			pst.setInt(2, updateId);
+			pst.setInt(2, id);
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows updated!");
 		} catch (Exception e) {
@@ -42,12 +42,12 @@ public class HeadMasterDAOImpl implements HeadMasterDAO {
 		}
 	}
 
-	public void deleteHeadMasterDetails(Integer deleteId) throws SQLException, IOException {
+	public void deleteHeadMasterDetails(Integer id) throws SQLException, IOException {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "DELETE FROM headmaster WHERE id=?";
 			pst = con.prepareStatement(query);
-			pst.setInt(1, deleteId);
+			pst.setInt(1, id);
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows deleted!");
 		} catch (Exception e) {

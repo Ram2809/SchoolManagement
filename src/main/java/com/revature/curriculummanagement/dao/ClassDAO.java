@@ -10,7 +10,7 @@ import com.revature.curriculummanagement.model.Classes;
 public interface ClassDAO {
 	void addClassDetails(Classes classes) throws DatabaseException;
 
-	void updateClassDetails(Integer roomNo) throws ;
+	void updateClassDetails(Integer roomNo);
 
 	void deleteClassDetails(Integer roomNo) throws SQLException, IOException;
 

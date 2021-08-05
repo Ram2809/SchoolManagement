@@ -30,7 +30,6 @@ public class ClassDAOImpl implements ClassDAO {
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows inserted!");
 		} catch (SQLException e) {
-			e.printStackTrace();
 			throw new DatabaseException(e.getMessage());
 		}
 	}
@@ -46,20 +45,20 @@ public class ClassDAOImpl implements ClassDAO {
 			switch (userChoice) {
 			case 1:
 				System.out.println("Enter the new standard:");
-				String updateStandard = bufferedReader.readLine();
+				String newStandard = bufferedReader.readLine();
 				query = "UPDATE class SET Standard=? WHERE RoomNo=?";
 				pst = con.prepareStatement(query);
-				pst.setString(1, updateStandard);
+				pst.setString(1, newStandard);
 				pst.setInt(2, roomNo);
 				pst.executeUpdate();
 				System.out.println("Rows updated!");
 				break;
 			case 2:
 				System.out.println("Enter the new section:");
-				String updateSection = bufferedReader.readLine();
+				String newSection = bufferedReader.readLine();
 				query = "UPDATE class SET Section=? WHERE RoomNo=?";
 				pst = con.prepareStatement(query);
-				pst.setString(1, updateSection);
+				pst.setString(1, newSection);
 				pst.setInt(2, roomNo);
 				pst.executeUpdate();
 				System.out.println("Rows updated!");

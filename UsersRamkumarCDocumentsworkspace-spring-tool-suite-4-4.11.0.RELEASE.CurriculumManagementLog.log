@@ -94,3 +94,59 @@
 2021-08-05 19:15:10 INFO  class:120 - In student controller -> get student by classroom method
 2021-08-05 19:15:11 INFO  class:47 - In student service -> get student details by class room method
 2021-08-05 19:15:11 INFO  class:47 - In student DAO -> get student details by class room method
+2021-08-05 23:15:50 INFO  class:111 - In topics controller -> add method
+2021-08-05 23:16:24 INFO  class:115 - In topics controller -> update method
+2021-08-05 23:16:32 INFO  class:28 - In topics service -> update method
+2021-08-05 23:16:32 INFO  class:27 - In topics DAO -> update method
+2021-08-05 23:16:41 INFO  class:115 - In topics controller -> update method
+2021-08-05 23:16:51 INFO  class:28 - In topics service -> update method
+2021-08-05 23:16:51 INFO  class:27 - In topics DAO -> update method
+2021-08-05 23:17:02 INFO  class:119 - In topics controller -> delete method
+2021-08-05 23:17:05 INFO  class:33 - In topics service -> delete method
+2021-08-05 23:17:05 INFO  class:32 - In topics DAO -> delete method
+2021-08-05 23:17:16 INFO  class:127 - In topics controller -> get particular topic method
+2021-08-05 23:17:18 INFO  class:42 - In topics service -> get particular topic details method
+2021-08-05 23:17:18 INFO  class:46 - In topics DAO -> get particular topics details method
+2021-08-05 23:17:22 INFO  class:123 - In topics controller -> get method
+2021-08-05 23:17:22 INFO  class:23 - In topics service -> get method
+2021-08-05 23:17:22 INFO  class:41 - In topics DAO -> get method
+2021-08-05 23:17:28 INFO  class:131 - Exits from topics application
+2021-08-05 23:19:40 INFO  class:115 - In topics controller -> update method
+2021-08-05 23:19:41 INFO  class:28 - In topics service -> update method
+2021-08-05 23:19:41 INFO  class:27 - In topics DAO -> update method
+2021-08-05 23:19:54 INFO  class:115 - In topics controller -> update method
+2021-08-05 23:23:44 INFO  class:115 - In topics controller -> update method
+2021-08-05 23:23:46 INFO  class:28 - In topics service -> update method
+2021-08-05 23:23:46 INFO  class:27 - In topics DAO -> update method
+2021-08-05 23:23:47 INFO  class:70 - Topic not found,Enter the valid id!
+2021-08-05 23:24:00 INFO  class:115 - In topics controller -> update method
+2021-08-05 23:24:03 INFO  class:28 - In topics service -> update method
+2021-08-05 23:24:03 INFO  class:27 - In topics DAO -> update method
+2021-08-05 23:24:03 INFO  class:70 - Topic not found,Enter the valid id!
+2021-08-05 23:24:19 INFO  class:119 - In topics controller -> delete method
+2021-08-05 23:24:22 INFO  class:33 - In topics service -> delete method
+2021-08-05 23:24:22 INFO  class:32 - In topics DAO -> delete method
+2021-08-05 23:24:22 INFO  class:124 - Topic not found,Enter the valid id!
+2021-08-05 23:24:22 INFO  class:37 - Topic not found,Enter the valid id!
+2021-08-05 23:24:34 INFO  class:127 - In topics controller -> get particular topic method
+2021-08-05 23:24:38 INFO  class:43 - In topics service -> get particular topic details method
+2021-08-05 23:24:38 INFO  class:46 - In topics DAO -> get particular topics details method
+2021-08-05 23:24:38 INFO  class:163 - Topic not found,Enter the valid id!
+2021-08-05 23:24:38 INFO  class:47 - Topic not found,Enter the valid id!
+2021-08-05 23:24:47 INFO  class:131 - Exits from topics application
+2021-08-05 23:25:08 INFO  class:123 - In topics controller -> get method
+2021-08-05 23:25:08 INFO  class:23 - In topics service -> get method
+2021-08-05 23:25:08 INFO  class:41 - In topics DAO -> get method
+2021-08-05 23:25:18 INFO  class:127 - In topics controller -> get particular topic method
+2021-08-05 23:25:23 INFO  class:43 - In topics service -> get particular topic details method
+2021-08-05 23:25:23 INFO  class:46 - In topics DAO -> get particular topics details method
+2021-08-05 23:25:29 INFO  class:115 - In topics controller -> update method
+2021-08-05 23:25:37 INFO  class:28 - In topics service -> update method
+2021-08-05 23:25:37 INFO  class:27 - In topics DAO -> update method
+2021-08-05 23:26:02 INFO  class:123 - In topics controller -> get method
+2021-08-05 23:26:02 INFO  class:23 - In topics service -> get method
+2021-08-05 23:26:02 INFO  class:41 - In topics DAO -> get method
+2021-08-05 23:26:06 INFO  class:127 - In topics controller -> get particular topic method
+2021-08-05 23:26:08 INFO  class:43 - In topics service -> get particular topic details method
+2021-08-05 23:26:08 INFO  class:46 - In topics DAO -> get particular topics details method
+2021-08-05 23:26:12 INFO  class:131 - Exits from topics application

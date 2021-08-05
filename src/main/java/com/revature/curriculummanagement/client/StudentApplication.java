@@ -43,15 +43,15 @@ public class StudentApplication {
 
 	public static void updateStudent() throws NumberFormatException, IOException, InvalidChoiceException, SQLException {
 		System.out.println("Enter the id:");
-		Integer updateId = Integer.parseInt(bufferedReader.readLine());
-		studentController.updateStudentDetails(updateId);
+		Integer id = Integer.parseInt(bufferedReader.readLine());
+		studentController.updateStudentDetails(id);
 	}
 
 	public static void deleteStudent()
 			throws NumberFormatException, IOException, SQLException, StudentNotFoundException {
 		System.out.println("Enter the student id:");
-		Integer deleteId = Integer.parseInt(bufferedReader.readLine());
-		studentController.deleteStudentDetails(deleteId);
+		Integer id = Integer.parseInt(bufferedReader.readLine());
+		studentController.deleteStudentDetails(id);
 	}
 
 	public static void getStudent() throws NumberFormatException, IOException, SQLException {
@@ -65,9 +65,9 @@ public class StudentApplication {
 	public static void getParticularStudent()
 			throws NumberFormatException, IOException, SQLException, StudentNotFoundException {
 		System.out.println("Enter the id:");
-		Integer fetchId = Integer.parseInt(bufferedReader.readLine());
+		Integer id = Integer.parseInt(bufferedReader.readLine());
 		List<Student> studentParicularList = new ArrayList<Student>();
-		studentParicularList = studentController.getParticularStudentDetails(fetchId);
+		studentParicularList = studentController.getParticularStudentDetails(id);
 		Iterator<Student> studentParticularIterator = studentParicularList.iterator();
 		while (studentParticularIterator.hasNext()) {
 			System.out.println(studentParticularIterator.next());

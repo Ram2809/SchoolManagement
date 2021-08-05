@@ -52,12 +52,12 @@ public class TeacherDAOImpl implements TeacherDAO {
 		}
 	}
 
-	public void updateTeacherDetails(Integer updateId) throws SQLException, IOException {
+	public void updateTeacherDetails(Integer id) throws SQLException, IOException {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "";
 			getTeacherId();
-			if (!teacherIdList.contains(updateId)) {
+			if (!teacherIdList.contains(id)) {
 				throw new TeacherNotFoundException("Teacher not found,Enter the valid id!");
 			}
 			System.out.println("1.Update name");
@@ -70,51 +70,51 @@ public class TeacherDAOImpl implements TeacherDAO {
 			switch (userChoice) {
 			case 1:
 				System.out.println("Enter the new name:");
-				String updateName = bufferedReader.readLine();
+				String newName = bufferedReader.readLine();
 				query = "UPDATE teacher SET Name=? WHERE Id=?";
 				pst = con.prepareStatement(query);
-				pst.setString(1, updateName);
-				pst.setInt(2, updateId);
+				pst.setString(1, newName);
+				pst.setInt(2, id);
 				pst.executeUpdate();
 				System.out.println("Rows updated!");
 				break;
 			case 2:
 				System.out.println("Enter the new dob:");
-				String updateDOB = bufferedReader.readLine();
+				String newDOB = bufferedReader.readLine();
 				query = "UPDATE teacher SET Date_of_Birth=? WHERE Id=?";
 				pst = con.prepareStatement(query);
-				pst.setString(1, updateDOB);
-				pst.setInt(2, updateId);
+				pst.setString(1, newDOB);
+				pst.setInt(2, id);
 				pst.executeUpdate();
 				System.out.println("Rows updated!");
 				break;
 			case 3:
 				System.out.println("Enter the new address:");
-				String updateAddress = bufferedReader.readLine();
+				String newAddress = bufferedReader.readLine();
 				query = "UPDATE teacher SET Address=? WHERE Id=?";
 				pst = con.prepareStatement(query);
-				pst.setString(1, updateAddress);
-				pst.setInt(2, updateId);
+				pst.setString(1, newAddress);
+				pst.setInt(2, id);
 				pst.executeUpdate();
 				System.out.println("Rows updated!");
 				break;
 			case 4:
 				System.out.println("Enter the new qualification:");
-				String updateQualification = bufferedReader.readLine();
+				String newQualification = bufferedReader.readLine();
 				query = "UPDATE teacher SET Qualification=? WHERE Id=?";
 				pst = con.prepareStatement(query);
-				pst.setString(1, updateQualification);
-				pst.setInt(2, updateId);
+				pst.setString(1, newQualification);
+				pst.setInt(2, id);
 				pst.executeUpdate();
 				System.out.println("Rows updated!");
 				break;
 			case 5:
 				System.out.println("Enter the new subject:");
-				String updateSubject = bufferedReader.readLine();
+				String newSubject = bufferedReader.readLine();
 				query = "UPDATE teacher SET Subject=? WHERE Id=?";
 				pst = con.prepareStatement(query);
-				pst.setString(1, updateSubject);
-				pst.setInt(2, updateId);
+				pst.setString(1, newSubject);
+				pst.setInt(2, id);
 				pst.executeUpdate();
 				System.out.println("Rows updated!");
 				break;
@@ -127,16 +127,16 @@ public class TeacherDAOImpl implements TeacherDAO {
 
 	}
 
-	public void deleteTeacherDetails(Integer deleteId) throws SQLException, IOException, TeacherNotFoundException {
+	public void deleteTeacherDetails(Integer id) throws SQLException, IOException, TeacherNotFoundException {
 		getTeacherId();
-		if (!teacherIdList.contains(deleteId)) {
+		if (!teacherIdList.contains(id)) {
 			throw new TeacherNotFoundException("Teacher not found,Enter the valid id!");
 		}
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "DELETE FROM teacher WHERE Id=?";
 			pst = con.prepareStatement(query);
-			pst.setInt(1, deleteId);
+			pst.setInt(1, id);
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows deleted!");
 		} catch (Exception e) {
@@ -161,18 +161,18 @@ public class TeacherDAOImpl implements TeacherDAO {
 		return teacherList;
 	}
 
-	public List<Teacher> getParticularTeacherDetails(Integer fetchId)
+	public List<Teacher> getParticularTeacherDetails(Integer id)
 			throws SQLException, IOException, TeacherNotFoundException {
 		List<Teacher> teacherParticularList = new ArrayList<>();
 		getTeacherId();
-		if (!teacherIdList.contains(fetchId)) {
+		if (!teacherIdList.contains(id)) {
 			throw new TeacherNotFoundException("Teacher not found,Enter the valid id!");
 		}
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "SELECT * FROM teacher WHERE Id=?";
 			pst = con.prepareStatement(query);
-			pst.setInt(1, fetchId);
+			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
 				teacherParticularList.add(new Teacher(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),

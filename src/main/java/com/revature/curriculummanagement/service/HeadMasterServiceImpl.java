@@ -19,14 +19,14 @@ public class HeadMasterServiceImpl implements HeadMasterService {
 		headMasterDAOImpl.addHeadMasterDetails(headMaster);
 	}
 
-	public void updateHeadMasterDetails(Integer updateId, String newName) throws SQLException, IOException {
+	public void updateHeadMasterDetails(Integer id, String newName) throws SQLException, IOException {
 		logger.info("In head master DAO -> update method");
-		headMasterDAOImpl.updateHeadMasterDetails(updateId, newName);
+		headMasterDAOImpl.updateHeadMasterDetails(id, newName);
 	}
 
-	public void deleteHeadMasterDetails(Integer deleteId) throws SQLException, IOException {
+	public void deleteHeadMasterDetails(Integer id) throws SQLException, IOException {
 		logger.info("In head master DAO -> delete method");
-		headMasterDAOImpl.deleteHeadMasterDetails(deleteId);
+		headMasterDAOImpl.deleteHeadMasterDetails(id);
 	}
 
 	public List<HeadMaster> getHeadMasterDetails() throws SQLException, IOException {

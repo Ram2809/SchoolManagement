@@ -38,16 +38,16 @@ public class HeadMaterApplication {
 
 	public static void updateHeadMaster() throws IOException, SQLException {
 		System.out.println("Enter the id:");
-		Integer updateId = Integer.parseInt(bufferedReader.readLine());
+		Integer id = Integer.parseInt(bufferedReader.readLine());
 		System.out.println("Enter the new name:");
 		String newName = bufferedReader.readLine();
-		headMasterController.updateHeadMasterDetails(updateId, newName);
+		headMasterController.updateHeadMasterDetails(id, newName);
 	}
 
 	public static void deleteHeadMaster() throws SQLException, IOException {
 		System.out.println("Enter the id:");
-		Integer deleteId = Integer.parseInt(bufferedReader.readLine());
-		headMasterController.deleteHeadMasterDetails(deleteId);
+		Integer id = Integer.parseInt(bufferedReader.readLine());
+		headMasterController.deleteHeadMasterDetails(id);
 	}
 
 	public static void getHeadMaster() throws SQLException, IOException {

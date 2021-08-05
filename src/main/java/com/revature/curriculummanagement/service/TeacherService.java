@@ -13,13 +13,13 @@ public interface TeacherService {
 
 	List<Teacher> getTeacherDetails() throws NumberFormatException, IOException, SQLException;
 
-	void updateTeacherDetails(Integer updateId)
+	void updateTeacherDetails(Integer id)
 			throws NumberFormatException, IOException, InvalidChoiceException, SQLException;
 
-	void deleteTeacherDetails(Integer deleteId)
+	void deleteTeacherDetails(Integer id)
 			throws NumberFormatException, IOException, SQLException, TeacherNotFoundException;
 
-	List<Teacher> getParticularTeacherDetails(Integer fetchId)
+	List<Teacher> getParticularTeacherDetails(Integer id)
 			throws NumberFormatException, IOException, SQLException, TeacherNotFoundException;
 
 	void getTeacherDetailsByClassRoom(Integer roomNo);

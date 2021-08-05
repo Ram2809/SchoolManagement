@@ -69,30 +69,30 @@ public class DiscussionDAOImpl implements DiscussionDAO {
 			switch (userChoice) {
 			case 1:
 				System.out.println("Enter the new question:");
-				String updateQuestion = bufferedReader.readLine();
+				String newQuestion = bufferedReader.readLine();
 				query = "UPDATE discussion SET Question=? WHERE QuestionNo=?";
 				pst = con.prepareStatement(query);
-				pst.setString(1, updateQuestion);
+				pst.setString(1, newQuestion);
 				pst.setString(2, questionNo);
 				pst.executeUpdate();
 				System.out.println("Rows updated!");
 				break;
 			case 2:
 				System.out.println("Enter the new answer:");
-				String updateAnswer = bufferedReader.readLine();
+				String newAnswer = bufferedReader.readLine();
 				query = "UPDATE discussion SET Answer=? WHERE QuestionNo=?";
 				pst = con.prepareStatement(query);
-				pst.setString(1, updateAnswer);
+				pst.setString(1, newAnswer);
 				pst.setString(2, questionNo);
 				pst.executeUpdate();
 				System.out.println("Rows updated!");
 				break;
 			case 3:
 				System.out.println("Enter the new date:");
-				String updateDate = bufferedReader.readLine();
+				String newDate = bufferedReader.readLine();
 				query = "UPDATE discussion SET date=? WHERE QuestionNo=?";
 				pst = con.prepareStatement(query);
-				pst.setString(1, updateDate);
+				pst.setString(1, newDate);
 				pst.setString(2, questionNo);
 				pst.executeUpdate();
 				System.out.println("Rows updated!");

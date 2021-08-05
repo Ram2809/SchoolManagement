@@ -10,14 +10,13 @@ import com.revature.curriculummanagement.model.Student;
 public interface StudentDAO {
 	void addStudentDetails(Student student) throws SQLException, IOException;
 
-	void updateStudentDetails(Integer updateId) throws SQLException, IOException;
+	void updateStudentDetails(Integer id) throws SQLException, IOException;
 
-	void deleteStudentDetails(Integer deleteId) throws SQLException, IOException, StudentNotFoundException;
+	void deleteStudentDetails(Integer id) throws SQLException, IOException, StudentNotFoundException;
 
 	List<Student> getStudentDetails() throws SQLException, IOException;
 
-	List<Student> getParticularStudentDetails(Integer fetchId)
-			throws SQLException, IOException, StudentNotFoundException;
+	List<Student> getParticularStudentDetails(Integer id) throws SQLException, IOException, StudentNotFoundException;
 
 	void getStudentDetailsByClassRoom(Integer roomNo);
 }

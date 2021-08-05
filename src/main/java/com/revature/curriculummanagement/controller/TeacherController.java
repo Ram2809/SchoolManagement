@@ -26,22 +26,22 @@ public class TeacherController {
 		return teacherServiceImpl.getTeacherDetails();
 	}
 
-	public void updateTeacherDetails(Integer updateId)
+	public void updateTeacherDetails(Integer id)
 			throws NumberFormatException, IOException, InvalidChoiceException, SQLException {
 		logger.info("In teacher service -> update method");
-		teacherServiceImpl.updateTeacherDetails(updateId);
+		teacherServiceImpl.updateTeacherDetails(id);
 	}
 
-	public void deleteTeacherDetails(Integer deleteId)
+	public void deleteTeacherDetails(Integer id)
 			throws NumberFormatException, IOException, SQLException, TeacherNotFoundException {
 		logger.info("In teacher service -> delete method");
-		teacherServiceImpl.deleteTeacherDetails(deleteId);
+		teacherServiceImpl.deleteTeacherDetails(id);
 	}
 
-	public List<Teacher> getParticularTeacherDetails(Integer fetchId)
+	public List<Teacher> getParticularTeacherDetails(Integer id)
 			throws NumberFormatException, IOException, SQLException, TeacherNotFoundException {
 		logger.info("In teacher service -> get particular teacher details method");
-		return teacherServiceImpl.getParticularTeacherDetails(fetchId);
+		return teacherServiceImpl.getParticularTeacherDetails(id);
 	}
 
 	public void getTeacherDetailsByClassRoom(Integer roomNo) {

@@ -63,20 +63,20 @@ public class SubjectDAOImpl implements SubjectDAO {
 			switch (userChoice) {
 			case 1:
 				System.out.println("Enter the new subject name:");
-				String updateSubjectName = bufferedReader.readLine();
+				String subjectName = bufferedReader.readLine();
 				query = "UPDATE subject SET Name=? WHERE Id=?";
 				pst = con.prepareStatement(query);
-				pst.setString(1, updateSubjectName);
+				pst.setString(1, subjectName);
 				pst.setInt(2, subjectId);
 				pst.executeUpdate();
 				System.out.println("Rows updated!");
 				break;
 			case 2:
 				System.out.println("Enter the new class id:");
-				Integer updateClassId = Integer.parseInt(bufferedReader.readLine());
+				Integer classId = Integer.parseInt(bufferedReader.readLine());
 				query = "UPDATE subject SET classId=? WHERE Id=?";
 				pst = con.prepareStatement(query);
-				pst.setInt(1, updateClassId);
+				pst.setInt(1, classId);
 				pst.setInt(2, subjectId);
 				pst.executeUpdate();
 				System.out.println("Rows updated!");

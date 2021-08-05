@@ -21,16 +21,16 @@ public class StudentServiceImpl implements StudentService {
 		studentDAOImpl.addStudentDetails(student);
 	}
 
-	public void updateStudentDetails(Integer updateId)
+	public void updateStudentDetails(Integer id)
 			throws NumberFormatException, IOException, InvalidChoiceException, SQLException {
 		logger.info("In student DAO -> update method");
-		studentDAOImpl.updateStudentDetails(updateId);
+		studentDAOImpl.updateStudentDetails(id);
 	}
 
-	public void deleteStudentDetails(Integer deleteId)
+	public void deleteStudentDetails(Integer id)
 			throws NumberFormatException, IOException, SQLException, StudentNotFoundException {
 		logger.info("In student DAO -> delete method");
-		studentDAOImpl.deleteStudentDetails(deleteId);
+		studentDAOImpl.deleteStudentDetails(id);
 	}
 
 	public List<Student> getStudentDetails() throws NumberFormatException, IOException, SQLException {
@@ -38,10 +38,10 @@ public class StudentServiceImpl implements StudentService {
 		return studentDAOImpl.getStudentDetails();
 	}
 
-	public List<Student> getParticularStudentDetails(Integer fetchId)
+	public List<Student> getParticularStudentDetails(Integer id)
 			throws NumberFormatException, IOException, SQLException, StudentNotFoundException {
 		logger.info("In student DAO -> get particular student details method");
-		return studentDAOImpl.getParticularStudentDetails(fetchId);
+		return studentDAOImpl.getParticularStudentDetails(id);
 	}
 
 	public void getStudentDetailsByClassRoom(Integer roomNo) {

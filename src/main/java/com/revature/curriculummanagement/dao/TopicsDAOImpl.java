@@ -10,6 +10,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
+import com.revature.curriculummanagement.exception.DatabaseException;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.TopicNotFoundException;
 import com.revature.curriculummanagement.model.Topics;
@@ -20,6 +23,7 @@ public class TopicsDAOImpl implements TopicsDAO {
 	static List<Topics> topicsList = new ArrayList<>();
 	static List<String> topicsIdList = new ArrayList<>();
 	static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+	static Logger logger = Logger.getLogger("TopicsDAOImpl.class");
 
 	public static void getUnitNo() {
 		try (Connection con = DBUtil.getConnection();) {
@@ -35,7 +39,7 @@ public class TopicsDAOImpl implements TopicsDAO {
 		}
 	}
 
-	public void addTopicsDetails(Topics topics) throws SQLException, IOException {
+	public void addTopicsDetails(Topics topics) {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "INSERT INTO topics VALUES(?,?,?,?,?,?)";
@@ -53,13 +57,18 @@ public class TopicsDAOImpl implements TopicsDAO {
 		}
 	}
 
-	public void updateTopicsDetails(String unitNo) throws SQLException, IOException {
+	public void updateTopicsDetails(String unitNo) {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "";
-			getUnitNo();
-			if (!topicsIdList.contains(unitNo)) {
-				throw new TopicNotFoundException("Topic not found,Enter the valid id!");
+			try {
+				getUnitNo();
+				if (!topicsIdList.contains(unitNo)) {
+					throw new TopicNotFoundException("Topic not found,Enter the valid id!");
+				}
+			} catch (TopicNotFoundException e) {
+				logger.info(e.getMessage());
+				throw new DatabaseException(e.getMessage());
 			}
 			System.out.println("1.Update unit name");
 			System.out.println("2.Update starting date");
@@ -69,30 +78,30 @@ public class TopicsDAOImpl implements TopicsDAO {
 			switch (userChoice) {
 			case 1:
 				System.out.println("Enter the new unit name:");
-				String updateUnitName = bufferedReader.readLine();
+				String newUnitName = bufferedReader.readLine();
 				query = "UPDATE topics SET unitName=? WHERE unitNo=?";
 				pst = con.prepareStatement(query);
-				pst.setString(1, updateUnitName);
+				pst.setString(1, newUnitName);
 				pst.setString(2, unitNo);
 				pst.executeUpdate();
 				System.out.println("Rows updated!");
 				break;
 			case 2:
 				System.out.println("Enter the new starting date:");
-				String updateBeginDate = bufferedReader.readLine();
+				String newBeginDate = bufferedReader.readLine();
 				query = "UPDATE topics SET beginDate=? WHERE unitNo=?";
 				pst = con.prepareStatement(query);
-				pst.setString(1, updateBeginDate);
+				pst.setString(1, newBeginDate);
 				pst.setString(2, unitNo);
 				pst.executeUpdate();
 				System.out.println("Rows updated!");
 				break;
 			case 3:
 				System.out.println("Enter the new status:");
-				Boolean updateStatus = Boolean.parseBoolean(bufferedReader.readLine());
+				Boolean newStatus = Boolean.parseBoolean(bufferedReader.readLine());
 				query = "UPDATE topics SET status=? WHERE unitNo=?";
 				pst = con.prepareStatement(query);
-				pst.setBoolean(1, updateStatus);
+				pst.setBoolean(1, newStatus);
 				pst.setString(2, unitNo);
 				pst.executeUpdate();
 				System.out.println("Rows updated!");
@@ -105,10 +114,15 @@ public class TopicsDAOImpl implements TopicsDAO {
 		}
 	}
 
-	public void deleteTopicsDetails(String unitNo) throws SQLException, IOException, TopicNotFoundException {
-		getUnitNo();
-		if (!topicsIdList.contains(unitNo)) {
-			throw new TopicNotFoundException("Topic not found,Enter the valid id!");
+	public void deleteTopicsDetails(String unitNo) throws DatabaseException {
+		try {
+			getUnitNo();
+			if (!topicsIdList.contains(unitNo)) {
+				throw new TopicNotFoundException("Topic not found,Enter the valid id!");
+			}
+		} catch (TopicNotFoundException e) {
+			logger.info(e.getMessage());
+			throw new DatabaseException(e.getMessage());
 		}
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
@@ -122,7 +136,7 @@ public class TopicsDAOImpl implements TopicsDAO {
 		}
 	}
 
-	public List<Topics> getTopicsDetails() throws SQLException, IOException {
+	public List<Topics> getTopicsDetails() {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "SELECT * FROM topics";
@@ -138,12 +152,16 @@ public class TopicsDAOImpl implements TopicsDAO {
 		return topicsList;
 	}
 
-	public List<Topics> getParticularTopicDetails(String unitNo)
-			throws SQLException, IOException, TopicNotFoundException {
+	public List<Topics> getParticularTopicDetails(String unitNo) throws DatabaseException {
 		List<Topics> topicsParticularList = new ArrayList<>();
 		getUnitNo();
-		if (!topicsIdList.contains(unitNo)) {
-			throw new TopicNotFoundException("Topic not found,Enter the valid id!");
+		try {
+			if (!topicsIdList.contains(unitNo)) {
+				throw new TopicNotFoundException("Topic not found,Enter the valid id!");
+			}
+		} catch (TopicNotFoundException e) {
+			logger.info(e.getMessage());
+			throw new DatabaseException(e.getMessage());
 		}
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
@@ -155,7 +173,7 @@ public class TopicsDAOImpl implements TopicsDAO {
 				topicsParticularList.add(new Topics(rs.getString(1), rs.getString(2), rs.getString(3), rs.getBoolean(4),
 						rs.getInt(5), rs.getInt(6)));
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return topicsParticularList;

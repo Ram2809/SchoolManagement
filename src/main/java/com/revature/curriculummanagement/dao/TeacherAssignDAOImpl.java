@@ -65,20 +65,20 @@ public class TeacherAssignDAOImpl implements TeacherAssignDAO {
 			switch (userChoice) {
 			case 1:
 				System.out.println("Enter the new room no:");
-				Integer updateRoomNo = Integer.parseInt(bufferedReader.readLine());
+				Integer newRoomNo = Integer.parseInt(bufferedReader.readLine());
 				query = "UPDATE teacherDetails SET classRoomNo=? WHERE teacherId=?";
 				pst = con.prepareStatement(query);
-				pst.setInt(1, updateRoomNo);
+				pst.setInt(1, newRoomNo);
 				pst.setInt(2, teacherId);
 				pst.executeUpdate();
 				System.out.println("Rows updated!");
 				break;
 			case 2:
 				System.out.println("Enter the new subject id:");
-				Integer updateSubjectId = Integer.parseInt(bufferedReader.readLine());
+				Integer newSubjectId = Integer.parseInt(bufferedReader.readLine());
 				query = "UPDATE teacherDetails SET subjectId=? WHERE teacherId=?";
 				pst = con.prepareStatement(query);
-				pst.setInt(1, updateSubjectId);
+				pst.setInt(1, newSubjectId);
 				pst.setInt(2, teacherId);
 				pst.executeUpdate();
 				System.out.println("Rows updated!");

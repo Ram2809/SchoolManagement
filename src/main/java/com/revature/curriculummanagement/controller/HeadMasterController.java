@@ -19,14 +19,14 @@ public class HeadMasterController {
 		headMasterServiceImpl.addHeadMasterDetails(headMaster);
 	}
 
-	public static void updateHeadMasterDetails(Integer updateId, String newName) throws SQLException, IOException {
+	public static void updateHeadMasterDetails(Integer id, String newName) throws SQLException, IOException {
 		logger.info("In head master service -> update method");
-		headMasterServiceImpl.updateHeadMasterDetails(updateId, newName);
+		headMasterServiceImpl.updateHeadMasterDetails(id, newName);
 	}
 
-	public static void deleteHeadMasterDetails(Integer deleteId) throws SQLException, IOException {
+	public static void deleteHeadMasterDetails(Integer id) throws SQLException, IOException {
 		logger.info("In head master service -> delete method");
-		headMasterServiceImpl.deleteHeadMasterDetails(deleteId);
+		headMasterServiceImpl.deleteHeadMasterDetails(id);
 	}
 
 	public static List<HeadMaster> getHeadMasterDetails() throws SQLException, IOException {

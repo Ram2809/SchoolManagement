@@ -80,10 +80,10 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 			switch (userChoice) {
 			case 1:
 				System.out.println("Enter the new peroid:");
-				String updatePeriodOne = bufferedReader.readLine();
+				String newPeriodOne = bufferedReader.readLine();
 				query = "UPDATE timetable SET periodOne=? WHERE classRoomNo=? AND Day=?";
 				pst = con.prepareStatement(query);
-				pst.setString(1, updatePeriodOne);
+				pst.setString(1, newPeriodOne);
 				pst.setInt(2, classId);
 				pst.setString(3, day);
 				pst.executeUpdate();
@@ -91,10 +91,10 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 				break;
 			case 2:
 				System.out.println("Enter the new peroid:");
-				String updatePeriodTwo = bufferedReader.readLine();
+				String newPeriodTwo = bufferedReader.readLine();
 				query = "UPDATE timetable SET periodTwo=? WHERE classRoomNo=? AND Day=?";
 				pst = con.prepareStatement(query);
-				pst.setString(1, updatePeriodTwo);
+				pst.setString(1, newPeriodTwo);
 				pst.setInt(2, classId);
 				pst.setString(3, day);
 				pst.executeUpdate();
@@ -102,10 +102,10 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 				break;
 			case 3:
 				System.out.println("Enter the new peroid:");
-				String updatePeriodThree = bufferedReader.readLine();
+				String newPeriodThree = bufferedReader.readLine();
 				query = "UPDATE timetable SET periodThree=? WHERE classRoomNo=? AND Day=?";
 				pst = con.prepareStatement(query);
-				pst.setString(1, updatePeriodThree);
+				pst.setString(1, newPeriodThree);
 				pst.setInt(2, classId);
 				pst.setString(3, day);
 				pst.executeUpdate();
@@ -113,10 +113,10 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 				break;
 			case 4:
 				System.out.println("Enter the new peroid:");
-				String updatePeriodFour = bufferedReader.readLine();
+				String newPeriodFour = bufferedReader.readLine();
 				query = "UPDATE timetable SET periodFour=? WHERE classRoomNo=? AND Day=?";
 				pst = con.prepareStatement(query);
-				pst.setString(1, updatePeriodFour);
+				pst.setString(1, newPeriodFour);
 				pst.setInt(2, classId);
 				pst.setString(3, day);
 				pst.executeUpdate();
@@ -124,10 +124,10 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 				break;
 			case 5:
 				System.out.println("Enter the new peroid:");
-				String updatePeriodFive = bufferedReader.readLine();
+				String newPeriodFive = bufferedReader.readLine();
 				query = "UPDATE timetable SET periodFive=? WHERE classRoomNo=? AND Day=?";
 				pst = con.prepareStatement(query);
-				pst.setString(1, updatePeriodFive);
+				pst.setString(1, newPeriodFive);
 				pst.setInt(2, classId);
 				pst.setString(3, day);
 				pst.executeUpdate();
@@ -135,10 +135,10 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 				break;
 			case 6:
 				System.out.println("Enter the new peroid:");
-				String updatePeriodSix = bufferedReader.readLine();
+				String newPeriodSix = bufferedReader.readLine();
 				query = "UPDATE timetable SET periodSix=? WHERE classRoomNo=? AND Day=?";
 				pst = con.prepareStatement(query);
-				pst.setString(1, updatePeriodSix);
+				pst.setString(1, newPeriodSix);
 				pst.setInt(2, classId);
 				pst.setString(3, day);
 				pst.executeUpdate();

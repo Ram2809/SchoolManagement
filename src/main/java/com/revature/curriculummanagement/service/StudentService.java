@@ -13,13 +13,13 @@ public interface StudentService {
 
 	List<Student> getStudentDetails() throws NumberFormatException, IOException, SQLException;
 
-	void updateStudentDetails(Integer updateId)
+	void updateStudentDetails(Integer id)
 			throws NumberFormatException, IOException, InvalidChoiceException, SQLException;
 
-	void deleteStudentDetails(Integer deleteId)
+	void deleteStudentDetails(Integer id)
 			throws NumberFormatException, IOException, SQLException, StudentNotFoundException;
 
-	List<Student> getParticularStudentDetails(Integer fetchId)
+	List<Student> getParticularStudentDetails(Integer id)
 			throws NumberFormatException, IOException, SQLException, StudentNotFoundException;
 
 	void getStudentDetailsByClassRoom(Integer roomNo);

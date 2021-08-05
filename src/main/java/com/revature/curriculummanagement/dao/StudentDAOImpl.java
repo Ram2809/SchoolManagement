@@ -51,12 +51,12 @@ public class StudentDAOImpl implements StudentDAO {
 		}
 	}
 
-	public void updateStudentDetails(Integer updateId) throws SQLException, IOException {
+	public void updateStudentDetails(Integer id) throws SQLException, IOException {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "";
 			getStudentId();
-			if (!studentIdList.contains(updateId)) {
+			if (!studentIdList.contains(id)) {
 				throw new StudentNotFoundException("Student not found,Enter the valid id!");
 			}
 			System.out.println("1.Update name");
@@ -68,41 +68,41 @@ public class StudentDAOImpl implements StudentDAO {
 			switch (userChoice) {
 			case 1:
 				System.out.println("Enter the new name:");
-				String updateName = bufferedReader.readLine();
+				String newName = bufferedReader.readLine();
 				query = "UPDATE student SET Name=? WHERE RollNo=?";
 				pst = con.prepareStatement(query);
-				pst.setString(1, updateName);
-				pst.setInt(2, updateId);
+				pst.setString(1, newName);
+				pst.setInt(2, id);
 				pst.executeUpdate();
 				System.out.println("Rows updated!");
 				break;
 			case 2:
 				System.out.println("Enter the new dob:");
-				String updateDOB = bufferedReader.readLine();
+				String newDOB = bufferedReader.readLine();
 				query = "UPDATE student SET Date_of_Birth=? WHERE RollNo=?";
 				pst = con.prepareStatement(query);
-				pst.setString(1, updateDOB);
-				pst.setInt(2, updateId);
+				pst.setString(1, newDOB);
+				pst.setInt(2, id);
 				pst.executeUpdate();
 				System.out.println("Rows updated!");
 				break;
 			case 3:
 				System.out.println("Enter the new address:");
-				String updateAddress = bufferedReader.readLine();
+				String newAddress = bufferedReader.readLine();
 				query = "UPDATE student SET Address=? WHERE RollNo=?";
 				pst = con.prepareStatement(query);
-				pst.setString(1, updateAddress);
-				pst.setInt(2, updateId);
+				pst.setString(1, newAddress);
+				pst.setInt(2, id);
 				pst.executeUpdate();
 				System.out.println("Rows updated!");
 				break;
 			case 4:
 				System.out.println("Enter the new class room no:");
-				Integer updateRoomNo = Integer.parseInt(bufferedReader.readLine());
+				Integer newRoomNo = Integer.parseInt(bufferedReader.readLine());
 				query = "UPDATE student SET classRoomNo=? WHERE RollNo=?";
 				pst = con.prepareStatement(query);
-				pst.setInt(1, updateRoomNo);
-				pst.setInt(2, updateId);
+				pst.setInt(1, newRoomNo);
+				pst.setInt(2, id);
 				pst.executeUpdate();
 				System.out.println("Rows updated!");
 				break;
@@ -114,16 +114,16 @@ public class StudentDAOImpl implements StudentDAO {
 		}
 	}
 
-	public void deleteStudentDetails(Integer deleteId) throws SQLException, IOException, StudentNotFoundException {
+	public void deleteStudentDetails(Integer id) throws SQLException, IOException, StudentNotFoundException {
 		getStudentId();
-		if (!studentIdList.contains(deleteId)) {
+		if (!studentIdList.contains(id)) {
 			throw new StudentNotFoundException("Student not found,Enter the valid id!");
 		}
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "DELETE FROM student WHERE RollNo=?";
 			pst = con.prepareStatement(query);
-			pst.setInt(1, deleteId);
+			pst.setInt(1, id);
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows deleted!");
 		} catch (Exception e) {
@@ -147,18 +147,18 @@ public class StudentDAOImpl implements StudentDAO {
 		return studentList;
 	}
 
-	public List<Student> getParticularStudentDetails(Integer fetchId)
+	public List<Student> getParticularStudentDetails(Integer id)
 			throws SQLException, IOException, StudentNotFoundException {
 		List<Student> studentParticularList = new ArrayList<>();
 		getStudentId();
-		if (!studentIdList.contains(fetchId)) {
+		if (!studentIdList.contains(id)) {
 			throw new StudentNotFoundException("Student not found,Enter the valid id!");
 		}
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "SELECT * FROM student WHERE RollNo=?";
 			pst = con.prepareStatement(query);
-			pst.setInt(1, fetchId);
+			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
 				studentParticularList.add(
