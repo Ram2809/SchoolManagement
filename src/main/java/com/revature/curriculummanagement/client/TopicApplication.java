@@ -46,8 +46,7 @@ public class TopicApplication {
 			topics.setClassRoomNo(classRoomNo);
 			topicsController.addTopicsDetails(topics);
 		} catch (NumberFormatException | IOException e) {
-			e.printStackTrace();
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -57,8 +56,7 @@ public class TopicApplication {
 			String unitNo = bufferedReader.readLine();
 			topicsController.updateTopicsDetails(unitNo);
 		} catch (NumberFormatException | IOException | ControllerException e) {
-			e.printStackTrace();
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -68,8 +66,7 @@ public class TopicApplication {
 			String unitNo = bufferedReader.readLine();
 			topicsController.deleteTopicsDetails(unitNo);
 		} catch (IOException | NumberFormatException | ControllerException e) {
-			e.printStackTrace();
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -92,8 +89,7 @@ public class TopicApplication {
 				System.out.println(topicsParticularIterator.next());
 			}
 		} catch (IOException | NumberFormatException | ControllerException e) {
-			e.printStackTrace();
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -140,7 +136,6 @@ public class TopicApplication {
 				}
 			} catch (IOException | NumberFormatException | InvalidChoiceException e) {
 				logger.info(e.getMessage());
-				e.printStackTrace();
 			}
 		}
 	}

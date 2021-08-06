@@ -10,6 +10,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
+import com.revature.curriculummanagement.exception.DatabaseException;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.model.TimeTable;
 import com.revature.curriculummanagement.util.DBUtil;
@@ -18,6 +21,7 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 	static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 	static TimeTable timeTable = new TimeTable();
 	static List<TimeTable> timeTableList = new ArrayList<TimeTable>();
+	static Logger logger = Logger.getLogger("TimeTableDAOImpl.class");
 
 	public void addTimeTableDetails() {
 		try {
@@ -62,11 +66,11 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 				System.out.println(count + " " + "Rows Inserted");
 			}
 		} catch (SQLException | IOException | NumberFormatException e) {
-			e.printStackTrace();
+			logger.warn(e.getMessage());
 		}
 	}
 
-	public void updateTimeTableDetails(Integer classId, String day) {
+	public void updateTimeTableDetails(Integer classId, String day) throws DatabaseException {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "";
@@ -149,7 +153,7 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 				throw new InvalidChoiceException("Enter the valid choice!");
 			}
 		} catch (SQLException | InvalidChoiceException | NumberFormatException | IOException e) {
-			e.printStackTrace();
+			throw new DatabaseException(e.getMessage());
 		}
 	}
 
@@ -163,7 +167,7 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows deleted!");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -178,7 +182,7 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8)));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.warn(e.getMessage());
 		}
 		return timeTableList;
 	}
@@ -198,7 +202,7 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.warn(e.getMessage());
 		}
 		return timeTableParticularList;
 	}
@@ -215,7 +219,7 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 						+ rs.getString(4) + " " + rs.getString(5) + " " + rs.getString(6) + " " + rs.getString(7));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -232,7 +236,7 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 						+ " " + rs.getString(9) + " " + rs.getString(10));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.warn(e.getMessage());
 		}
 	}
 

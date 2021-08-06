@@ -2,12 +2,13 @@ package com.revature.curriculummanagement.service;
 
 import java.util.List;
 
+import com.revature.curriculummanagement.exception.BusinessServiceException;
 import com.revature.curriculummanagement.model.TimeTable;
 
 public interface TimeTableService {
 	void addTimeTableDetails();
 
-	void updateTimeTableDetails(Integer classId, String day);
+	void updateTimeTableDetails(Integer classId, String day) throws BusinessServiceException;
 
 	void deleteTimeTableDetails(Integer classId, String day);
 

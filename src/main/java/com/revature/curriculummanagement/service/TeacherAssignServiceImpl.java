@@ -24,7 +24,6 @@ public class TeacherAssignServiceImpl implements TeacherAssignService {
 		try {
 			teacherAssignDAOImpl.updateTeacherAssignDetails(teacherId);
 		} catch (DatabaseException e) {
-			e.printStackTrace();
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
@@ -34,7 +33,6 @@ public class TeacherAssignServiceImpl implements TeacherAssignService {
 		try {
 			teacherAssignDAOImpl.deleteTeacherAssignDetails(teacherId);
 		} catch (DatabaseException e) {
-			e.printStackTrace();
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
@@ -49,7 +47,6 @@ public class TeacherAssignServiceImpl implements TeacherAssignService {
 		try {
 			return teacherAssignDAOImpl.getParticularTeacherAssignDetails(teacherId);
 		} catch (DatabaseException e) {
-			e.printStackTrace();
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}

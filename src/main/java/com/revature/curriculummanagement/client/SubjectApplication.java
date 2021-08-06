@@ -37,7 +37,7 @@ public class SubjectApplication {
 			subject.setClassId(classId);
 			subjectController.addSubjectDetails(subject);
 		} catch (IOException | NumberFormatException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -47,7 +47,7 @@ public class SubjectApplication {
 			Integer subjectId = Integer.parseInt(bufferedReader.readLine());
 			subjectController.updateSubjectDetails(subjectId);
 		} catch (IOException | NumberFormatException | ControllerException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -57,7 +57,7 @@ public class SubjectApplication {
 			Integer subjectId = Integer.parseInt(bufferedReader.readLine());
 			subjectController.deleteSubjectDetails(subjectId);
 		} catch (IOException | NumberFormatException | ControllerException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -80,7 +80,7 @@ public class SubjectApplication {
 				System.out.println(subjectParticularIterator.next());
 			}
 		} catch (IOException | NumberFormatException | ControllerException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -90,7 +90,7 @@ public class SubjectApplication {
 			Integer subjectId = Integer.parseInt(bufferedReader.readLine());
 			subjectController.getSubjectStatus(subjectId);
 		} catch (NumberFormatException | IOException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 
 	}
@@ -141,7 +141,7 @@ public class SubjectApplication {
 					throw new InvalidChoiceException("Enter the valid choice!");
 				}
 			} catch (IOException | NumberFormatException | ControllerException | InvalidChoiceException e) {
-				logger.info(e.getMessage());
+				logger.warn(e.getMessage());
 			}
 		}
 	}

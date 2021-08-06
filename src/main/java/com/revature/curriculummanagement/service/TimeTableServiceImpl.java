@@ -6,6 +6,8 @@ import org.apache.log4j.Logger;
 
 import com.revature.curriculummanagement.dao.TimeTableDAO;
 import com.revature.curriculummanagement.dao.TimeTableDAOImpl;
+import com.revature.curriculummanagement.exception.BusinessServiceException;
+import com.revature.curriculummanagement.exception.DatabaseException;
 import com.revature.curriculummanagement.model.TimeTable;
 
 public class TimeTableServiceImpl implements TimeTableService {
@@ -17,9 +19,13 @@ public class TimeTableServiceImpl implements TimeTableService {
 		timeTableDAOImpl.addTimeTableDetails();
 	}
 
-	public void updateTimeTableDetails(Integer classId, String day) {
+	public void updateTimeTableDetails(Integer classId, String day) throws BusinessServiceException {
 		logger.info("In time table DAO -> update method");
-		timeTableDAOImpl.updateTimeTableDetails(classId, day);
+		try {
+			timeTableDAOImpl.updateTimeTableDetails(classId, day);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
 	public void deleteTimeTableDetails(Integer classId, String day) {

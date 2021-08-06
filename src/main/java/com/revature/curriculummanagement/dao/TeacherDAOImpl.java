@@ -34,8 +34,7 @@ public class TeacherDAOImpl implements TeacherDAO {
 				teacherIdList.add(rs.getInt(1));
 			}
 		} catch (SQLException e) {
-			logger.info(e.getMessage());
-			e.printStackTrace();
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -53,8 +52,7 @@ public class TeacherDAOImpl implements TeacherDAO {
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows inserted!");
 		} catch (SQLException e) {
-			logger.info(e.getMessage());
-			e.printStackTrace();
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -128,7 +126,6 @@ public class TeacherDAOImpl implements TeacherDAO {
 				throw new InvalidChoiceException("Enter the valid choice!");
 			}
 		} catch (IOException | SQLException | InvalidChoiceException | TeacherNotFoundException e) {
-			logger.info(e.getMessage());
 			throw new DatabaseException(e.getMessage());
 		}
 
@@ -148,7 +145,6 @@ public class TeacherDAOImpl implements TeacherDAO {
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows deleted!");
 		} catch (SQLException | TeacherNotFoundException e) {
-			logger.info(e.getMessage());
 			throw new DatabaseException(e.getMessage());
 		}
 
@@ -165,8 +161,7 @@ public class TeacherDAOImpl implements TeacherDAO {
 						rs.getString(5), rs.getString(6)));
 			}
 		} catch (SQLException e) {
-			logger.info(e.getMessage());
-			e.printStackTrace();
+			logger.warn(e.getMessage());
 		}
 		return teacherList;
 	}
@@ -189,7 +184,6 @@ public class TeacherDAOImpl implements TeacherDAO {
 						rs.getString(5), rs.getString(6)));
 			}
 		} catch (SQLException | TeacherNotFoundException e) {
-			logger.info(e.getMessage());
 			throw new DatabaseException(e.getMessage());
 		}
 		return teacherParticularList;
@@ -206,8 +200,7 @@ public class TeacherDAOImpl implements TeacherDAO {
 				System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getInt(3) + " " + rs.getString(4));
 			}
 		} catch (SQLException e) {
-			logger.info(e.getMessage());
-			e.printStackTrace();
+			logger.warn(e.getMessage());
 		}
 	}
 }

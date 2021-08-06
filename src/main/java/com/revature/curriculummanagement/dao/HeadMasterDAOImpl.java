@@ -1,6 +1,5 @@
 package com.revature.curriculummanagement.dao;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,7 +26,7 @@ public class HeadMasterDAOImpl implements HeadMasterDAO {
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows inserted!");
 		} catch (SQLException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -41,7 +40,7 @@ public class HeadMasterDAOImpl implements HeadMasterDAO {
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows updated!");
 		} catch (SQLException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -54,7 +53,7 @@ public class HeadMasterDAOImpl implements HeadMasterDAO {
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows deleted!");
 		} catch (SQLException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -68,7 +67,7 @@ public class HeadMasterDAOImpl implements HeadMasterDAO {
 				headMasterList.add(new HeadMaster(rs.getInt(1), rs.getString(2)));
 			}
 		} catch (SQLException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 		return headMasterList;
 	}

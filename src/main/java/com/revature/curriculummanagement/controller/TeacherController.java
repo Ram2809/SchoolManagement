@@ -29,7 +29,6 @@ public class TeacherController {
 		try {
 			teacherServiceImpl.updateTeacherDetails(id);
 		} catch (BusinessServiceException e) {
-			logger.info(e.getMessage());
 			throw new ControllerException(e.getMessage());
 		}
 	}
@@ -39,7 +38,6 @@ public class TeacherController {
 		try {
 			teacherServiceImpl.deleteTeacherDetails(id);
 		} catch (BusinessServiceException e) {
-			logger.info(e.getMessage());
 			throw new ControllerException(e.getMessage());
 		}
 	}
@@ -49,7 +47,6 @@ public class TeacherController {
 		try {
 			return teacherServiceImpl.getParticularTeacherDetails(id);
 		} catch (BusinessServiceException e) {
-			logger.info(e.getMessage());
 			throw new ControllerException(e.getMessage());
 		}
 	}

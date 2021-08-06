@@ -33,7 +33,7 @@ public class ClassDAOImpl implements ClassDAO {
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows inserted!");
 		} catch (SQLException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -83,7 +83,7 @@ public class ClassDAOImpl implements ClassDAO {
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Row deleted!");
 		} catch (SQLException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -97,7 +97,7 @@ public class ClassDAOImpl implements ClassDAO {
 				classList.add(new Classes(rs.getInt(1), rs.getString(2), rs.getString(3)));
 			}
 		} catch (SQLException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 		return classList;
 	}

@@ -7,12 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Logger;
+import org.apache.log4j.*;
 
 import com.revature.curriculummanagement.controller.TimeTableController;
+import com.revature.curriculummanagement.exception.ControllerException;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
-import com.revature.curriculummanagement.exception.StudentNotFoundException;
-import com.revature.curriculummanagement.model.Student;
 import com.revature.curriculummanagement.model.TimeTable;
 
 public class TimeTableApplication {
@@ -34,9 +33,8 @@ public class TimeTableApplication {
 			System.out.println("Enter the day:");
 			String day = bufferedReader.readLine();
 			timeTableController.updateTimeTableDetails(classId, day);
-		} catch (IOException | NumberFormatException e) {
-			logger.info(e.getMessage());
-			e.printStackTrace();
+		} catch (IOException | NumberFormatException | ControllerException e) {
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -48,8 +46,7 @@ public class TimeTableApplication {
 			String day = bufferedReader.readLine();
 			timeTableController.deleteTimeTableDetails(classId, day);
 		} catch (IOException | NumberFormatException e) {
-			logger.info(e.getMessage());
-			e.printStackTrace();
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -74,8 +71,7 @@ public class TimeTableApplication {
 				System.out.println(timeTableParticularIterator.next());
 			}
 		} catch (IOException | NumberFormatException e) {
-			logger.info(e.getMessage());
-			e.printStackTrace();
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -85,8 +81,7 @@ public class TimeTableApplication {
 			Integer roomNo = Integer.parseInt(bufferedReader.readLine());
 			timeTableController.getTimeTableByclassRoom(roomNo);
 		} catch (IOException | NumberFormatException e) {
-			logger.info(e.getMessage());
-			e.printStackTrace();
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -96,8 +91,7 @@ public class TimeTableApplication {
 			Integer roomNo = Integer.parseInt(bufferedReader.readLine());
 			timeTableController.getTimeTableByclassStandard(roomNo);
 		} catch (IOException | NumberFormatException e) {
-			logger.info(e.getMessage());
-			e.printStackTrace();
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -153,8 +147,7 @@ public class TimeTableApplication {
 					throw new InvalidChoiceException("Enter the valid choice!");
 				}
 			} catch (IOException | NumberFormatException | InvalidChoiceException e) {
-				logger.info(e.getMessage());
-				e.printStackTrace();
+				logger.warn(e.getMessage());
 			}
 		}
 	}

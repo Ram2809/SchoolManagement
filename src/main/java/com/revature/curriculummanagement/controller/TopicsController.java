@@ -29,7 +29,6 @@ public class TopicsController {
 		try {
 			topicsServiceImpl.updateTopicsDetails(unitNo);
 		} catch (BusinessServiceException e) {
-			e.printStackTrace();
 			throw new ControllerException(e.getMessage());
 		}
 	}
@@ -39,7 +38,6 @@ public class TopicsController {
 		try {
 			topicsServiceImpl.deleteTopicsDetails(unitNo);
 		} catch (BusinessServiceException e) {
-			logger.info(e.getMessage());
 			throw new ControllerException(e.getMessage());
 		}
 	}
@@ -49,7 +47,6 @@ public class TopicsController {
 		try {
 			return topicsServiceImpl.getParticularTopicDetails(unitNo);
 		} catch (BusinessServiceException e) {
-			logger.info(e.getMessage());
 			throw new ControllerException(e.getMessage());
 		}
 	}

@@ -12,6 +12,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.revature.curriculummanagement.exception.DatabaseException;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.QuestionNotFoundException;
 import com.revature.curriculummanagement.model.Discussion;
@@ -33,7 +34,7 @@ public class DiscussionDAOImpl implements DiscussionDAO {
 				questionNoList.add(rs.getString(1));
 			}
 		} catch (SQLException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -51,12 +52,12 @@ public class DiscussionDAOImpl implements DiscussionDAO {
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows inserted!");
 		} catch (SQLException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 
 	}
 
-	public void updateDiscussionDetails(String questionNo) throws SQLException, IOException {
+	public void updateDiscussionDetails(String questionNo) throws DatabaseException {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "";
@@ -103,29 +104,31 @@ public class DiscussionDAOImpl implements DiscussionDAO {
 			default:
 				throw new InvalidChoiceException("Enter the valid choice!");
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException | InvalidChoiceException | QuestionNotFoundException | IOException
+				| NumberFormatException e) {
+			throw new DatabaseException(e.getMessage());
 		}
 	}
 
-	public void deleteDiscussionDetails(String questionNo) throws SQLException, IOException, QuestionNotFoundException {
-		getQuestionNo();
-		if (!questionNoList.contains(questionNo)) {
-			throw new QuestionNotFoundException("Question not found,Enter the valid id!");
-		}
-		try (Connection con = DBUtil.getConnection();) {
+	public void deleteDiscussionDetails(String questionNo) throws DatabaseException {
+		try {
+			getQuestionNo();
+			if (!questionNoList.contains(questionNo)) {
+				throw new QuestionNotFoundException("Question not found,Enter the valid id!");
+			}
+			Connection con = DBUtil.getConnection();
 			PreparedStatement pst = null;
 			String query = "DELETE FROM discussion WHERE QuestionNo=?";
 			pst = con.prepareStatement(query);
 			pst.setString(1, questionNo);
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows deleted!");
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException | QuestionNotFoundException e) {
+			throw new DatabaseException(e.getMessage());
 		}
 	}
 
-	public List<Discussion> getDiscussionDetails() throws SQLException, IOException {
+	public List<Discussion> getDiscussionDetails() {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "SELECT * FROM discussion";
@@ -135,20 +138,20 @@ public class DiscussionDAOImpl implements DiscussionDAO {
 				discussionList.add(new Discussion(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
 						rs.getInt(5), rs.getString(6)));
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException e) {
+			logger.warn(e.getMessage());
 		}
 		return discussionList;
 	}
 
-	public List<Discussion> getParticularDiscussionDetails(String questionNo)
-			throws SQLException, IOException, QuestionNotFoundException {
+	public List<Discussion> getParticularDiscussionDetails(String questionNo) throws DatabaseException {
 		List<Discussion> discussionParticularList = new ArrayList<>();
-		getQuestionNo();
-		if (!questionNoList.contains(questionNo)) {
-			throw new QuestionNotFoundException("Question not found,Enter the valid id!");
-		}
-		try (Connection con = DBUtil.getConnection();) {
+		try {
+			getQuestionNo();
+			if (!questionNoList.contains(questionNo)) {
+				throw new QuestionNotFoundException("Question not found,Enter the valid id!");
+			}
+			Connection con = DBUtil.getConnection();
 			PreparedStatement pst = null;
 			String query = "SELECT * FROM discussion WHERE QuestionNo=?";
 			pst = con.prepareStatement(query);
@@ -158,8 +161,8 @@ public class DiscussionDAOImpl implements DiscussionDAO {
 				discussionParticularList.add(new Discussion(rs.getString(1), rs.getString(2), rs.getString(3),
 						rs.getString(4), rs.getInt(5), rs.getString(6)));
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException | QuestionNotFoundException e) {
+			throw new DatabaseException(e.getMessage());
 		}
 		return discussionParticularList;
 	}
@@ -176,8 +179,8 @@ public class DiscussionDAOImpl implements DiscussionDAO {
 						+ " " + rs.getString(5) + " " + rs.getString(6) + " " + rs.getString(7) + " " + rs.getString(8)
 						+ " " + rs.getString(9) + " " + rs.getString(10) + " " + rs.getString(11));
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException e) {
+			logger.warn(e.getMessage());
 		}
 	}
 

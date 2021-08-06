@@ -1,7 +1,5 @@
 package com.revature.curriculummanagement.service;
 
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -10,8 +8,6 @@ import com.revature.curriculummanagement.dao.TopicsDAO;
 import com.revature.curriculummanagement.dao.TopicsDAOImpl;
 import com.revature.curriculummanagement.exception.BusinessServiceException;
 import com.revature.curriculummanagement.exception.DatabaseException;
-import com.revature.curriculummanagement.exception.InvalidChoiceException;
-import com.revature.curriculummanagement.exception.TopicNotFoundException;
 import com.revature.curriculummanagement.model.Topics;
 
 public class TopicsServiceImpl implements TopicsService {
@@ -28,7 +24,6 @@ public class TopicsServiceImpl implements TopicsService {
 		try {
 			topicsDAOImpl.updateTopicsDetails(unitNo);
 		} catch (DatabaseException e) {
-			e.printStackTrace();
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
@@ -38,7 +33,6 @@ public class TopicsServiceImpl implements TopicsService {
 		try {
 			topicsDAOImpl.deleteTopicsDetails(unitNo);
 		} catch (DatabaseException e) {
-			logger.info(e.getMessage());
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
@@ -53,7 +47,6 @@ public class TopicsServiceImpl implements TopicsService {
 		try {
 			return topicsDAOImpl.getParticularTopicDetails(unitNo);
 		} catch (DatabaseException e) {
-			logger.info(e.getMessage());
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}

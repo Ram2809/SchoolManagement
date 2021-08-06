@@ -34,7 +34,7 @@ public class TeacherAssignDAOImpl implements TeacherAssignDAO {
 				teacherIdList.add(rs.getInt(1));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -49,7 +49,7 @@ public class TeacherAssignDAOImpl implements TeacherAssignDAO {
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows inserted!");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -92,7 +92,6 @@ public class TeacherAssignDAOImpl implements TeacherAssignDAO {
 			}
 		} catch (IOException | NumberFormatException | SQLException | TeacherNotFoundException
 				| InvalidChoiceException e) {
-			e.printStackTrace();
 			throw new DatabaseException(e.getMessage());
 		}
 	}
@@ -111,7 +110,6 @@ public class TeacherAssignDAOImpl implements TeacherAssignDAO {
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows deleted!");
 		} catch (SQLException | TeacherNotFoundException e) {
-			e.printStackTrace();
 			throw new DatabaseException(e.getMessage());
 		}
 	}
@@ -126,7 +124,7 @@ public class TeacherAssignDAOImpl implements TeacherAssignDAO {
 				teacherAssignList.add(new TeacherDetails(rs.getInt(1), rs.getInt(2), rs.getInt(3)));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.warn(e.getMessage());
 		}
 		return teacherAssignList;
 	}
@@ -148,7 +146,6 @@ public class TeacherAssignDAOImpl implements TeacherAssignDAO {
 				teacherAssignParticularList.add(new TeacherDetails(rs.getInt(1), rs.getInt(2), rs.getInt(3)));
 			}
 		} catch (SQLException | TeacherNotFoundException e) {
-			e.printStackTrace();
 			throw new DatabaseException(e.getMessage());
 		}
 		return teacherAssignParticularList;

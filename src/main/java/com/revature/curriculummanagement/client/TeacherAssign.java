@@ -34,7 +34,7 @@ public class TeacherAssign {
 			teacherDetails.setSubjectId(subjectId);
 			teacherAssignController.addTeacherAssignDetails(teacherDetails);
 		} catch (IOException | NumberFormatException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -44,7 +44,7 @@ public class TeacherAssign {
 			Integer teacherId = Integer.parseInt(bufferedReader.readLine());
 			teacherAssignController.updateTeacherAssignDetails(teacherId);
 		} catch (NumberFormatException | IOException | ControllerException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -54,7 +54,7 @@ public class TeacherAssign {
 			Integer teacherId = Integer.parseInt(bufferedReader.readLine());
 			teacherAssignController.deleteTeacherAssignDetails(teacherId);
 		} catch (IOException | NumberFormatException | ControllerException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -77,7 +77,7 @@ public class TeacherAssign {
 				System.out.println(teacherAssignParticularIterator.next());
 			}
 		} catch (IOException | NumberFormatException | ControllerException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -123,8 +123,7 @@ public class TeacherAssign {
 					throw new InvalidChoiceException("Enter the valid choice!");
 				}
 			} catch (IOException | NumberFormatException | InvalidChoiceException e) {
-				logger.info(e.getMessage());
-				e.printStackTrace();
+				logger.warn(e.getMessage());
 			}
 		}
 

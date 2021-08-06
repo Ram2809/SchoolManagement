@@ -29,7 +29,6 @@ public class TeacherAssignController {
 		try {
 			teacherAssignServiceImpl.updateTeacherAssignDetails(teacherId);
 		} catch (BusinessServiceException e) {
-			e.printStackTrace();
 			throw new ControllerException(e.getMessage());
 		}
 	}
@@ -39,7 +38,6 @@ public class TeacherAssignController {
 		try {
 			teacherAssignServiceImpl.deleteTeacherAssignDetails(teacherId);
 		} catch (BusinessServiceException e) {
-			e.printStackTrace();
 			throw new ControllerException(e.getMessage());
 		}
 	}
@@ -49,7 +47,6 @@ public class TeacherAssignController {
 		try {
 			return teacherAssignServiceImpl.getParticularTeacherAssignDetails(teacherId);
 		} catch (BusinessServiceException e) {
-			e.printStackTrace();
 			throw new ControllerException(e.getMessage());
 		}
 	}

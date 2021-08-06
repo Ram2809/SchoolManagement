@@ -1,7 +1,5 @@
 package com.revature.curriculummanagement.service;
 
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -10,8 +8,6 @@ import com.revature.curriculummanagement.dao.TeacherDAO;
 import com.revature.curriculummanagement.dao.TeacherDAOImpl;
 import com.revature.curriculummanagement.exception.BusinessServiceException;
 import com.revature.curriculummanagement.exception.DatabaseException;
-import com.revature.curriculummanagement.exception.InvalidChoiceException;
-import com.revature.curriculummanagement.exception.TeacherNotFoundException;
 import com.revature.curriculummanagement.model.Teacher;
 
 public class TeacherServiceImpl implements TeacherService {
@@ -28,7 +24,6 @@ public class TeacherServiceImpl implements TeacherService {
 		try {
 			teacherDAOImpl.updateTeacherDetails(id);
 		} catch (DatabaseException e) {
-			logger.info(e.getMessage());
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
@@ -38,7 +33,6 @@ public class TeacherServiceImpl implements TeacherService {
 		try {
 			teacherDAOImpl.deleteTeacherDetails(id);
 		} catch (DatabaseException e) {
-			logger.info(e.getMessage());
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
@@ -53,7 +47,6 @@ public class TeacherServiceImpl implements TeacherService {
 		try {
 			return teacherDAOImpl.getParticularTeacherDetails(id);
 		} catch (DatabaseException e) {
-			logger.info(e.getMessage());
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}

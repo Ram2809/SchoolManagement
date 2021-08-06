@@ -35,7 +35,7 @@ public class TopicsDAOImpl implements TopicsDAO {
 				topicsIdList.add(rs.getString(1));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -53,7 +53,7 @@ public class TopicsDAOImpl implements TopicsDAO {
 			pst.executeUpdate();
 			System.out.println("Rows inserted!");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -117,19 +117,15 @@ public class TopicsDAOImpl implements TopicsDAO {
 			if (!topicsIdList.contains(unitNo)) {
 				throw new TopicNotFoundException("Topic not found,Enter the valid id!");
 			}
-		} catch (TopicNotFoundException e) {
-			logger.info(e.getMessage());
-			throw new DatabaseException(e.getMessage());
-		}
-		try (Connection con = DBUtil.getConnection();) {
+			Connection con = DBUtil.getConnection();
 			PreparedStatement pst = null;
 			String query = "DELETE FROM topics WHERE unitNo=?";
 			pst = con.prepareStatement(query);
 			pst.setString(1, unitNo);
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows deleted!");
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (SQLException | TopicNotFoundException e) {
+			throw new DatabaseException(e.getMessage());
 		}
 	}
 
@@ -144,7 +140,7 @@ public class TopicsDAOImpl implements TopicsDAO {
 						rs.getInt(5), rs.getInt(6)));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.warn(e.getMessage());
 		}
 		return topicsList;
 	}
@@ -156,11 +152,7 @@ public class TopicsDAOImpl implements TopicsDAO {
 			if (!topicsIdList.contains(unitNo)) {
 				throw new TopicNotFoundException("Topic not found,Enter the valid id!");
 			}
-		} catch (TopicNotFoundException e) {
-			logger.info(e.getMessage());
-			throw new DatabaseException(e.getMessage());
-		}
-		try (Connection con = DBUtil.getConnection();) {
+			Connection con = DBUtil.getConnection();
 			PreparedStatement pst = null;
 			String query = "SELECT * FROM topics WHERE unitNo=?";
 			pst = con.prepareStatement(query);
@@ -170,8 +162,8 @@ public class TopicsDAOImpl implements TopicsDAO {
 				topicsParticularList.add(new Topics(rs.getString(1), rs.getString(2), rs.getString(3), rs.getBoolean(4),
 						rs.getInt(5), rs.getInt(6)));
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (SQLException | TopicNotFoundException e) {
+			throw new DatabaseException(e.getMessage());
 		}
 		return topicsParticularList;
 	}

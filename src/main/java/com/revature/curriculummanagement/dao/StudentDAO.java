@@ -1,11 +1,8 @@
 package com.revature.curriculummanagement.dao;
 
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 import com.revature.curriculummanagement.exception.DatabaseException;
-import com.revature.curriculummanagement.exception.StudentNotFoundException;
 import com.revature.curriculummanagement.model.Student;
 
 public interface StudentDAO {

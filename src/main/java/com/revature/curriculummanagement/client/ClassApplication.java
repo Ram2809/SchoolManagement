@@ -36,7 +36,7 @@ public class ClassApplication {
 			classes.setSection(section);
 			classController.addClassDetails(classes);
 		} catch (NumberFormatException | IOException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -46,7 +46,7 @@ public class ClassApplication {
 			Integer roomNo = Integer.parseInt(bufferedReader.readLine());
 			classController.updateClassDetails(roomNo);
 		} catch (NumberFormatException | IOException | ControllerException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -56,7 +56,7 @@ public class ClassApplication {
 			Integer roomNo = Integer.parseInt(bufferedReader.readLine());
 			classController.deleteClassDetails(roomNo);
 		} catch (NumberFormatException | IOException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -107,7 +107,7 @@ public class ClassApplication {
 					throw new InvalidChoiceException("Enter the valid choice!");
 				}
 			} catch (IOException | NumberFormatException | InvalidChoiceException e) {
-				logger.info(e.getMessage());
+				logger.warn(e.getMessage());
 			}
 		}
 	}

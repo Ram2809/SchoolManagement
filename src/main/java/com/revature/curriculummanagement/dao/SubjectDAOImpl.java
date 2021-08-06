@@ -34,7 +34,7 @@ public class SubjectDAOImpl implements SubjectDAO {
 				subjectIdList.add(rs.getInt(1));
 			}
 		} catch (SQLException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -48,7 +48,7 @@ public class SubjectDAOImpl implements SubjectDAO {
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows Inserted!");
 		} catch (SQLException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -121,7 +121,7 @@ public class SubjectDAOImpl implements SubjectDAO {
 				subjectList.add(new Subject(rs.getInt(1), rs.getString(2), rs.getInt(3)));
 			}
 		} catch (SQLException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 		return subjectList;
 	}
@@ -162,7 +162,7 @@ public class SubjectDAOImpl implements SubjectDAO {
 						+ rs.getBoolean(12));
 			}
 		} catch (SQLException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 
 	}

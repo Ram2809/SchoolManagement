@@ -33,8 +33,8 @@ public class StudentDAOImpl implements StudentDAO {
 			while (rs.next()) {
 				studentIdList.add(rs.getInt(1));
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException e) {
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -45,13 +45,13 @@ public class StudentDAOImpl implements StudentDAO {
 			pst = con.prepareStatement(query);
 			pst.setInt(1, student.getRollNo());
 			pst.setString(2, student.getName());
-			pst.setString(3, student.getDateOfBirth());
+			pst.setString(3, student.getDob());
 			pst.setString(4, student.getAddress());
 			pst.setInt(5, student.getClassRoomNo());
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows inserted!");
 		} catch (SQLException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -148,7 +148,7 @@ public class StudentDAOImpl implements StudentDAO {
 						new Student(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5)));
 			}
 		} catch (SQLException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 		return studentList;
 	}
@@ -188,7 +188,7 @@ public class StudentDAOImpl implements StudentDAO {
 						+ " " + rs.getString(5) + " " + rs.getString(6));
 			}
 		} catch (SQLException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 
 	}

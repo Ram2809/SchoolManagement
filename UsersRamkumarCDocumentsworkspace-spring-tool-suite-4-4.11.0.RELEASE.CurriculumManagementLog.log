@@ -256,3 +256,21 @@
 2021-08-06 17:22:38 INFO  class:134 - In teacher controller -> get method
 2021-08-06 17:22:38 INFO  class:23 - In teacher service -> get method
 2021-08-06 17:22:38 INFO  class:47 - In teacher DAO -> get method
+2021-08-06 19:20:48 INFO  class:131 - In topics controller -> get particular topic method
+2021-08-06 19:20:51 INFO  class:48 - In topics service -> get particular topic details method
+2021-08-06 19:20:51 INFO  class:52 - In topics DAO -> get particular topics details method
+2021-08-06 19:20:53 INFO  class:160 - Topic not found,Enter the valid id!
+2021-08-06 19:20:53 INFO  class:56 - Topic not found,Enter the valid id!
+2021-08-06 19:20:53 INFO  class:52 - Topic not found,Enter the valid id!
+2021-08-06 19:20:53 INFO  class:96 - Topic not found,Enter the valid id!
+2021-08-06 19:22:11 INFO  class:131 - In topics controller -> get particular topic method
+2021-08-06 23:49:04 INFO  class:19 - In Curriculum Management App
+2021-08-06 23:49:09 INFO  class:30 - In head master section
+2021-08-06 23:49:20 INFO  class:135 - In student controller -> get particular student data method
+2021-08-06 23:49:24 INFO  class:50 - In student service -> get particular student details method
+2021-08-06 23:49:24 INFO  class:50 - In student DAO -> get particular student details method
+2021-08-06 23:49:25 WARN  class:89 - Student not found,Enter the valid id!
+2021-08-06 23:49:33 INFO  class:135 - In student controller -> get particular student data method
+2021-08-06 23:49:35 INFO  class:50 - In student service -> get particular student details method
+2021-08-06 23:49:35 INFO  class:50 - In student DAO -> get particular student details method
+2021-08-06 23:49:41 INFO  class:143 - Exits from student application

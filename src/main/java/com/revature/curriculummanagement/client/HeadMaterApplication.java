@@ -36,7 +36,7 @@ public class HeadMaterApplication {
 			headMaster.setName(name);
 			headMasterController.addHeadMasterDetails(headMaster);
 		} catch (NumberFormatException | IOException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -48,7 +48,7 @@ public class HeadMaterApplication {
 			String newName = bufferedReader.readLine();
 			headMasterController.updateHeadMasterDetails(id, newName);
 		} catch (NumberFormatException | IOException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -58,7 +58,7 @@ public class HeadMaterApplication {
 			Integer id = Integer.parseInt(bufferedReader.readLine());
 			headMasterController.deleteHeadMasterDetails(id);
 		} catch (NumberFormatException | IOException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -106,7 +106,7 @@ public class HeadMaterApplication {
 					throw new InvalidChoiceException("Enter the valid choice!");
 				}
 			} catch (NumberFormatException | IOException | InvalidChoiceException e) {
-				logger.info(e.getMessage());
+				logger.warn(e.getMessage());
 			}
 		}
 	}

@@ -3,7 +3,7 @@ package com.revature.curriculummanagement.model;
 public class Student {
 	private Integer rollNo;
 	private String name;
-	private String dateOfBirth;
+	private String dob;
 	private String address;
 	private Integer classRoomNo;
 
@@ -11,11 +11,11 @@ public class Student {
 		super();
 	}
 
-	public Student(Integer rollNo, String name, String dateOfBirth, String address, Integer classRoomNo) {
+	public Student(Integer rollNo, String name, String dob, String address, Integer classRoomNo) {
 		super();
 		this.rollNo = rollNo;
 		this.name = name;
-		this.dateOfBirth = dateOfBirth;
+		this.dob = dob;
 		this.address = address;
 		this.classRoomNo = classRoomNo;
 	}
@@ -36,12 +36,12 @@ public class Student {
 		this.name = name;
 	}
 
-	public String getDateOfBirth() {
-		return dateOfBirth;
+	public String getDob() {
+		return dob;
 	}
 
-	public void setDateOfBirth(String dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
+	public void setDob(String dateOfBirth) {
+		this.dob = dateOfBirth;
 	}
 
 	public String getAddress() {
@@ -62,7 +62,7 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [rollNo=" + rollNo + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", address=" + address
+		return "Student [rollNo=" + rollNo + ", name=" + name + ", dateOfBirth=" + dob + ", address=" + address
 				+ ", classRoomNo=" + classRoomNo + "]";
 	}
 

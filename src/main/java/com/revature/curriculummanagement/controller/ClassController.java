@@ -18,10 +18,8 @@ public class ClassController {
 	static Logger logger = Logger.getLogger("ClassController.class");
 
 	public void addClassDetails(Classes classes) {
-
 		logger.info("In class service -> add method");
 		classServiceImpl.addClassDetails(classes);
-
 	}
 
 	public static List<Classes> getClassDetails() {

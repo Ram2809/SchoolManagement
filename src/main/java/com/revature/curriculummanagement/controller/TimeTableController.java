@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.revature.curriculummanagement.exception.BusinessServiceException;
+import com.revature.curriculummanagement.exception.ControllerException;
 import com.revature.curriculummanagement.model.TimeTable;
 import com.revature.curriculummanagement.service.TimeTableService;
 import com.revature.curriculummanagement.service.TimeTableServiceImpl;
@@ -17,9 +19,13 @@ public class TimeTableController {
 		timeTableServiceImpl.addTimeTableDetails();
 	}
 
-	public void updateTimeTableDetails(Integer classId, String day) {
+	public void updateTimeTableDetails(Integer classId, String day) throws ControllerException {
 		logger.info("In time table service -> update method");
-		timeTableServiceImpl.updateTimeTableDetails(classId, day);
+		try {
+			timeTableServiceImpl.updateTimeTableDetails(classId, day);
+		} catch (BusinessServiceException e) {
+			throw new ControllerException(e.getMessage());
+		}
 	}
 
 	public void deleteTimeTableDetails(Integer classId, String day) {

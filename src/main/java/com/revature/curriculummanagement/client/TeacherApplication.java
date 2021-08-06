@@ -46,8 +46,7 @@ public class TeacherApplication {
 			teacher.setSubject(subjectName);
 			teacherController.addTeacherDetails(teacher);
 		} catch (IOException | NumberFormatException e) {
-			logger.info(e.getMessage());
-			e.printStackTrace();
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -57,8 +56,7 @@ public class TeacherApplication {
 			Integer id = Integer.parseInt(bufferedReader.readLine());
 			teacherController.updateTeacherDetails(id);
 		} catch (ControllerException | IOException | NumberFormatException e) {
-			logger.info(e.getMessage());
-			e.printStackTrace();
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -69,8 +67,7 @@ public class TeacherApplication {
 			id = Integer.parseInt(bufferedReader.readLine());
 			teacherController.deleteTeacherDetails(id);
 		} catch (IOException | NumberFormatException | ControllerException e) {
-			logger.info(e.getMessage());
-			e.printStackTrace();
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -93,7 +90,7 @@ public class TeacherApplication {
 				System.out.println(teacherParticularIterator.next());
 			}
 		} catch (IOException | NumberFormatException | ControllerException e) {
-
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -103,8 +100,7 @@ public class TeacherApplication {
 		teacherController.getTeacherDetailsByClassRoom(classRoomNo);
 	}
 
-	public static void main(String[] args)
-			throws NumberFormatException, IOException, InvalidChoiceException, SQLException, TeacherNotFoundException {
+	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		while (true) {
 			System.out.println("Teacher Application\n");
@@ -116,38 +112,42 @@ public class TeacherApplication {
 			System.out.println("6.Get teachers for particular classroom");
 			System.out.println("7.Exit");
 			System.out.println("Enter the choice:");
-			Integer userChoice = Integer.parseInt(bufferedReader.readLine());
-			switch (userChoice) {
-			case 1:
-				logger.info("In teacher controller -> add method");
-				insertTeacher();
-				break;
-			case 2:
-				logger.info("In teacher controller -> update method");
-				updateTeacher();
-				break;
-			case 3:
-				logger.info("In teacher controller -> delete method");
-				deleteTeacher();
-				break;
-			case 4:
-				logger.info("In teacher controller -> get method");
-				getTeacher();
-				break;
-			case 5:
-				logger.info("In teacher controller -> get particular teacher data method");
-				getParticularTeacher();
-				break;
-			case 6:
-				logger.info("In teacher controller -> get teacher for given classroom method");
-				getTeacherByClassRoom();
-				break;
-			case 7:
-				logger.info("Exits from teacher application");
-				System.exit(0);
-				break;
-			default:
-				throw new InvalidChoiceException("Enter the valid choice!");
+			try {
+				Integer userChoice = Integer.parseInt(bufferedReader.readLine());
+				switch (userChoice) {
+				case 1:
+					logger.info("In teacher controller -> add method");
+					insertTeacher();
+					break;
+				case 2:
+					logger.info("In teacher controller -> update method");
+					updateTeacher();
+					break;
+				case 3:
+					logger.info("In teacher controller -> delete method");
+					deleteTeacher();
+					break;
+				case 4:
+					logger.info("In teacher controller -> get method");
+					getTeacher();
+					break;
+				case 5:
+					logger.info("In teacher controller -> get particular teacher data method");
+					getParticularTeacher();
+					break;
+				case 6:
+					logger.info("In teacher controller -> get teacher for given classroom method");
+					getTeacherByClassRoom();
+					break;
+				case 7:
+					logger.info("Exits from teacher application");
+					System.exit(0);
+					break;
+				default:
+					throw new InvalidChoiceException("Enter the valid choice!");
+				}
+			} catch (InvalidChoiceException | IOException | NumberFormatException e) {
+				logger.warn(e.getMessage());
 			}
 		}
 	}

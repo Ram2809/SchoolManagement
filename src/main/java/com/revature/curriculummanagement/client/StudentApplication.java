@@ -38,12 +38,12 @@ public class StudentApplication {
 			Integer classRoomNo = Integer.parseInt(bufferedReader.readLine());
 			student.setRollNo(studentId);
 			student.setName(studentName);
-			student.setDateOfBirth(studentDateOfBirth);
+			student.setDob(studentDateOfBirth);
 			student.setAddress(studentAddress);
 			student.setClassRoomNo(classRoomNo);
 			studentController.addStudentDetails(student);
 		} catch (NumberFormatException | IOException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -53,7 +53,7 @@ public class StudentApplication {
 			Integer id = Integer.parseInt(bufferedReader.readLine());
 			studentController.updateStudentDetails(id);
 		} catch (NumberFormatException | IOException | ControllerException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -63,7 +63,7 @@ public class StudentApplication {
 			Integer id = Integer.parseInt(bufferedReader.readLine());
 			studentController.deleteStudentDetails(id);
 		} catch (NumberFormatException | IOException | ControllerException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -86,7 +86,7 @@ public class StudentApplication {
 				System.out.println(studentParticularIterator.next());
 			}
 		} catch (NumberFormatException | IOException | ControllerException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -96,7 +96,7 @@ public class StudentApplication {
 			Integer roomNo = Integer.parseInt(bufferedReader.readLine());
 			studentController.getStudentDetailsByClassRoom(roomNo);
 		} catch (NumberFormatException | IOException e) {
-			logger.info(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 	}
 
@@ -147,7 +147,7 @@ public class StudentApplication {
 					throw new InvalidChoiceException("Enter the valid choice!");
 				}
 			} catch (NumberFormatException | IOException | InvalidChoiceException e) {
-				logger.info(e.getMessage());
+				logger.warn(e.getMessage());
 			}
 		}
 	}
