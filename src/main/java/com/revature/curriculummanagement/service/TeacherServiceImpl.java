@@ -8,6 +8,8 @@ import org.apache.log4j.Logger;
 
 import com.revature.curriculummanagement.dao.TeacherDAO;
 import com.revature.curriculummanagement.dao.TeacherDAOImpl;
+import com.revature.curriculummanagement.exception.BusinessServiceException;
+import com.revature.curriculummanagement.exception.DatabaseException;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.TeacherNotFoundException;
 import com.revature.curriculummanagement.model.Teacher;
@@ -21,27 +23,39 @@ public class TeacherServiceImpl implements TeacherService {
 		teacherDAOImpl.addTeacherDetails(teacher);
 	}
 
-	public void updateTeacherDetails(Integer id)
-			throws NumberFormatException, IOException, InvalidChoiceException, SQLException {
+	public void updateTeacherDetails(Integer id) throws BusinessServiceException {
 		logger.info("In teacher DAO -> update method");
-		teacherDAOImpl.updateTeacherDetails(id);
+		try {
+			teacherDAOImpl.updateTeacherDetails(id);
+		} catch (DatabaseException e) {
+			logger.info(e.getMessage());
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
-	public void deleteTeacherDetails(Integer id)
-			throws NumberFormatException, IOException, SQLException, TeacherNotFoundException {
+	public void deleteTeacherDetails(Integer id) throws BusinessServiceException {
 		logger.info("In teacher DAO -> delete method");
-		teacherDAOImpl.deleteTeacherDetails(id);
+		try {
+			teacherDAOImpl.deleteTeacherDetails(id);
+		} catch (DatabaseException e) {
+			logger.info(e.getMessage());
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
-	public List<Teacher> getTeacherDetails() throws NumberFormatException, IOException, SQLException {
+	public List<Teacher> getTeacherDetails() {
 		logger.info("In teacher DAO -> get method");
 		return teacherDAOImpl.getTeacherDetails();
 	}
 
-	public List<Teacher> getParticularTeacherDetails(Integer id)
-			throws NumberFormatException, IOException, SQLException, TeacherNotFoundException {
+	public List<Teacher> getParticularTeacherDetails(Integer id) throws BusinessServiceException {
 		logger.info("In teacher DAO -> get particular teacher details method");
-		return teacherDAOImpl.getParticularTeacherDetails(id);
+		try {
+			return teacherDAOImpl.getParticularTeacherDetails(id);
+		} catch (DatabaseException e) {
+			logger.info(e.getMessage());
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
 	public void getTeacherDetailsByClassRoom(Integer roomNo) {

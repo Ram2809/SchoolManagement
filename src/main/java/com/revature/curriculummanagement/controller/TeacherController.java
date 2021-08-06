@@ -1,13 +1,11 @@
 package com.revature.curriculummanagement.controller;
 
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.revature.curriculummanagement.exception.InvalidChoiceException;
-import com.revature.curriculummanagement.exception.TeacherNotFoundException;
+import com.revature.curriculummanagement.exception.BusinessServiceException;
+import com.revature.curriculummanagement.exception.ControllerException;
 import com.revature.curriculummanagement.model.Teacher;
 import com.revature.curriculummanagement.service.TeacherService;
 import com.revature.curriculummanagement.service.TeacherServiceImpl;
@@ -16,32 +14,44 @@ public class TeacherController {
 	TeacherService teacherServiceImpl = new TeacherServiceImpl();
 	static Logger logger = Logger.getLogger("TeacherController.class");
 
-	public void addTeacherDetails(Teacher teacher) throws SQLException, IOException {
+	public void addTeacherDetails(Teacher teacher) {
 		logger.info("In teacher service -> add method");
 		teacherServiceImpl.addTeacherDetails(teacher);
 	}
 
-	public List<Teacher> getTeacherDetails() throws NumberFormatException, IOException, SQLException {
+	public List<Teacher> getTeacherDetails() {
 		logger.info("In teacher service -> get method");
 		return teacherServiceImpl.getTeacherDetails();
 	}
 
-	public void updateTeacherDetails(Integer id)
-			throws NumberFormatException, IOException, InvalidChoiceException, SQLException {
+	public void updateTeacherDetails(Integer id) throws ControllerException {
 		logger.info("In teacher service -> update method");
-		teacherServiceImpl.updateTeacherDetails(id);
+		try {
+			teacherServiceImpl.updateTeacherDetails(id);
+		} catch (BusinessServiceException e) {
+			logger.info(e.getMessage());
+			throw new ControllerException(e.getMessage());
+		}
 	}
 
-	public void deleteTeacherDetails(Integer id)
-			throws NumberFormatException, IOException, SQLException, TeacherNotFoundException {
+	public void deleteTeacherDetails(Integer id) throws ControllerException {
 		logger.info("In teacher service -> delete method");
-		teacherServiceImpl.deleteTeacherDetails(id);
+		try {
+			teacherServiceImpl.deleteTeacherDetails(id);
+		} catch (BusinessServiceException e) {
+			logger.info(e.getMessage());
+			throw new ControllerException(e.getMessage());
+		}
 	}
 
-	public List<Teacher> getParticularTeacherDetails(Integer id)
-			throws NumberFormatException, IOException, SQLException, TeacherNotFoundException {
+	public List<Teacher> getParticularTeacherDetails(Integer id) throws ControllerException {
 		logger.info("In teacher service -> get particular teacher details method");
-		return teacherServiceImpl.getParticularTeacherDetails(id);
+		try {
+			return teacherServiceImpl.getParticularTeacherDetails(id);
+		} catch (BusinessServiceException e) {
+			logger.info(e.getMessage());
+			throw new ControllerException(e.getMessage());
+		}
 	}
 
 	public void getTeacherDetailsByClassRoom(Integer roomNo) {

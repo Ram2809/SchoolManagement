@@ -8,13 +8,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.revature.curriculummanagement.model.HeadMaster;
 import com.revature.curriculummanagement.util.DBUtil;
 
 public class HeadMasterDAOImpl implements HeadMasterDAO {
 	static List<HeadMaster> headMasterList = new ArrayList<>();
+	static Logger logger = Logger.getLogger("HeadMasterDAOImpl.class");
 
-	public void addHeadMasterDetails(HeadMaster headMaster) throws SQLException, IOException {
+	public void addHeadMasterDetails(HeadMaster headMaster) {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "INSERT INTO headMaster VALUES(?,?)";
@@ -23,12 +26,12 @@ public class HeadMasterDAOImpl implements HeadMasterDAO {
 			pst.setString(2, headMaster.getName());
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows inserted!");
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException e) {
+			logger.info(e.getMessage());
 		}
 	}
 
-	public void updateHeadMasterDetails(Integer id, String newName) throws SQLException, IOException {
+	public void updateHeadMasterDetails(Integer id, String newName) {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "UPDATE headMaster SET name=? WHERE id=?";
@@ -37,12 +40,12 @@ public class HeadMasterDAOImpl implements HeadMasterDAO {
 			pst.setInt(2, id);
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows updated!");
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException e) {
+			logger.info(e.getMessage());
 		}
 	}
 
-	public void deleteHeadMasterDetails(Integer id) throws SQLException, IOException {
+	public void deleteHeadMasterDetails(Integer id) {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "DELETE FROM headmaster WHERE id=?";
@@ -50,8 +53,8 @@ public class HeadMasterDAOImpl implements HeadMasterDAO {
 			pst.setInt(1, id);
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows deleted!");
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException e) {
+			logger.info(e.getMessage());
 		}
 	}
 
@@ -64,8 +67,8 @@ public class HeadMasterDAOImpl implements HeadMasterDAO {
 			while (rs.next()) {
 				headMasterList.add(new HeadMaster(rs.getInt(1), rs.getString(2)));
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException e) {
+			logger.info(e.getMessage());
 		}
 		return headMasterList;
 	}

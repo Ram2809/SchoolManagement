@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.revature.curriculummanagement.exception.BusinessServiceException;
+import com.revature.curriculummanagement.exception.ControllerException;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.SubjectNotFoundException;
 import com.revature.curriculummanagement.model.Subject;
@@ -16,32 +18,41 @@ public class SubjectController {
 	SubjectService subjectServiceImpl = new SubjectServiceImpl();
 	static Logger logger = Logger.getLogger("SubjectController.class");
 
-	public void addSubjectDetails(Subject subject) throws SQLException, IOException {
+	public void addSubjectDetails(Subject subject) {
 		logger.info("In subject service -> add method");
 		subjectServiceImpl.addSubjectDetails(subject);
 	}
 
-	public List<Subject> getSubjectDetails() throws NumberFormatException, IOException, SQLException {
+	public List<Subject> getSubjectDetails() {
 		logger.info("In subject service -> get method");
 		return subjectServiceImpl.getSubjectDetails();
 	}
 
-	public void updateSubjectDetails(Integer subjectId)
-			throws NumberFormatException, IOException, InvalidChoiceException, SQLException {
+	public void updateSubjectDetails(Integer subjectId) throws ControllerException {
 		logger.info("In subject service -> update method");
-		subjectServiceImpl.updateSubjectDetails(subjectId);
+		try {
+			subjectServiceImpl.updateSubjectDetails(subjectId);
+		} catch (BusinessServiceException e) {
+			throw new ControllerException(e.getMessage());
+		}
 	}
 
-	public void deleteSubjectDetails(Integer subjectId)
-			throws NumberFormatException, IOException, SQLException, SubjectNotFoundException {
+	public void deleteSubjectDetails(Integer subjectId) throws ControllerException {
 		logger.info("In subject service -> delete method");
-		subjectServiceImpl.deleteSubjectDetails(subjectId);
+		try {
+			subjectServiceImpl.deleteSubjectDetails(subjectId);
+		} catch (BusinessServiceException e) {
+			throw new ControllerException(e.getMessage());
+		}
 	}
 
-	public List<Subject> getParticularSubjectDetails(Integer subjectId)
-			throws NumberFormatException, IOException, SQLException, SubjectNotFoundException {
+	public List<Subject> getParticularSubjectDetails(Integer subjectId) throws ControllerException {
 		logger.info("In subject service -> get particular subject details method");
-		return subjectServiceImpl.getParticularSubjectDetails(subjectId);
+		try {
+			return subjectServiceImpl.getParticularSubjectDetails(subjectId);
+		} catch (BusinessServiceException e) {
+			throw new ControllerException(e.getMessage());
+		}
 	}
 
 	public void getSubjectStatus(Integer subjectId) {

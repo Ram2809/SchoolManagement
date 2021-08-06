@@ -56,7 +56,7 @@ public class TopicApplication {
 			System.out.println("Enter the unit no:");
 			String unitNo = bufferedReader.readLine();
 			topicsController.updateTopicsDetails(unitNo);
-		} catch (NumberFormatException | IOException e) {
+		} catch (NumberFormatException | IOException | ControllerException e) {
 			e.printStackTrace();
 			logger.info(e.getMessage());
 		}
@@ -73,7 +73,7 @@ public class TopicApplication {
 		}
 	}
 
-	public static void getTopics() throws NumberFormatException, IOException, SQLException {
+	public static void getTopics() {
 		topicsList = topicsController.getTopicsDetails();
 		Iterator<Topics> topicsIterator = topicsList.iterator();
 		while (topicsIterator.hasNext()) {
@@ -138,7 +138,8 @@ public class TopicApplication {
 				default:
 					throw new InvalidChoiceException("Enter the valid choice!");
 				}
-			} catch (Exception e) {
+			} catch (IOException | NumberFormatException | InvalidChoiceException e) {
+				logger.info(e.getMessage());
 				e.printStackTrace();
 			}
 		}

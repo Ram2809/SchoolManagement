@@ -1,7 +1,5 @@
 package com.revature.curriculummanagement.service;
 
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -14,7 +12,7 @@ public class TimeTableServiceImpl implements TimeTableService {
 	TimeTableDAO timeTableDAOImpl = new TimeTableDAOImpl();
 	static Logger logger = Logger.getLogger("TimeTableServiceImpl.class");
 
-	public void addTimeTableDetails() throws NumberFormatException, IOException {
+	public void addTimeTableDetails() {
 		logger.info("In time table DAO -> add method");
 		timeTableDAOImpl.addTimeTableDetails();
 	}
@@ -29,13 +27,12 @@ public class TimeTableServiceImpl implements TimeTableService {
 		timeTableDAOImpl.deleteTimeTableDetails(classId, day);
 	}
 
-	public List<TimeTable> getTimeTableDetails() throws NumberFormatException, IOException, SQLException {
+	public List<TimeTable> getTimeTableDetails() {
 		logger.info("In time table DAO -> get method");
 		return timeTableDAOImpl.getTimeTableDetails();
 	}
 
-	public List<TimeTable> getParticularTimeTableDetails(Integer classId, String day)
-			throws NumberFormatException, IOException, SQLException {
+	public List<TimeTable> getParticularTimeTableDetails(Integer classId, String day) {
 		logger.info("In time table DAO -> get particular time table details method");
 		return timeTableDAOImpl.getParticularTimeTableDetails(classId, day);
 	}

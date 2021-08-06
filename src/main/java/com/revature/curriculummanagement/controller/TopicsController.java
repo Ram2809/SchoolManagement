@@ -24,9 +24,14 @@ public class TopicsController {
 		return topicsServiceImpl.getTopicsDetails();
 	}
 
-	public void updateTopicsDetails(String unitNo) {
+	public void updateTopicsDetails(String unitNo) throws ControllerException {
 		logger.info("In topics service -> update method");
-		topicsServiceImpl.updateTopicsDetails(unitNo);
+		try {
+			topicsServiceImpl.updateTopicsDetails(unitNo);
+		} catch (BusinessServiceException e) {
+			e.printStackTrace();
+			throw new ControllerException(e.getMessage());
+		}
 	}
 
 	public void deleteTopicsDetails(String unitNo) throws ControllerException {

@@ -1,13 +1,9 @@
 package com.revature.curriculummanagement.controller;
 
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.revature.curriculummanagement.exception.StudentNotFoundException;
-import com.revature.curriculummanagement.model.Student;
 import com.revature.curriculummanagement.model.TimeTable;
 import com.revature.curriculummanagement.service.TimeTableService;
 import com.revature.curriculummanagement.service.TimeTableServiceImpl;
@@ -16,7 +12,7 @@ public class TimeTableController {
 	TimeTableService timeTableServiceImpl = new TimeTableServiceImpl();
 	static Logger logger = Logger.getLogger("TimeTableController.class");
 
-	public void addTimeTableDetails() throws NumberFormatException, IOException {
+	public void addTimeTableDetails() {
 		logger.info("In time table service -> add method");
 		timeTableServiceImpl.addTimeTableDetails();
 	}
@@ -31,13 +27,12 @@ public class TimeTableController {
 		timeTableServiceImpl.deleteTimeTableDetails(classId, day);
 	}
 
-	public List<TimeTable> getTimeTableDetails() throws NumberFormatException, IOException, SQLException {
+	public List<TimeTable> getTimeTableDetails() {
 		logger.info("In time table service -> get method");
 		return timeTableServiceImpl.getTimeTableDetails();
 	}
 
-	public List<TimeTable> getParticularTimeTableDetails(Integer teacherId, String day)
-			throws NumberFormatException, IOException, SQLException {
+	public List<TimeTable> getParticularTimeTableDetails(Integer teacherId, String day) {
 		logger.info("In time table service -> get particular time table details method");
 		return timeTableServiceImpl.getParticularTimeTableDetails(teacherId, day);
 	}

@@ -1,48 +1,57 @@
 package com.revature.curriculummanagement.service;
 
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
 import com.revature.curriculummanagement.dao.TeacherAssignDAO;
 import com.revature.curriculummanagement.dao.TeacherAssignDAOImpl;
-import com.revature.curriculummanagement.exception.InvalidChoiceException;
-import com.revature.curriculummanagement.exception.StudentNotFoundException;
-import com.revature.curriculummanagement.exception.TeacherNotFoundException;
+import com.revature.curriculummanagement.exception.BusinessServiceException;
+import com.revature.curriculummanagement.exception.DatabaseException;
 import com.revature.curriculummanagement.model.TeacherDetails;
 
 public class TeacherAssignServiceImpl implements TeacherAssignService {
 	TeacherAssignDAO teacherAssignDAOImpl = new TeacherAssignDAOImpl();
 	static Logger logger = Logger.getLogger("TeacherAssignServiceImpl.class");
 
-	public void addTeacherAssignDetails(TeacherDetails teacherDetails) throws SQLException, IOException {
+	public void addTeacherAssignDetails(TeacherDetails teacherDetails) {
 		logger.info("In teacher assign DAO -> add method");
 		teacherAssignDAOImpl.addTeacherAssignDetails(teacherDetails);
 	}
 
-	public void updateTeacherAssignDetails(Integer teacherId)
-			throws NumberFormatException, IOException, InvalidChoiceException, SQLException {
+	public void updateTeacherAssignDetails(Integer teacherId) throws BusinessServiceException {
 		logger.info("In teacher assign DAO -> update method");
-		teacherAssignDAOImpl.updateTeacherAssignDetails(teacherId);
+		try {
+			teacherAssignDAOImpl.updateTeacherAssignDetails(teacherId);
+		} catch (DatabaseException e) {
+			e.printStackTrace();
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
-	public void deleteTeacherAssignDetails(Integer teacherId)
-			throws NumberFormatException, IOException, SQLException, StudentNotFoundException {
+	public void deleteTeacherAssignDetails(Integer teacherId) throws BusinessServiceException {
 		logger.info("In teacher assign DAO -> delete method");
-		teacherAssignDAOImpl.deleteTeacherAssignDetails(teacherId);
+		try {
+			teacherAssignDAOImpl.deleteTeacherAssignDetails(teacherId);
+		} catch (DatabaseException e) {
+			e.printStackTrace();
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
-	public List<TeacherDetails> getTeacherAssignDetails() throws NumberFormatException, IOException, SQLException {
+	public List<TeacherDetails> getTeacherAssignDetails() {
 		logger.info("In teacher assign DAO -> get method");
 		return teacherAssignDAOImpl.getTeacherAssignDetails();
 	}
 
-	public List<TeacherDetails> getParticularTeacherAssignDetails(Integer teacherId) throws NumberFormatException,
-			IOException, SQLException, StudentNotFoundException, TeacherNotFoundException {
+	public List<TeacherDetails> getParticularTeacherAssignDetails(Integer teacherId) throws BusinessServiceException {
 		logger.info("In teacher assign DAO -> get particular teacher assign details method");
-		return teacherAssignDAOImpl.getParticularTeacherAssignDetails(teacherId);
+		try {
+			return teacherAssignDAOImpl.getParticularTeacherAssignDetails(teacherId);
+		} catch (DatabaseException e) {
+			e.printStackTrace();
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
 }

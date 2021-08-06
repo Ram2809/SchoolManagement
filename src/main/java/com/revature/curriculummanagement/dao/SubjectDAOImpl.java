@@ -10,6 +10,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
+import com.revature.curriculummanagement.exception.DatabaseException;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.SubjectNotFoundException;
 import com.revature.curriculummanagement.model.Subject;
@@ -19,6 +22,7 @@ public class SubjectDAOImpl implements SubjectDAO {
 	static List<Subject> subjectList = new ArrayList<>();
 	static List<Integer> subjectIdList = new ArrayList<>();
 	static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+	static Logger logger = Logger.getLogger("SubjectDAOImpl.class");
 
 	public static void getSubjectId() {
 		try (Connection con = DBUtil.getConnection();) {
@@ -29,12 +33,12 @@ public class SubjectDAOImpl implements SubjectDAO {
 			while (rs.next()) {
 				subjectIdList.add(rs.getInt(1));
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException e) {
+			logger.info(e.getMessage());
 		}
 	}
 
-	public void addSubjectDetails(Subject subject) throws SQLException, IOException {
+	public void addSubjectDetails(Subject subject) {
 		try (Connection con = DBUtil.getConnection();) {
 			String query = "INSERT INTO subject VALUES(?,?,?)";
 			PreparedStatement pst = con.prepareStatement(query);
@@ -43,12 +47,12 @@ public class SubjectDAOImpl implements SubjectDAO {
 			pst.setInt(3, subject.getClassId());
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows Inserted!");
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException e) {
+			logger.info(e.getMessage());
 		}
 	}
 
-	public void updateSubjectDetails(Integer subjectId) throws SQLException, IOException {
+	public void updateSubjectDetails(Integer subjectId) throws DatabaseException {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "";
@@ -84,12 +88,13 @@ public class SubjectDAOImpl implements SubjectDAO {
 			default:
 				throw new InvalidChoiceException("Enter the valid choice!");
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (IOException | NumberFormatException | SQLException | InvalidChoiceException
+				| SubjectNotFoundException e) {
+			throw new DatabaseException(e.getMessage());
 		}
 	}
 
-	public void deleteSubjectDetails(Integer subjectId) throws SQLException, IOException, SubjectNotFoundException {
+	public void deleteSubjectDetails(Integer subjectId) throws DatabaseException {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			getSubjectId();
@@ -101,12 +106,12 @@ public class SubjectDAOImpl implements SubjectDAO {
 			pst.setInt(1, subjectId);
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows deleted!");
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException | SubjectNotFoundException e) {
+			throw new DatabaseException(e.getMessage());
 		}
 	}
 
-	public List<Subject> getSubjectDetails() throws SQLException, IOException {
+	public List<Subject> getSubjectDetails() {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "SELECT * FROM subject";
@@ -115,20 +120,20 @@ public class SubjectDAOImpl implements SubjectDAO {
 			while (rs.next()) {
 				subjectList.add(new Subject(rs.getInt(1), rs.getString(2), rs.getInt(3)));
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException e) {
+			logger.info(e.getMessage());
 		}
 		return subjectList;
 	}
 
-	public List<Subject> getParticularSubjectDetails(Integer subjectId)
-			throws SQLException, IOException, SubjectNotFoundException {
+	public List<Subject> getParticularSubjectDetails(Integer subjectId) throws DatabaseException {
 		List<Subject> subjectParticularList = new ArrayList<>();
-		getSubjectId();
-		if (!subjectIdList.contains(subjectId)) {
-			throw new SubjectNotFoundException("Subject not found,Enter the valid id!");
-		}
-		try (Connection con = DBUtil.getConnection();) {
+		try {
+			getSubjectId();
+			if (!subjectIdList.contains(subjectId)) {
+				throw new SubjectNotFoundException("Subject not found,Enter the valid id!");
+			}
+			Connection con = DBUtil.getConnection();
 			PreparedStatement pst = null;
 			String query = "SELECT * FROM subject WHERE Id=?";
 			pst = con.prepareStatement(query);
@@ -137,8 +142,8 @@ public class SubjectDAOImpl implements SubjectDAO {
 			while (rs.next()) {
 				subjectParticularList.add(new Subject(rs.getInt(1), rs.getString(2), rs.getInt(3)));
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException | SubjectNotFoundException e) {
+			throw new DatabaseException(e.getMessage());
 		}
 		return subjectParticularList;
 	}
@@ -156,8 +161,8 @@ public class SubjectDAOImpl implements SubjectDAO {
 						+ " " + rs.getString(9) + " " + rs.getString(10) + " " + rs.getString(11) + " "
 						+ rs.getBoolean(12));
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException e) {
+			logger.info(e.getMessage());
 		}
 
 	}

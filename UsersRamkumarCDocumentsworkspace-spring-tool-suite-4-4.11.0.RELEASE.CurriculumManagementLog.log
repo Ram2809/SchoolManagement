@@ -150,3 +150,109 @@
 2021-08-05 23:26:08 INFO  class:43 - In topics service -> get particular topic details method
 2021-08-05 23:26:08 INFO  class:46 - In topics DAO -> get particular topics details method
 2021-08-05 23:26:12 INFO  class:131 - Exits from topics application
+2021-08-05 23:27:19 INFO  class:28 - In topics service -> update method
+2021-08-05 23:27:19 INFO  class:27 - In topics DAO -> update method
+2021-08-06 09:39:20 INFO  class:36 - In time table service -> get particular time table details method
+2021-08-06 09:39:20 INFO  class:36 - In time table DAO -> get particular time table details method
+2021-08-06 09:39:47 INFO  class:31 - In time table service -> get method
+2021-08-06 09:39:47 INFO  class:31 - In time table DAO -> get method
+2021-08-06 09:40:47 INFO  class:142 - Enter the valid choice!
+2021-08-06 09:40:58 INFO  class:127 - In topics controller -> get method
+2021-08-06 09:40:58 INFO  class:23 - In topics service -> get method
+2021-08-06 09:40:58 INFO  class:42 - In topics DAO -> get method
+2021-08-06 09:42:26 INFO  class:135 - Exits from topics application
+2021-08-06 09:44:42 INFO  class:31 - In time table service -> get method
+2021-08-06 09:44:42 INFO  class:31 - In time table DAO -> get method
+2021-08-06 09:45:00 INFO  class:31 - In time table service -> get method
+2021-08-06 09:45:00 INFO  class:31 - In time table DAO -> get method
+2021-08-06 14:04:02 INFO  class:126 - In teacher controller -> update method
+2021-08-06 14:04:04 INFO  class:28 - In teacher service -> update method
+2021-08-06 14:04:04 INFO  class:27 - In teacher DAO -> update method
+2021-08-06 14:04:05 INFO  class:131 - Teacher not found,Enter the valid id!
+2021-08-06 14:04:05 INFO  class:31 - Teacher not found,Enter the valid id!
+2021-08-06 14:04:05 INFO  class:32 - Teacher not found,Enter the valid id!
+2021-08-06 14:04:05 INFO  class:60 - Teacher not found,Enter the valid id!
+2021-08-06 14:04:26 INFO  class:134 - In teacher controller -> get method
+2021-08-06 14:04:26 INFO  class:23 - In teacher service -> get method
+2021-08-06 14:04:26 INFO  class:47 - In teacher DAO -> get method
+2021-08-06 14:04:31 INFO  class:142 - In teacher controller -> get teacher for given classroom method
+2021-08-06 14:04:33 INFO  class:58 - In teacher service -> get teacher details by class room method
+2021-08-06 14:04:33 INFO  class:62 - In teacher DAO -> get teacher details by class room method
+2021-08-06 14:04:43 INFO  class:146 - Exits from teacher application
+2021-08-06 16:36:47 INFO  class:118 - In teacher assign controller -> get particular teacher assign details method
+2021-08-06 16:47:48 INFO  class:131 - In topics controller -> get particular topic method
+2021-08-06 16:47:52 INFO  class:43 - In topics service -> get particular topic details method
+2021-08-06 16:47:52 INFO  class:47 - In topics DAO -> get particular topics details method
+2021-08-06 16:47:54 INFO  class:163 - Topic not found,Enter the valid id!
+2021-08-06 16:47:54 INFO  class:51 - Topic not found,Enter the valid id!
+2021-08-06 16:47:54 INFO  class:47 - Topic not found,Enter the valid id!
+2021-08-06 16:47:54 INFO  class:96 - Topic not found,Enter the valid id!
+2021-08-06 16:47:59 INFO  class:127 - In topics controller -> get method
+2021-08-06 16:47:59 INFO  class:23 - In topics service -> get method
+2021-08-06 16:47:59 INFO  class:42 - In topics DAO -> get method
+2021-08-06 16:48:19 INFO  class:131 - In topics controller -> get particular topic method
+2021-08-06 16:48:22 INFO  class:43 - In topics service -> get particular topic details method
+2021-08-06 16:48:22 INFO  class:47 - In topics DAO -> get particular topics details method
+2021-08-06 16:48:22 INFO  class:163 - Topic not found,Enter the valid id!
+2021-08-06 16:48:22 INFO  class:51 - Topic not found,Enter the valid id!
+2021-08-06 16:48:22 INFO  class:47 - Topic not found,Enter the valid id!
+2021-08-06 16:48:22 INFO  class:96 - Topic not found,Enter the valid id!
+2021-08-06 16:48:26 INFO  class:115 - In topics controller -> add method
+2021-08-06 16:48:39 INFO  class:50 - null
+2021-08-06 16:48:39 INFO  class:142 - null
+2021-08-06 16:48:39 INFO  class:142 - null
+2021-08-06 16:48:39 INFO  class:142 - null
+2021-08-06 16:48:39 INFO  class:142 - null
+2021-08-06 16:48:39 INFO  class:142 - null
+2021-08-06 16:48:39 INFO  class:142 - null
+2021-08-06 16:48:39 INFO  class:142 - null
+2021-08-06 16:57:52 INFO  class:119 - In topics controller -> update method
+2021-08-06 16:58:02 INFO  class:28 - In topics service -> update method
+2021-08-06 16:58:02 INFO  class:27 - In topics DAO -> update method
+2021-08-06 16:59:27 INFO  class:127 - In topics controller -> get method
+2021-08-06 16:59:27 INFO  class:23 - In topics service -> get method
+2021-08-06 16:59:27 INFO  class:42 - In topics DAO -> get method
+2021-08-06 16:59:37 INFO  class:131 - In topics controller -> get particular topic method
+2021-08-06 16:59:39 INFO  class:48 - In topics service -> get particular topic details method
+2021-08-06 16:59:39 INFO  class:47 - In topics DAO -> get particular topics details method
+2021-08-06 16:59:39 INFO  class:163 - Topic not found,Enter the valid id!
+2021-08-06 16:59:39 INFO  class:51 - Topic not found,Enter the valid id!
+2021-08-06 16:59:39 INFO  class:52 - Topic not found,Enter the valid id!
+2021-08-06 16:59:39 INFO  class:96 - Topic not found,Enter the valid id!
+2021-08-06 17:00:03 INFO  class:123 - In topics controller -> delete method
+2021-08-06 17:00:07 INFO  class:38 - In topics service -> delete method
+2021-08-06 17:00:07 INFO  class:32 - In topics DAO -> delete method
+2021-08-06 17:00:07 INFO  class:124 - Topic not found,Enter the valid id!
+2021-08-06 17:00:07 INFO  class:36 - Topic not found,Enter the valid id!
+2021-08-06 17:00:07 INFO  class:42 - Topic not found,Enter the valid id!
+2021-08-06 17:00:07 INFO  class:72 - Topic not found,Enter the valid id!
+2021-08-06 17:00:15 INFO  class:119 - In topics controller -> update method
+2021-08-06 17:00:17 INFO  class:28 - In topics service -> update method
+2021-08-06 17:00:17 INFO  class:27 - In topics DAO -> update method
+2021-08-06 17:02:13 INFO  class:119 - In topics controller -> update method
+2021-08-06 17:02:15 INFO  class:28 - In topics service -> update method
+2021-08-06 17:04:40 INFO  class:119 - In topics controller -> update method
+2021-08-06 17:04:42 INFO  class:28 - In topics service -> update method
+2021-08-06 17:05:32 INFO  class:119 - In topics controller -> update method
+2021-08-06 17:05:34 INFO  class:28 - In topics service -> update method
+2021-08-06 17:05:34 INFO  class:27 - In topics DAO -> update method
+2021-08-06 17:11:21 INFO  class:131 - In topics controller -> get particular topic method
+2021-08-06 17:11:24 INFO  class:48 - In topics service -> get particular topic details method
+2021-08-06 17:11:24 INFO  class:52 - In topics DAO -> get particular topics details method
+2021-08-06 17:11:26 INFO  class:160 - Topic not found,Enter the valid id!
+2021-08-06 17:11:26 INFO  class:56 - Topic not found,Enter the valid id!
+2021-08-06 17:11:26 INFO  class:52 - Topic not found,Enter the valid id!
+2021-08-06 17:11:26 INFO  class:96 - Topic not found,Enter the valid id!
+2021-08-06 17:11:31 INFO  class:127 - In topics controller -> get method
+2021-08-06 17:11:31 INFO  class:23 - In topics service -> get method
+2021-08-06 17:11:31 INFO  class:47 - In topics DAO -> get method
+2021-08-06 17:11:35 INFO  class:135 - Exits from topics application
+2021-08-06 17:21:15 INFO  class:138 - In teacher controller -> get particular teacher data method
+2021-08-06 17:21:31 INFO  class:48 - In teacher service -> get particular teacher details method
+2021-08-06 17:21:31 INFO  class:52 - In teacher DAO -> get particular teacher details method
+2021-08-06 17:21:33 INFO  class:192 - Teacher not found,Enter the valid id!
+2021-08-06 17:21:33 INFO  class:56 - Teacher not found,Enter the valid id!
+2021-08-06 17:21:33 INFO  class:52 - Teacher not found,Enter the valid id!
+2021-08-06 17:22:38 INFO  class:134 - In teacher controller -> get method
+2021-08-06 17:22:38 INFO  class:23 - In teacher service -> get method
+2021-08-06 17:22:38 INFO  class:47 - In teacher DAO -> get method

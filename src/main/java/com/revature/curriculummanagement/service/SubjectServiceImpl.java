@@ -8,6 +8,8 @@ import org.apache.log4j.Logger;
 
 import com.revature.curriculummanagement.dao.SubjectDAO;
 import com.revature.curriculummanagement.dao.SubjectDAOImpl;
+import com.revature.curriculummanagement.exception.BusinessServiceException;
+import com.revature.curriculummanagement.exception.DatabaseException;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.SubjectNotFoundException;
 import com.revature.curriculummanagement.model.Subject;
@@ -16,32 +18,41 @@ public class SubjectServiceImpl implements SubjectService {
 	SubjectDAO subjectDAOImpl = new SubjectDAOImpl();
 	static Logger logger = Logger.getLogger("SubjectServiceImpl.class");
 
-	public void addSubjectDetails(Subject subject) throws SQLException, IOException {
+	public void addSubjectDetails(Subject subject) {
 		logger.info("In subject DAO -> add method");
 		subjectDAOImpl.addSubjectDetails(subject);
 	}
 
-	public void updateSubjectDetails(Integer subjectId)
-			throws NumberFormatException, IOException, InvalidChoiceException, SQLException {
+	public void updateSubjectDetails(Integer subjectId) throws BusinessServiceException {
 		logger.info("In subject DAO -> update method");
-		subjectDAOImpl.updateSubjectDetails(subjectId);
+		try {
+			subjectDAOImpl.updateSubjectDetails(subjectId);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
-	public void deleteSubjectDetails(Integer subjectId)
-			throws NumberFormatException, IOException, SQLException, SubjectNotFoundException {
+	public void deleteSubjectDetails(Integer subjectId) throws BusinessServiceException {
 		logger.info("In subject DAO -> delete method");
-		subjectDAOImpl.deleteSubjectDetails(subjectId);
+		try {
+			subjectDAOImpl.deleteSubjectDetails(subjectId);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
-	public List<Subject> getSubjectDetails() throws NumberFormatException, IOException, SQLException {
+	public List<Subject> getSubjectDetails() {
 		logger.info("In subject DAO -> get method");
 		return subjectDAOImpl.getSubjectDetails();
 	}
 
-	public List<Subject> getParticularSubjectDetails(Integer subjectId)
-			throws NumberFormatException, IOException, SQLException, SubjectNotFoundException {
+	public List<Subject> getParticularSubjectDetails(Integer subjectId) throws BusinessServiceException {
 		logger.info("In subject DAO -> get particular subject details method");
-		return subjectDAOImpl.getParticularSubjectDetails(subjectId);
+		try {
+			return subjectDAOImpl.getParticularSubjectDetails(subjectId);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
 	public void getSubjectStatus(Integer subjectId) {

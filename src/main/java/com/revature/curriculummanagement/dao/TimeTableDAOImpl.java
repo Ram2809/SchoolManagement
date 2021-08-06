@@ -19,33 +19,34 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 	static TimeTable timeTable = new TimeTable();
 	static List<TimeTable> timeTableList = new ArrayList<TimeTable>();
 
-	public void addTimeTableDetails() throws NumberFormatException, IOException {
-		System.out.println("Enter the class room no:");
-		Integer roomNo = Integer.parseInt(bufferedReader.readLine());
-		for (int i = 0; i < 5; i++) {
-			System.out.println("Enter the day");
-			String day = bufferedReader.readLine();
-			System.out.println("Enter 1st period");
-			String firstPeriod = bufferedReader.readLine();
-			System.out.println("Enter 2nd period");
-			String secondPeriod = bufferedReader.readLine();
-			System.out.println("Enter 3rd period");
-			String thirdPeriod = bufferedReader.readLine();
-			System.out.println("Enter 4th period");
-			String fourthPeriod = bufferedReader.readLine();
-			System.out.println("Enter 5th period");
-			String fifthPeriod = bufferedReader.readLine();
-			System.out.println("Enter 6th period");
-			String sixthPeriod = bufferedReader.readLine();
-			timeTable.setClassRoomNo(roomNo);
-			timeTable.setDay(day);
-			timeTable.setPeriodOne(firstPeriod);
-			timeTable.setPeriodTwo(secondPeriod);
-			timeTable.setPeriodThree(thirdPeriod);
-			timeTable.setPeriodFour(fourthPeriod);
-			timeTable.setPeriodFive(fifthPeriod);
-			timeTable.setPeriodSix(sixthPeriod);
-			try (Connection con = DBUtil.getConnection();) {
+	public void addTimeTableDetails() {
+		try {
+			System.out.println("Enter the class room no:");
+			Integer roomNo = Integer.parseInt(bufferedReader.readLine());
+			for (int i = 0; i < 5; i++) {
+				System.out.println("Enter the day");
+				String day = bufferedReader.readLine();
+				System.out.println("Enter 1st period");
+				String firstPeriod = bufferedReader.readLine();
+				System.out.println("Enter 2nd period");
+				String secondPeriod = bufferedReader.readLine();
+				System.out.println("Enter 3rd period");
+				String thirdPeriod = bufferedReader.readLine();
+				System.out.println("Enter 4th period");
+				String fourthPeriod = bufferedReader.readLine();
+				System.out.println("Enter 5th period");
+				String fifthPeriod = bufferedReader.readLine();
+				System.out.println("Enter 6th period");
+				String sixthPeriod = bufferedReader.readLine();
+				timeTable.setClassRoomNo(roomNo);
+				timeTable.setDay(day);
+				timeTable.setPeriodOne(firstPeriod);
+				timeTable.setPeriodTwo(secondPeriod);
+				timeTable.setPeriodThree(thirdPeriod);
+				timeTable.setPeriodFour(fourthPeriod);
+				timeTable.setPeriodFive(fifthPeriod);
+				timeTable.setPeriodSix(sixthPeriod);
+				Connection con = DBUtil.getConnection();
 				PreparedStatement pst = null;
 				String query = "INSERT INTO timetable VALUES(?,?,?,?,?,?,?,?)";
 				pst = con.prepareStatement(query);
@@ -59,9 +60,9 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 				pst.setString(8, timeTable.getPeriodSix());
 				int count = pst.executeUpdate();
 				System.out.println(count + " " + "Rows Inserted");
-			} catch (Exception e) {
-				e.printStackTrace();
 			}
+		} catch (SQLException | IOException | NumberFormatException e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -147,7 +148,7 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 			default:
 				throw new InvalidChoiceException("Enter the valid choice!");
 			}
-		} catch (Exception e) {
+		} catch (SQLException | InvalidChoiceException | NumberFormatException | IOException e) {
 			e.printStackTrace();
 		}
 	}
@@ -161,14 +162,12 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 			pst.setString(2, day);
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows deleted!");
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
-	@Override
-	public List<TimeTable> getTimeTableDetails() throws SQLException, IOException {
-		// TODO Auto-generated method stub
+	public List<TimeTable> getTimeTableDetails() {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "SELECT * FROM timetable";
@@ -178,13 +177,13 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 				timeTableList.add(new TimeTable(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
 						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8)));
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return timeTableList;
 	}
 
-	public List<TimeTable> getParticularTimeTableDetails(Integer classId, String day) throws SQLException, IOException {
+	public List<TimeTable> getParticularTimeTableDetails(Integer classId, String day) {
 		List<TimeTable> timeTableParticularList = new ArrayList<>();
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
@@ -198,7 +197,7 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 						rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8)));
 
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return timeTableParticularList;
@@ -215,7 +214,7 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 				System.out.println(rs.getString(1) + " " + rs.getString(2) + " " + rs.getString(3) + " "
 						+ rs.getString(4) + " " + rs.getString(5) + " " + rs.getString(6) + " " + rs.getString(7));
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
@@ -232,7 +231,7 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 						+ " " + rs.getString(5) + " " + rs.getString(6) + " " + rs.getString(7) + " " + rs.getString(8)
 						+ " " + rs.getString(9) + " " + rs.getString(10));
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}

@@ -10,12 +10,11 @@ import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.model.Classes;
 
 public interface ClassService {
-	void addClassDetails(Classes classes) throws DatabaseException, BusinessServiceException;
+	void addClassDetails(Classes classes);
 
-	void updateClassDetails(Integer roomNo)
-			throws NumberFormatException, IOException, InvalidChoiceException, SQLException;
+	void updateClassDetails(Integer roomNo) throws BusinessServiceException;
 
-	void deleteClassDetails(Integer roomNo) throws NumberFormatException, IOException, SQLException;
+	void deleteClassDetails(Integer roomNo);
 
-	List<Classes> getClassDetails() throws SQLException, IOException;
+	List<Classes> getClassDetails();
 }

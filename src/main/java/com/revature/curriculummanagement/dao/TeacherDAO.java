@@ -1,22 +1,20 @@
 package com.revature.curriculummanagement.dao;
 
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
-import com.revature.curriculummanagement.exception.TeacherNotFoundException;
+import com.revature.curriculummanagement.exception.DatabaseException;
 import com.revature.curriculummanagement.model.Teacher;
 
 public interface TeacherDAO {
 	void addTeacherDetails(Teacher teacher);
 
-	void updateTeacherDetails(Integer id) throws SQLException, IOException;
+	void updateTeacherDetails(Integer id) throws DatabaseException;
 
-	void deleteTeacherDetails(Integer id) throws SQLException, IOException, TeacherNotFoundException;
+	void deleteTeacherDetails(Integer id) throws DatabaseException;
 
-	List<Teacher> getTeacherDetails() throws SQLException, IOException;
+	List<Teacher> getTeacherDetails();
 
-	List<Teacher> getParticularTeacherDetails(Integer id) throws SQLException, IOException, TeacherNotFoundException;
+	List<Teacher> getParticularTeacherDetails(Integer id) throws DatabaseException;
 
 	void getTeacherDetailsByClassRoom(Integer roomNo);
 }

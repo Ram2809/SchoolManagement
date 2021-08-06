@@ -34,7 +34,7 @@ public class TopicsDAOImpl implements TopicsDAO {
 			while (rs.next()) {
 				topicsIdList.add(rs.getString(1));
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
@@ -52,23 +52,18 @@ public class TopicsDAOImpl implements TopicsDAO {
 			pst.setInt(6, topics.getClassRoomNo());
 			pst.executeUpdate();
 			System.out.println("Rows inserted!");
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
-	public void updateTopicsDetails(String unitNo) {
+	public void updateTopicsDetails(String unitNo) throws DatabaseException {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "";
-			try {
-				getUnitNo();
-				if (!topicsIdList.contains(unitNo)) {
-					throw new TopicNotFoundException("Topic not found,Enter the valid id!");
-				}
-			} catch (TopicNotFoundException e) {
-				logger.info(e.getMessage());
-				throw new DatabaseException(e.getMessage());
+			getUnitNo();
+			if (!topicsIdList.contains(unitNo)) {
+				throw new TopicNotFoundException("Topic not found,Enter the valid id!");
 			}
 			System.out.println("1.Update unit name");
 			System.out.println("2.Update starting date");
@@ -109,8 +104,10 @@ public class TopicsDAOImpl implements TopicsDAO {
 			default:
 				throw new InvalidChoiceException("Enter the valid choice!");
 			}
-		} catch (Exception e) {
+		} catch (SQLException | IOException | NumberFormatException | InvalidChoiceException
+				| TopicNotFoundException e) {
 			e.printStackTrace();
+			throw new DatabaseException(e.getMessage());
 		}
 	}
 
@@ -131,7 +128,7 @@ public class TopicsDAOImpl implements TopicsDAO {
 			pst.setString(1, unitNo);
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows deleted!");
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
@@ -146,7 +143,7 @@ public class TopicsDAOImpl implements TopicsDAO {
 				topicsList.add(new Topics(rs.getString(1), rs.getString(2), rs.getString(3), rs.getBoolean(4),
 						rs.getInt(5), rs.getInt(6)));
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return topicsList;

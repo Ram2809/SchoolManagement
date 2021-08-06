@@ -8,6 +8,8 @@ import org.apache.log4j.Logger;
 
 import com.revature.curriculummanagement.dao.StudentDAO;
 import com.revature.curriculummanagement.dao.StudentDAOImpl;
+import com.revature.curriculummanagement.exception.BusinessServiceException;
+import com.revature.curriculummanagement.exception.DatabaseException;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.StudentNotFoundException;
 import com.revature.curriculummanagement.model.Student;
@@ -16,32 +18,41 @@ public class StudentServiceImpl implements StudentService {
 	StudentDAO studentDAOImpl = new StudentDAOImpl();
 	static Logger logger = Logger.getLogger("StudentServiceImpl.class");
 
-	public void addStudentDetails(Student student) throws SQLException, IOException {
+	public void addStudentDetails(Student student) {
 		logger.info("In student DAO -> add method");
 		studentDAOImpl.addStudentDetails(student);
 	}
 
-	public void updateStudentDetails(Integer id)
-			throws NumberFormatException, IOException, InvalidChoiceException, SQLException {
+	public void updateStudentDetails(Integer id) throws BusinessServiceException {
 		logger.info("In student DAO -> update method");
-		studentDAOImpl.updateStudentDetails(id);
+		try {
+			studentDAOImpl.updateStudentDetails(id);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
-	public void deleteStudentDetails(Integer id)
-			throws NumberFormatException, IOException, SQLException, StudentNotFoundException {
+	public void deleteStudentDetails(Integer id) throws BusinessServiceException {
 		logger.info("In student DAO -> delete method");
-		studentDAOImpl.deleteStudentDetails(id);
+		try {
+			studentDAOImpl.deleteStudentDetails(id);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
-	public List<Student> getStudentDetails() throws NumberFormatException, IOException, SQLException {
+	public List<Student> getStudentDetails() {
 		logger.info("In student DAO -> get method");
 		return studentDAOImpl.getStudentDetails();
 	}
 
-	public List<Student> getParticularStudentDetails(Integer id)
-			throws NumberFormatException, IOException, SQLException, StudentNotFoundException {
+	public List<Student> getParticularStudentDetails(Integer id) throws BusinessServiceException {
 		logger.info("In student DAO -> get particular student details method");
-		return studentDAOImpl.getParticularStudentDetails(id);
+		try {
+			return studentDAOImpl.getParticularStudentDetails(id);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
 	public void getStudentDetailsByClassRoom(Integer roomNo) {

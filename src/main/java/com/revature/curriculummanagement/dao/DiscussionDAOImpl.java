@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.QuestionNotFoundException;
 import com.revature.curriculummanagement.model.Discussion;
@@ -19,6 +21,7 @@ public class DiscussionDAOImpl implements DiscussionDAO {
 	static List<Discussion> discussionList = new ArrayList<>();
 	static List<String> questionNoList = new ArrayList<>();
 	static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+	static Logger logger = Logger.getLogger("DiscussionDAOImpl.class");
 
 	public static void getQuestionNo() {
 		try (Connection con = DBUtil.getConnection();) {
@@ -29,12 +32,12 @@ public class DiscussionDAOImpl implements DiscussionDAO {
 			while (rs.next()) {
 				questionNoList.add(rs.getString(1));
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException e) {
+			logger.info(e.getMessage());
 		}
 	}
 
-	public void addDiscussionDetails(Discussion discussion) throws SQLException, IOException {
+	public void addDiscussionDetails(Discussion discussion) {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "INSERT INTO discussion VALUES(?,?,?,?,?,?)";
@@ -47,8 +50,8 @@ public class DiscussionDAOImpl implements DiscussionDAO {
 			pst.setString(6, discussion.getDate());
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows inserted!");
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException e) {
+			logger.info(e.getMessage());
 		}
 
 	}

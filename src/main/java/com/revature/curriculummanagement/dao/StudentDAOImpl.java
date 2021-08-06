@@ -10,6 +10,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
+import com.revature.curriculummanagement.exception.DatabaseException;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.StudentNotFoundException;
 import com.revature.curriculummanagement.model.Student;
@@ -19,6 +22,7 @@ public class StudentDAOImpl implements StudentDAO {
 	static List<Student> studentList = new ArrayList<>();
 	static List<Integer> studentIdList = new ArrayList<>();
 	static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+	static Logger logger = Logger.getLogger("StudentDAOImpl.class");
 
 	public static void getStudentId() {
 		try (Connection con = DBUtil.getConnection();) {
@@ -34,7 +38,7 @@ public class StudentDAOImpl implements StudentDAO {
 		}
 	}
 
-	public void addStudentDetails(Student student) throws SQLException, IOException {
+	public void addStudentDetails(Student student) {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "INSERT INTO student VALUES(?,?,?,?,?)";
@@ -46,12 +50,12 @@ public class StudentDAOImpl implements StudentDAO {
 			pst.setInt(5, student.getClassRoomNo());
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows inserted!");
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException e) {
+			logger.info(e.getMessage());
 		}
 	}
 
-	public void updateStudentDetails(Integer id) throws SQLException, IOException {
+	public void updateStudentDetails(Integer id) throws DatabaseException {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "";
@@ -109,29 +113,31 @@ public class StudentDAOImpl implements StudentDAO {
 			default:
 				throw new InvalidChoiceException("Enter the valid choice!");
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException | InvalidChoiceException | StudentNotFoundException | IOException
+				| NumberFormatException e) {
+			throw new DatabaseException(e.getMessage());
 		}
 	}
 
-	public void deleteStudentDetails(Integer id) throws SQLException, IOException, StudentNotFoundException {
-		getStudentId();
-		if (!studentIdList.contains(id)) {
-			throw new StudentNotFoundException("Student not found,Enter the valid id!");
-		}
-		try (Connection con = DBUtil.getConnection();) {
+	public void deleteStudentDetails(Integer id) throws DatabaseException {
+		try {
+			getStudentId();
+			if (!studentIdList.contains(id)) {
+				throw new StudentNotFoundException("Student not found,Enter the valid id!");
+			}
+			Connection con = DBUtil.getConnection();
 			PreparedStatement pst = null;
 			String query = "DELETE FROM student WHERE RollNo=?";
 			pst = con.prepareStatement(query);
 			pst.setInt(1, id);
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows deleted!");
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException | StudentNotFoundException e) {
+			throw new DatabaseException(e.getMessage());
 		}
 	}
 
-	public List<Student> getStudentDetails() throws SQLException, IOException {
+	public List<Student> getStudentDetails() {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "SELECT * FROM student";
@@ -141,20 +147,20 @@ public class StudentDAOImpl implements StudentDAO {
 				studentList.add(
 						new Student(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5)));
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException e) {
+			logger.info(e.getMessage());
 		}
 		return studentList;
 	}
 
-	public List<Student> getParticularStudentDetails(Integer id)
-			throws SQLException, IOException, StudentNotFoundException {
+	public List<Student> getParticularStudentDetails(Integer id) throws DatabaseException {
 		List<Student> studentParticularList = new ArrayList<>();
-		getStudentId();
-		if (!studentIdList.contains(id)) {
-			throw new StudentNotFoundException("Student not found,Enter the valid id!");
-		}
-		try (Connection con = DBUtil.getConnection();) {
+		try {
+			getStudentId();
+			if (!studentIdList.contains(id)) {
+				throw new StudentNotFoundException("Student not found,Enter the valid id!");
+			}
+			Connection con = DBUtil.getConnection();
 			PreparedStatement pst = null;
 			String query = "SELECT * FROM student WHERE RollNo=?";
 			pst = con.prepareStatement(query);
@@ -164,8 +170,8 @@ public class StudentDAOImpl implements StudentDAO {
 				studentParticularList.add(
 						new Student(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5)));
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException | StudentNotFoundException e) {
+			throw new DatabaseException(e.getMessage());
 		}
 		return studentParticularList;
 	}
@@ -181,8 +187,8 @@ public class StudentDAOImpl implements StudentDAO {
 				System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3) + " " + rs.getString(4)
 						+ " " + rs.getString(5) + " " + rs.getString(6));
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException e) {
+			logger.info(e.getMessage());
 		}
 
 	}

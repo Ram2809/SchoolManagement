@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.revature.curriculummanagement.exception.BusinessServiceException;
+import com.revature.curriculummanagement.exception.ControllerException;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.model.Classes;
 import com.revature.curriculummanagement.service.ClassService;
@@ -16,26 +18,27 @@ public class ClassController {
 	static Logger logger = Logger.getLogger("ClassController.class");
 
 	public void addClassDetails(Classes classes) {
-		try {
-			logger.info("In class service -> add method");
-			classServiceImpl.addClassDetails(classes);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+
+		logger.info("In class service -> add method");
+		classServiceImpl.addClassDetails(classes);
+
 	}
 
-	public static List<Classes> getClassDetails() throws SQLException, IOException {
+	public static List<Classes> getClassDetails() {
 		logger.info("In class service -> get method");
 		return classServiceImpl.getClassDetails();
 	}
 
-	public void updateClassDetails(Integer roomNo)
-			throws NumberFormatException, IOException, InvalidChoiceException, SQLException {
+	public void updateClassDetails(Integer roomNo) throws ControllerException {
 		logger.info("In class service -> update method");
-		classServiceImpl.updateClassDetails(roomNo);
+		try {
+			classServiceImpl.updateClassDetails(roomNo);
+		} catch (BusinessServiceException e) {
+			throw new ControllerException(e.getMessage());
+		}
 	}
 
-	public void deleteClassDetails(Integer roomNo) throws NumberFormatException, IOException, SQLException {
+	public void deleteClassDetails(Integer roomNo) {
 		logger.info("In class service -> delete method");
 		classServiceImpl.deleteClassDetails(roomNo);
 	}

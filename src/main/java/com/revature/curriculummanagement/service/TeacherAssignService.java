@@ -4,22 +4,20 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.revature.curriculummanagement.exception.BusinessServiceException;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.StudentNotFoundException;
 import com.revature.curriculummanagement.exception.TeacherNotFoundException;
 import com.revature.curriculummanagement.model.TeacherDetails;
 
 public interface TeacherAssignService {
-	void addTeacherAssignDetails(TeacherDetails teacherDetails) throws SQLException, IOException;
+	void addTeacherAssignDetails(TeacherDetails teacherDetails);
 
-	List<TeacherDetails> getTeacherAssignDetails() throws NumberFormatException, IOException, SQLException;
+	List<TeacherDetails> getTeacherAssignDetails();
 
-	void updateTeacherAssignDetails(Integer teacherId)
-			throws NumberFormatException, IOException, InvalidChoiceException, SQLException;
+	void updateTeacherAssignDetails(Integer teacherId) throws BusinessServiceException;
 
-	void deleteTeacherAssignDetails(Integer teacherId)
-			throws NumberFormatException, IOException, SQLException, StudentNotFoundException;
+	void deleteTeacherAssignDetails(Integer teacherId) throws BusinessServiceException;
 
-	List<TeacherDetails> getParticularTeacherAssignDetails(Integer teacherId)
-			throws NumberFormatException, IOException, SQLException, StudentNotFoundException, TeacherNotFoundException;
+	List<TeacherDetails> getParticularTeacherAssignDetails(Integer teacherId) throws BusinessServiceException;
 }

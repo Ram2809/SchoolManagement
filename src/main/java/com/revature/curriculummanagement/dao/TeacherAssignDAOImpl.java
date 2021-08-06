@@ -10,8 +10,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
+import com.revature.curriculummanagement.exception.DatabaseException;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
-import com.revature.curriculummanagement.exception.StudentNotFoundException;
 import com.revature.curriculummanagement.exception.TeacherNotFoundException;
 import com.revature.curriculummanagement.model.TeacherDetails;
 import com.revature.curriculummanagement.util.DBUtil;
@@ -20,6 +22,7 @@ public class TeacherAssignDAOImpl implements TeacherAssignDAO {
 	static List<TeacherDetails> teacherAssignList = new ArrayList<>();
 	static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 	static List<Integer> teacherIdList = new ArrayList<>();
+	static Logger logger = Logger.getLogger("TeacherAssignDAOImpl.class");
 
 	public static void getTeacherId() {
 		try (Connection con = DBUtil.getConnection();) {
@@ -30,12 +33,12 @@ public class TeacherAssignDAOImpl implements TeacherAssignDAO {
 			while (rs.next()) {
 				teacherIdList.add(rs.getInt(1));
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
-	public void addTeacherAssignDetails(TeacherDetails teacherDetails) throws SQLException, IOException {
+	public void addTeacherAssignDetails(TeacherDetails teacherDetails) {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "INSERT INTO teacherDetails VALUES(?,?,?)";
@@ -45,13 +48,14 @@ public class TeacherAssignDAOImpl implements TeacherAssignDAO {
 			pst.setInt(3, teacherDetails.getSubjectId());
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows inserted!");
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
-	public void updateTeacherAssignDetails(Integer teacherId) throws SQLException, IOException {
-		try (Connection con = DBUtil.getConnection();) {
+	public void updateTeacherAssignDetails(Integer teacherId) throws DatabaseException {
+		try {
+			Connection con = DBUtil.getConnection();
 			PreparedStatement pst = null;
 			String query = "";
 			getTeacherId();
@@ -86,31 +90,33 @@ public class TeacherAssignDAOImpl implements TeacherAssignDAO {
 			default:
 				throw new InvalidChoiceException("Enter the valid choice!");
 			}
-		} catch (Exception e) {
+		} catch (IOException | NumberFormatException | SQLException | TeacherNotFoundException
+				| InvalidChoiceException e) {
 			e.printStackTrace();
+			throw new DatabaseException(e.getMessage());
 		}
 	}
 
-	public void deleteTeacherAssignDetails(Integer teacherId)
-			throws SQLException, IOException, StudentNotFoundException {
-
-		getTeacherId();
-		if (!teacherIdList.contains(teacherId)) {
-			throw new StudentNotFoundException("Student not found,Enter the valid id!");
-		}
-		try (Connection con = DBUtil.getConnection();) {
+	public void deleteTeacherAssignDetails(Integer teacherId) throws DatabaseException {
+		try {
+			getTeacherId();
+			if (!teacherIdList.contains(teacherId)) {
+				throw new TeacherNotFoundException("Teacher not found,Enter the valid id!");
+			}
+			Connection con = DBUtil.getConnection();
 			PreparedStatement pst = null;
 			String query = "DELETE FROM teacherdetails WHERE teacherId=?";
 			pst = con.prepareStatement(query);
 			pst.setInt(1, teacherId);
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows deleted!");
-		} catch (Exception e) {
+		} catch (SQLException | TeacherNotFoundException e) {
 			e.printStackTrace();
+			throw new DatabaseException(e.getMessage());
 		}
 	}
 
-	public List<TeacherDetails> getTeacherAssignDetails() throws SQLException, IOException {
+	public List<TeacherDetails> getTeacherAssignDetails() {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "SELECT * FROM teacherdetails";
@@ -119,20 +125,20 @@ public class TeacherAssignDAOImpl implements TeacherAssignDAO {
 			while (rs.next()) {
 				teacherAssignList.add(new TeacherDetails(rs.getInt(1), rs.getInt(2), rs.getInt(3)));
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return teacherAssignList;
 	}
 
-	public List<TeacherDetails> getParticularTeacherAssignDetails(Integer teacherId)
-			throws SQLException, IOException, StudentNotFoundException, TeacherNotFoundException {
+	public List<TeacherDetails> getParticularTeacherAssignDetails(Integer teacherId) throws DatabaseException {
 		List<TeacherDetails> teacherAssignParticularList = new ArrayList<>();
-		getTeacherId();
-		if (!teacherIdList.contains(teacherId)) {
-			throw new TeacherNotFoundException("Teacher not found,Enter the valid id!");
-		}
-		try (Connection con = DBUtil.getConnection();) {
+		try {
+			getTeacherId();
+			if (!teacherIdList.contains(teacherId)) {
+				throw new TeacherNotFoundException("Teacher not found,Enter the valid id!");
+			}
+			Connection con = DBUtil.getConnection();
 			PreparedStatement pst = null;
 			String query = "SELECT * FROM teacherdetails WHERE teacherId=?";
 			pst = con.prepareStatement(query);
@@ -141,8 +147,9 @@ public class TeacherAssignDAOImpl implements TeacherAssignDAO {
 			while (rs.next()) {
 				teacherAssignParticularList.add(new TeacherDetails(rs.getInt(1), rs.getInt(2), rs.getInt(3)));
 			}
-		} catch (Exception e) {
+		} catch (SQLException | TeacherNotFoundException e) {
 			e.printStackTrace();
+			throw new DatabaseException(e.getMessage());
 		}
 		return teacherAssignParticularList;
 	}

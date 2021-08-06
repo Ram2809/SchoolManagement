@@ -23,9 +23,14 @@ public class TopicsServiceImpl implements TopicsService {
 		topicsDAOImpl.addTopicsDetails(topics);
 	}
 
-	public void updateTopicsDetails(String unitNo) {
+	public void updateTopicsDetails(String unitNo) throws BusinessServiceException {
 		logger.info("In topics DAO -> update method");
-		topicsDAOImpl.updateTopicsDetails(unitNo);
+		try {
+			topicsDAOImpl.updateTopicsDetails(unitNo);
+		} catch (DatabaseException e) {
+			e.printStackTrace();
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
 	public void deleteTopicsDetails(String unitNo) throws BusinessServiceException {

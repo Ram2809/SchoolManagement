@@ -7,11 +7,11 @@ import java.util.List;
 import com.revature.curriculummanagement.model.HeadMaster;
 
 public interface HeadMasterService {
-	void addHeadMasterDetails(HeadMaster headMaster) throws SQLException, IOException;
+	void addHeadMasterDetails(HeadMaster headMaster);
 
-	void updateHeadMasterDetails(Integer id, String newName) throws SQLException, IOException;
+	void updateHeadMasterDetails(Integer id, String newName);
 
-	void deleteHeadMasterDetails(Integer id) throws SQLException, IOException;
+	void deleteHeadMasterDetails(Integer id);
 
-	List<HeadMaster> getHeadMasterDetails() throws SQLException, IOException;
+	List<HeadMaster> getHeadMasterDetails();
 }

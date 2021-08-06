@@ -14,7 +14,7 @@ public interface TopicsService {
 
 	List<Topics> getTopicsDetails();
 
-	void updateTopicsDetails(String unitNo);
+	void updateTopicsDetails(String unitNo) throws BusinessServiceException;
 
 	void deleteTopicsDetails(String unitNo) throws BusinessServiceException;
 

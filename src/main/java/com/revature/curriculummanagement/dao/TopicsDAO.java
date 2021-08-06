@@ -11,7 +11,7 @@ import com.revature.curriculummanagement.model.Topics;
 public interface TopicsDAO {
 	void addTopicsDetails(Topics topics);
 
-	void updateTopicsDetails(String unitNo);
+	void updateTopicsDetails(String unitNo) throws DatabaseException;
 
 	void deleteTopicsDetails(String unitNo) throws DatabaseException;
 

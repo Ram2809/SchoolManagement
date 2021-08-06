@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.revature.curriculummanagement.exception.DatabaseException;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.model.Classes;
@@ -18,8 +20,9 @@ import com.revature.curriculummanagement.util.DBUtil;
 public class ClassDAOImpl implements ClassDAO {
 	static List<Classes> classList = new ArrayList<>();
 	static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+	static Logger logger = Logger.getLogger("ClassDAOImpl.class");
 
-	public void addClassDetails(Classes classes) throws DatabaseException {
+	public void addClassDetails(Classes classes) {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "INSERT INTO class VALUES(?,?,?)";
@@ -30,11 +33,11 @@ public class ClassDAOImpl implements ClassDAO {
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows inserted!");
 		} catch (SQLException e) {
-			throw new DatabaseException(e.getMessage());
+			logger.info(e.getMessage());
 		}
 	}
 
-	public void updateClassDetails(Integer roomNo) {
+	public void updateClassDetails(Integer roomNo) throws DatabaseException {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "";
@@ -66,12 +69,12 @@ public class ClassDAOImpl implements ClassDAO {
 			default:
 				throw new InvalidChoiceException("Enter the valid choice!");
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException | InvalidChoiceException | IOException | NumberFormatException e) {
+			throw new DatabaseException(e.getMessage());
 		}
 	}
 
-	public void deleteClassDetails(Integer roomNo) throws SQLException, IOException {
+	public void deleteClassDetails(Integer roomNo) {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
 			String query = "DELETE FROM class WHERE RoomNo=?";
@@ -79,8 +82,8 @@ public class ClassDAOImpl implements ClassDAO {
 			pst.setInt(1, roomNo);
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Row deleted!");
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException e) {
+			logger.info(e.getMessage());
 		}
 	}
 
@@ -93,8 +96,8 @@ public class ClassDAOImpl implements ClassDAO {
 			while (rs.next()) {
 				classList.add(new Classes(rs.getInt(1), rs.getString(2), rs.getString(3)));
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException e) {
+			logger.info(e.getMessage());
 		}
 		return classList;
 	}

@@ -14,22 +14,22 @@ public class HeadMasterServiceImpl implements HeadMasterService {
 	HeadMasterDAO headMasterDAOImpl = new HeadMasterDAOImpl();
 	static Logger logger = Logger.getLogger("HeadMasterServiceImpl.class");
 
-	public void addHeadMasterDetails(HeadMaster headMaster) throws SQLException, IOException {
+	public void addHeadMasterDetails(HeadMaster headMaster) {
 		logger.info("In head master DAO -> add method");
 		headMasterDAOImpl.addHeadMasterDetails(headMaster);
 	}
 
-	public void updateHeadMasterDetails(Integer id, String newName) throws SQLException, IOException {
+	public void updateHeadMasterDetails(Integer id, String newName) {
 		logger.info("In head master DAO -> update method");
 		headMasterDAOImpl.updateHeadMasterDetails(id, newName);
 	}
 
-	public void deleteHeadMasterDetails(Integer id) throws SQLException, IOException {
+	public void deleteHeadMasterDetails(Integer id) {
 		logger.info("In head master DAO -> delete method");
 		headMasterDAOImpl.deleteHeadMasterDetails(id);
 	}
 
-	public List<HeadMaster> getHeadMasterDetails() throws SQLException, IOException {
+	public List<HeadMaster> getHeadMasterDetails() {
 		logger.info("In head master DAO -> get method");
 		return headMasterDAOImpl.getHeadMasterDetails();
 	}
