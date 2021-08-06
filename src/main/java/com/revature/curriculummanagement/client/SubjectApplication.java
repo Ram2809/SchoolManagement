@@ -3,7 +3,6 @@ package com.revature.curriculummanagement.client;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -13,7 +12,6 @@ import org.apache.log4j.Logger;
 import com.revature.curriculummanagement.controller.SubjectController;
 import com.revature.curriculummanagement.exception.ControllerException;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
-import com.revature.curriculummanagement.exception.SubjectNotFoundException;
 import com.revature.curriculummanagement.model.Subject;
 
 public class SubjectApplication {
