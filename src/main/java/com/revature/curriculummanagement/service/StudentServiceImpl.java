@@ -1,7 +1,5 @@
 package com.revature.curriculummanagement.service;
 
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -10,8 +8,6 @@ import com.revature.curriculummanagement.dao.StudentDAO;
 import com.revature.curriculummanagement.dao.StudentDAOImpl;
 import com.revature.curriculummanagement.exception.BusinessServiceException;
 import com.revature.curriculummanagement.exception.DatabaseException;
-import com.revature.curriculummanagement.exception.InvalidChoiceException;
-import com.revature.curriculummanagement.exception.StudentNotFoundException;
 import com.revature.curriculummanagement.model.Student;
 
 public class StudentServiceImpl implements StudentService {

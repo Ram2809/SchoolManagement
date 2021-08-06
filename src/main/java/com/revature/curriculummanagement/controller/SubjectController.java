@@ -1,15 +1,11 @@
 package com.revature.curriculummanagement.controller;
 
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
 import com.revature.curriculummanagement.exception.BusinessServiceException;
 import com.revature.curriculummanagement.exception.ControllerException;
-import com.revature.curriculummanagement.exception.InvalidChoiceException;
-import com.revature.curriculummanagement.exception.SubjectNotFoundException;
 import com.revature.curriculummanagement.model.Subject;
 import com.revature.curriculummanagement.service.SubjectService;
 import com.revature.curriculummanagement.service.SubjectServiceImpl;
