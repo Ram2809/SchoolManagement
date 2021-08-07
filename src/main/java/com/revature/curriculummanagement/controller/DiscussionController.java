@@ -51,8 +51,12 @@ public class DiscussionController {
 		}
 	}
 
-	public void getDiscussionStatusByUnit(String unitNo) {
+	public void getDiscussionStatusByUnit(String unitNo) throws ControllerException {
 		logger.info("In discussion service -> get discussion status by unit method");
-		discussionServiceImpl.getDiscussionStatusByUnit(unitNo);
+		try {
+			discussionServiceImpl.getDiscussionStatusByUnit(unitNo);
+		} catch (BusinessServiceException e) {
+			throw new ControllerException(e.getMessage());
+		}
 	}
 }

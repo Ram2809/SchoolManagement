@@ -51,9 +51,13 @@ public class TeacherServiceImpl implements TeacherService {
 		}
 	}
 
-	public void getTeacherDetailsByClassRoom(Integer roomNo) {
+	public void getTeacherDetailsByClassRoom(Integer roomNo) throws BusinessServiceException {
 		logger.info("In teacher DAO -> get teacher details by class room method");
-		teacherDAOImpl.getTeacherDetailsByClassRoom(roomNo);
+		try {
+			teacherDAOImpl.getTeacherDetailsByClassRoom(roomNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
 }

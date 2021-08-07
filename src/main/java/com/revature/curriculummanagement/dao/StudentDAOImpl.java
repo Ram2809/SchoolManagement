@@ -12,11 +12,14 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.revature.curriculummanagement.exception.ClassRoomNotFoundException;
 import com.revature.curriculummanagement.exception.DatabaseException;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.StudentNotFoundException;
 import com.revature.curriculummanagement.model.Student;
 import com.revature.curriculummanagement.util.DBUtil;
+import static com.revature.curriculummanagement.dao.ClassDAOImpl.classRoomNoList;
+import static com.revature.curriculummanagement.dao.ClassDAOImpl.getClassRoomNo;
 
 public class StudentDAOImpl implements StudentDAO {
 	static List<Student> studentList = new ArrayList<>();
@@ -176,8 +179,13 @@ public class StudentDAOImpl implements StudentDAO {
 		return studentParticularList;
 	}
 
-	public void getStudentDetailsByClassRoom(Integer roomNo) {
-		try (Connection con = DBUtil.getConnection();) {
+	public void getStudentDetailsByClassRoom(Integer roomNo) throws DatabaseException {
+		try {
+			getClassRoomNo();
+			if (!classRoomNoList.contains(roomNo)) {
+				throw new ClassRoomNotFoundException("Class Room No not found,Enter the valid room no!");
+			}
+			Connection con = DBUtil.getConnection();
 			PreparedStatement pst = null;
 			String query = "SELECT student.RollNo,student.Name,student.Date_of_Birth,student.Address,class.standard,class.section FROM student JOIN class ON student.classRoomNo=class.roomNo WHERE classRoomNo=?";
 			pst = con.prepareStatement(query);
@@ -187,8 +195,8 @@ public class StudentDAOImpl implements StudentDAO {
 				System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3) + " " + rs.getString(4)
 						+ " " + rs.getString(5) + " " + rs.getString(6));
 			}
-		} catch (SQLException e) {
-			logger.warn(e.getMessage());
+		} catch (SQLException | ClassRoomNotFoundException e) {
+			throw new DatabaseException(e.getMessage());
 		}
 
 	}

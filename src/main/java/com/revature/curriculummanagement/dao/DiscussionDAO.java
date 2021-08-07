@@ -16,5 +16,5 @@ public interface DiscussionDAO {
 
 	List<Discussion> getParticularDiscussionDetails(String questionNo) throws DatabaseException;
 
-	void getDiscussionStatusByUnit(String unitNo);
+	void getDiscussionStatusByUnit(String unitNo) throws DatabaseException;
 }

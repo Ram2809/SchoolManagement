@@ -96,7 +96,7 @@ public class DiscussionApplication {
 			System.out.println("Enter the unit no:");
 			String unitNo = bufferedReader.readLine();
 			discussionController.getDiscussionStatusByUnit(unitNo);
-		} catch (IOException | NumberFormatException e) {
+		} catch (IOException | NumberFormatException | ControllerException e) {
 			logger.warn(e.getMessage());
 		}
 	}

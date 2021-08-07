@@ -93,7 +93,7 @@ public class StudentApplication {
 			System.out.println("Enter the class room no:");
 			Integer roomNo = Integer.parseInt(bufferedReader.readLine());
 			studentController.getStudentDetailsByClassRoom(roomNo);
-		} catch (NumberFormatException | IOException e) {
+		} catch (NumberFormatException | IOException | ControllerException e) {
 			logger.warn(e.getMessage());
 		}
 	}

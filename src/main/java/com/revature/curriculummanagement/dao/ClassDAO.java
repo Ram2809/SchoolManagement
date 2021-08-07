@@ -10,7 +10,7 @@ public interface ClassDAO {
 
 	void updateClassDetails(Integer roomNo) throws DatabaseException;
 
-	void deleteClassDetails(Integer roomNo);
+	void deleteClassDetails(Integer roomNo) throws DatabaseException;
 
 	List<Classes> getClassDetails();
 }

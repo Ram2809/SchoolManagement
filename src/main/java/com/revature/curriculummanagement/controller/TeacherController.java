@@ -51,8 +51,12 @@ public class TeacherController {
 		}
 	}
 
-	public void getTeacherDetailsByClassRoom(Integer roomNo) {
+	public void getTeacherDetailsByClassRoom(Integer roomNo) throws ControllerException {
 		logger.info("In teacher service -> get teacher details by class room method");
-		teacherServiceImpl.getTeacherDetailsByClassRoom(roomNo);
+		try {
+			teacherServiceImpl.getTeacherDetailsByClassRoom(roomNo);
+		} catch (BusinessServiceException e) {
+			throw new ControllerException(e.getMessage());
+		}
 	}
 }

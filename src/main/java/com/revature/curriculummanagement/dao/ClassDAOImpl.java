@@ -12,6 +12,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.revature.curriculummanagement.exception.ClassRoomNotFoundException;
 import com.revature.curriculummanagement.exception.DatabaseException;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.model.Classes;
@@ -19,8 +20,23 @@ import com.revature.curriculummanagement.util.DBUtil;
 
 public class ClassDAOImpl implements ClassDAO {
 	static List<Classes> classList = new ArrayList<>();
+	static List<Integer> classRoomNoList = new ArrayList<>();
 	static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 	static Logger logger = Logger.getLogger("ClassDAOImpl.class");
+
+	public static void getClassRoomNo() {
+		try (Connection con = DBUtil.getConnection();) {
+			PreparedStatement pst = null;
+			String query = "select RoomNo from class";
+			pst = con.prepareStatement(query);
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				classRoomNoList.add(rs.getInt(1));
+			}
+		} catch (SQLException e) {
+			logger.warn(e.getMessage());
+		}
+	}
 
 	public void addClassDetails(Classes classes) {
 		try (Connection con = DBUtil.getConnection();) {
@@ -38,7 +54,12 @@ public class ClassDAOImpl implements ClassDAO {
 	}
 
 	public void updateClassDetails(Integer roomNo) throws DatabaseException {
-		try (Connection con = DBUtil.getConnection();) {
+		try {
+			getClassRoomNo();
+			if (!classRoomNoList.contains(roomNo)) {
+				throw new ClassRoomNotFoundException("Class Room No not found, Enter the valid room no!");
+			}
+			Connection con = DBUtil.getConnection();
 			PreparedStatement pst = null;
 			String query = "";
 			System.out.println("1.Update standard");
@@ -69,21 +90,27 @@ public class ClassDAOImpl implements ClassDAO {
 			default:
 				throw new InvalidChoiceException("Enter the valid choice!");
 			}
-		} catch (SQLException | InvalidChoiceException | IOException | NumberFormatException e) {
+		} catch (SQLException | InvalidChoiceException | IOException | NumberFormatException
+				| ClassRoomNotFoundException e) {
 			throw new DatabaseException(e.getMessage());
 		}
 	}
 
-	public void deleteClassDetails(Integer roomNo) {
-		try (Connection con = DBUtil.getConnection();) {
+	public void deleteClassDetails(Integer roomNo) throws DatabaseException {
+		try {
+			getClassRoomNo();
+			if (!classRoomNoList.contains(roomNo)) {
+				throw new ClassRoomNotFoundException("Class Room No not found, Enter the valid room no!");
+			}
+			Connection con = DBUtil.getConnection();
 			PreparedStatement pst = null;
 			String query = "DELETE FROM class WHERE RoomNo=?";
 			pst = con.prepareStatement(query);
 			pst.setInt(1, roomNo);
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Row deleted!");
-		} catch (SQLException e) {
-			logger.warn(e.getMessage());
+		} catch (SQLException | ClassRoomNotFoundException e) {
+			throw new DatabaseException(e.getMessage());
 		}
 	}
 

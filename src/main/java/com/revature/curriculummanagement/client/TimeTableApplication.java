@@ -21,8 +21,12 @@ public class TimeTableApplication {
 	static Logger logger = Logger.getLogger("TimeTableApplication.class");
 
 	public static void insertTimeTable() {
-		System.out.println("Enter the timetable details:");
-		timeTableController.addTimeTableDetails();
+		try {
+			System.out.println("Enter the timetable details:");
+			timeTableController.addTimeTableDetails();
+		} catch (ControllerException e) {
+			logger.warn(e.getMessage());
+		}
 	}
 
 	public static void updateTimeTable() {
@@ -44,7 +48,7 @@ public class TimeTableApplication {
 			System.out.println("Enter the day:");
 			String day = bufferedReader.readLine();
 			timeTableController.deleteTimeTableDetails(classId, day);
-		} catch (IOException | NumberFormatException e) {
+		} catch (IOException | NumberFormatException | ControllerException e) {
 			logger.warn(e.getMessage());
 		}
 	}
@@ -69,7 +73,7 @@ public class TimeTableApplication {
 			while (timeTableParticularIterator.hasNext()) {
 				System.out.println(timeTableParticularIterator.next());
 			}
-		} catch (IOException | NumberFormatException e) {
+		} catch (IOException | NumberFormatException | ControllerException e) {
 			logger.warn(e.getMessage());
 		}
 	}
@@ -79,7 +83,7 @@ public class TimeTableApplication {
 			System.out.println("Enter the class room no:");
 			Integer roomNo = Integer.parseInt(bufferedReader.readLine());
 			timeTableController.getTimeTableByclassRoom(roomNo);
-		} catch (IOException | NumberFormatException e) {
+		} catch (IOException | NumberFormatException | ControllerException e) {
 			logger.warn(e.getMessage());
 		}
 	}
@@ -89,7 +93,7 @@ public class TimeTableApplication {
 			System.out.println("Enter the class room no:");
 			Integer roomNo = Integer.parseInt(bufferedReader.readLine());
 			timeTableController.getTimeTableByclassStandard(roomNo);
-		} catch (IOException | NumberFormatException e) {
+		} catch (IOException | NumberFormatException | ControllerException e) {
 			logger.warn(e.getMessage());
 		}
 	}

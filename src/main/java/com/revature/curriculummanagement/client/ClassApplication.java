@@ -54,7 +54,7 @@ public class ClassApplication {
 			System.out.println("Enter the room no:");
 			Integer roomNo = Integer.parseInt(bufferedReader.readLine());
 			classController.deleteClassDetails(roomNo);
-		} catch (NumberFormatException | IOException e) {
+		} catch (NumberFormatException | IOException | ControllerException e) {
 			logger.warn(e.getMessage());
 		}
 	}

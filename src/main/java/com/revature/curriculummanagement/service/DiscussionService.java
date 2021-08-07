@@ -16,5 +16,5 @@ public interface DiscussionService {
 
 	List<Discussion> getParticularDiscussionDetails(String questioNo) throws BusinessServiceException;
 
-	void getDiscussionStatusByUnit(String unitNo);
+	void getDiscussionStatusByUnit(String unitNo) throws BusinessServiceException;
 }

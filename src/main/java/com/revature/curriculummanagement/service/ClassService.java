@@ -10,7 +10,7 @@ public interface ClassService {
 
 	void updateClassDetails(Integer roomNo) throws BusinessServiceException;
 
-	void deleteClassDetails(Integer roomNo);
+	void deleteClassDetails(Integer roomNo) throws BusinessServiceException;
 
 	List<Classes> getClassDetails();
 }

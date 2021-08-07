@@ -12,11 +12,14 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.revature.curriculummanagement.exception.ClassRoomNotFoundException;
 import com.revature.curriculummanagement.exception.DatabaseException;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.TeacherNotFoundException;
 import com.revature.curriculummanagement.model.Teacher;
 import com.revature.curriculummanagement.util.DBUtil;
+import static com.revature.curriculummanagement.dao.ClassDAOImpl.classRoomNoList;
+import static com.revature.curriculummanagement.dao.ClassDAOImpl.getClassRoomNo;
 
 public class TeacherDAOImpl implements TeacherDAO {
 	static List<Teacher> teacherList = new ArrayList<>();
@@ -189,8 +192,13 @@ public class TeacherDAOImpl implements TeacherDAO {
 		return teacherParticularList;
 	}
 
-	public void getTeacherDetailsByClassRoom(Integer roomNo) {
-		try (Connection con = DBUtil.getConnection();) {
+	public void getTeacherDetailsByClassRoom(Integer roomNo) throws DatabaseException {
+		try {
+			getClassRoomNo();
+			if (!classRoomNoList.contains(roomNo)) {
+				throw new ClassRoomNotFoundException("Class room no not found,Enter the valid room no!");
+			}
+			Connection con = DBUtil.getConnection();
 			PreparedStatement pst = null;
 			String query = "SELECT teacher.Id AS TeacherId,teacher.name AS TeacherName,teacherdetails.subjectId AS SubjectId,subject.name AS SubjectName from teacher JOIN teacherdetails ON teacher.id=teacherdetails.teacherId JOIN subject ON teacherdetails.subjectId=subject.Id WHERE classRoomNo=?";
 			pst = con.prepareStatement(query);
@@ -199,8 +207,8 @@ public class TeacherDAOImpl implements TeacherDAO {
 			while (rs.next()) {
 				System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getInt(3) + " " + rs.getString(4));
 			}
-		} catch (SQLException e) {
-			logger.warn(e.getMessage());
+		} catch (SQLException | ClassRoomNotFoundException e) {
+			throw new DatabaseException(e.getMessage());
 		}
 	}
 }

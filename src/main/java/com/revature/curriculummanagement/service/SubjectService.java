@@ -16,5 +16,5 @@ public interface SubjectService {
 
 	List<Subject> getParticularSubjectDetails(Integer subjectId) throws BusinessServiceException;
 
-	void getSubjectStatus(Integer subjectId);
+	void getSubjectStatus(Integer subjectId) throws BusinessServiceException;
 }

@@ -51,8 +51,12 @@ public class SubjectController {
 		}
 	}
 
-	public void getSubjectStatus(Integer subjectId) {
+	public void getSubjectStatus(Integer subjectId) throws ControllerException {
 		logger.info("In subject service -> get subject status method");
-		subjectServiceImpl.getSubjectStatus(subjectId);
+		try {
+			subjectServiceImpl.getSubjectStatus(subjectId);
+		} catch (BusinessServiceException e) {
+			throw new ControllerException(e.getMessage());
+		}
 	}
 }

@@ -87,7 +87,7 @@ public class SubjectApplication {
 			System.out.println("Enter the subject id:");
 			Integer subjectId = Integer.parseInt(bufferedReader.readLine());
 			subjectController.getSubjectStatus(subjectId);
-		} catch (NumberFormatException | IOException e) {
+		} catch (NumberFormatException | IOException | ControllerException e) {
 			logger.warn(e.getMessage());
 		}
 
@@ -132,7 +132,7 @@ public class SubjectApplication {
 					subjectStatus();
 					break;
 				case 7:
-					logger.info("Exits from student application");
+					logger.info("Exits from subject application");
 					System.exit(0);
 					break;
 				default:

@@ -12,10 +12,13 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.revature.curriculummanagement.exception.ClassRoomNotFoundException;
 import com.revature.curriculummanagement.exception.DatabaseException;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.model.TimeTable;
 import com.revature.curriculummanagement.util.DBUtil;
+import static com.revature.curriculummanagement.dao.ClassDAOImpl.classRoomNoList;
+import static com.revature.curriculummanagement.dao.ClassDAOImpl.getClassRoomNo;
 
 public class TimeTableDAOImpl implements TimeTableDAO {
 	static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
@@ -23,10 +26,14 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 	static List<TimeTable> timeTableList = new ArrayList<TimeTable>();
 	static Logger logger = Logger.getLogger("TimeTableDAOImpl.class");
 
-	public void addTimeTableDetails() {
+	public void addTimeTableDetails() throws DatabaseException {
 		try {
 			System.out.println("Enter the class room no:");
 			Integer roomNo = Integer.parseInt(bufferedReader.readLine());
+			getClassRoomNo();
+			if (!classRoomNoList.contains(roomNo)) {
+				throw new ClassRoomNotFoundException("Class Room No not found,Enter the valid room no!");
+			}
 			for (int i = 0; i < 5; i++) {
 				System.out.println("Enter the day");
 				String day = bufferedReader.readLine();
@@ -65,13 +72,18 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 				int count = pst.executeUpdate();
 				System.out.println(count + " " + "Rows Inserted");
 			}
-		} catch (SQLException | IOException | NumberFormatException e) {
-			logger.warn(e.getMessage());
+		} catch (SQLException | IOException | NumberFormatException | ClassRoomNotFoundException e) {
+			throw new DatabaseException(e.getMessage());
 		}
 	}
 
 	public void updateTimeTableDetails(Integer classId, String day) throws DatabaseException {
-		try (Connection con = DBUtil.getConnection();) {
+		try {
+			Connection con = DBUtil.getConnection();
+			getClassRoomNo();
+			if (!classRoomNoList.contains(classId)) {
+				throw new ClassRoomNotFoundException("Class Room No not found,Enter the valid room no!");
+			}
 			PreparedStatement pst = null;
 			String query = "";
 			System.out.println("1.Update period one");
@@ -152,13 +164,19 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 			default:
 				throw new InvalidChoiceException("Enter the valid choice!");
 			}
-		} catch (SQLException | InvalidChoiceException | NumberFormatException | IOException e) {
+		} catch (SQLException | InvalidChoiceException | NumberFormatException | IOException
+				| ClassRoomNotFoundException e) {
 			throw new DatabaseException(e.getMessage());
 		}
 	}
 
-	public void deleteTimeTableDetails(Integer classId, String day) {
-		try (Connection con = DBUtil.getConnection();) {
+	public void deleteTimeTableDetails(Integer classId, String day) throws DatabaseException {
+		try {
+			getClassRoomNo();
+			if (!classRoomNoList.contains(classId)) {
+				throw new ClassRoomNotFoundException("Class Room No not found,Enter the valid room no!");
+			}
+			Connection con = DBUtil.getConnection();
 			PreparedStatement pst = null;
 			String query = "DELETE FROM timetable WHERE classRoomNo=? AND Day=?";
 			pst = con.prepareStatement(query);
@@ -166,8 +184,8 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 			pst.setString(2, day);
 			int count = pst.executeUpdate();
 			System.out.println(count + " " + "Rows deleted!");
-		} catch (SQLException e) {
-			logger.warn(e.getMessage());
+		} catch (SQLException | ClassRoomNotFoundException e) {
+			throw new DatabaseException(e.getMessage());
 		}
 	}
 
@@ -187,9 +205,14 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 		return timeTableList;
 	}
 
-	public List<TimeTable> getParticularTimeTableDetails(Integer classId, String day) {
+	public List<TimeTable> getParticularTimeTableDetails(Integer classId, String day) throws DatabaseException {
 		List<TimeTable> timeTableParticularList = new ArrayList<>();
-		try (Connection con = DBUtil.getConnection();) {
+		try {
+			getClassRoomNo();
+			if (!classRoomNoList.contains(classId)) {
+				throw new ClassRoomNotFoundException("Class Room No not found,Enter the valid room no!");
+			}
+			Connection con = DBUtil.getConnection();
 			PreparedStatement pst = null;
 			String query = "SELECT * FROM timetable WHERE classRoomNo=? AND day=?";
 			pst = con.prepareStatement(query);
@@ -201,14 +224,19 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 						rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8)));
 
 			}
-		} catch (SQLException e) {
-			logger.warn(e.getMessage());
+		} catch (SQLException | ClassRoomNotFoundException e) {
+			throw new DatabaseException(e.getMessage());
 		}
 		return timeTableParticularList;
 	}
 
-	public void getTimeTableByclassRoom(Integer roomNo) {
-		try (Connection con = DBUtil.getConnection();) {
+	public void getTimeTableByclassRoom(Integer roomNo) throws DatabaseException {
+		try {
+			Connection con = DBUtil.getConnection();
+			getClassRoomNo();
+			if (!classRoomNoList.contains(roomNo)) {
+				throw new ClassRoomNotFoundException("Class Room No not found,Enter the valid room no!");
+			}
 			PreparedStatement pst = null;
 			String query = "SELECT day,periodOne,periodTwo,periodThree,periodFour,periodFive,periodSix FROM timetable WHERE classRoomNo=?";
 			pst = con.prepareStatement(query);
@@ -218,13 +246,18 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 				System.out.println(rs.getString(1) + " " + rs.getString(2) + " " + rs.getString(3) + " "
 						+ rs.getString(4) + " " + rs.getString(5) + " " + rs.getString(6) + " " + rs.getString(7));
 			}
-		} catch (SQLException e) {
-			logger.warn(e.getMessage());
+		} catch (SQLException | ClassRoomNotFoundException e) {
+			throw new DatabaseException(e.getMessage());
 		}
 	}
 
-	public void getTimeTableByclassStandard(Integer roomNo) {
-		try (Connection con = DBUtil.getConnection();) {
+	public void getTimeTableByclassStandard(Integer roomNo) throws DatabaseException {
+		try {
+			getClassRoomNo();
+			if (!classRoomNoList.contains(roomNo)) {
+				throw new ClassRoomNotFoundException("Class Room No not found,Enter the valid room no!");
+			}
+			Connection con = DBUtil.getConnection();
 			PreparedStatement pst = null;
 			String query = "SELECT class.RoomNo,class.Standard,class.Section,timetable.day,timetable.periodOne,timetable.periodTwo,timetable.periodThree,timetable.periodFour,timetable.periodFive,timetable.periodSix FROM class JOIN timetable ON class.RoomNo=timetable.classRoomNo WHERE roomNo=?";
 			pst = con.prepareStatement(query);
@@ -235,8 +268,8 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 						+ " " + rs.getString(5) + " " + rs.getString(6) + " " + rs.getString(7) + " " + rs.getString(8)
 						+ " " + rs.getString(9) + " " + rs.getString(10));
 			}
-		} catch (SQLException e) {
-			logger.warn(e.getMessage());
+		} catch (SQLException | ClassRoomNotFoundException e) {
+			throw new DatabaseException(e.getMessage());
 		}
 	}
 

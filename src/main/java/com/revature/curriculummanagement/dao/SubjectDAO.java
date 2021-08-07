@@ -16,5 +16,5 @@ public interface SubjectDAO {
 
 	List<Subject> getParticularSubjectDetails(Integer subjectId) throws DatabaseException;
 
-	void getSubjectStatus(Integer subjectId);
+	void getSubjectStatus(Integer subjectId) throws DatabaseException;
 }

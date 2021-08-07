@@ -51,8 +51,12 @@ public class SubjectServiceImpl implements SubjectService {
 		}
 	}
 
-	public void getSubjectStatus(Integer subjectId) {
+	public void getSubjectStatus(Integer subjectId) throws BusinessServiceException {
 		logger.info("In subject DAO -> get subject status method");
-		subjectDAOImpl.getSubjectStatus(subjectId);
+		try {
+			subjectDAOImpl.getSubjectStatus(subjectId);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 }

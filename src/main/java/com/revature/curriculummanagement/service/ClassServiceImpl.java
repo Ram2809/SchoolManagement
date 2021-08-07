@@ -30,9 +30,13 @@ public class ClassServiceImpl implements ClassService {
 		}
 	}
 
-	public void deleteClassDetails(Integer roomNo) {
+	public void deleteClassDetails(Integer roomNo) throws BusinessServiceException {
 		logger.info("In class DAO -> delete method");
-		classDAOImpl.deleteClassDetails(roomNo);
+		try {
+			classDAOImpl.deleteClassDetails(roomNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
 	public List<Classes> getClassDetails() {

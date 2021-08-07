@@ -51,9 +51,13 @@ public class DiscussionServiceImpl implements DiscussionService {
 		}
 	}
 
-	public void getDiscussionStatusByUnit(String unitNo) {
+	public void getDiscussionStatusByUnit(String unitNo) throws BusinessServiceException {
 		logger.info("In discussion DAO -> get discussion status by unit method");
-		discussionDAOImpl.getDiscussionStatusByUnit(unitNo);
+		try {
+			discussionDAOImpl.getDiscussionStatusByUnit(unitNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 
 	}
 

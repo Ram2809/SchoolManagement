@@ -33,8 +33,12 @@ public class ClassController {
 		}
 	}
 
-	public void deleteClassDetails(Integer roomNo) {
+	public void deleteClassDetails(Integer roomNo) throws ControllerException {
 		logger.info("In class service -> delete method");
-		classServiceImpl.deleteClassDetails(roomNo);
+		try {
+			classServiceImpl.deleteClassDetails(roomNo);
+		} catch (BusinessServiceException e) {
+			throw new ControllerException(e.getMessage());
+		}
 	}
 }

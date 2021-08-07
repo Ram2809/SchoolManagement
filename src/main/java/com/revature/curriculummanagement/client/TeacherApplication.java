@@ -92,10 +92,14 @@ public class TeacherApplication {
 		}
 	}
 
-	public static void getTeacherByClassRoom() throws NumberFormatException, IOException {
-		System.out.println("Enter the class room no:");
-		Integer classRoomNo = Integer.parseInt(bufferedReader.readLine());
-		teacherController.getTeacherDetailsByClassRoom(classRoomNo);
+	public static void getTeacherByClassRoom() {
+		try {
+			System.out.println("Enter the class room no:");
+			Integer classRoomNo = Integer.parseInt(bufferedReader.readLine());
+			teacherController.getTeacherDetailsByClassRoom(classRoomNo);
+		} catch (IOException | NumberFormatException | ControllerException e) {
+			logger.warn(e.getMessage());
+		}
 	}
 
 	public static void main(String[] args) {

@@ -147,6 +147,7 @@ public class HeadMaterApplication {
 					DiscussionApplication.main(args);
 					break;
 				case 9:
+					logger.info("Exits from head master section");
 					System.exit(0);
 					break;
 				default:

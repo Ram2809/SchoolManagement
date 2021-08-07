@@ -51,8 +51,12 @@ public class StudentController {
 		}
 	}
 
-	public void getStudentDetailsByClassRoom(Integer roomNo) {
+	public void getStudentDetailsByClassRoom(Integer roomNo) throws ControllerException {
 		logger.info("In student service -> get student details by class room method");
-		studentServiceImpl.getStudentDetailsByClassRoom(roomNo);
+		try {
+			studentServiceImpl.getStudentDetailsByClassRoom(roomNo);
+		} catch (BusinessServiceException e) {
+			throw new ControllerException(e.getMessage());
+		}
 	}
 }

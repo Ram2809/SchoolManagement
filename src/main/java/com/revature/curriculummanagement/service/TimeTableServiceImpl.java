@@ -14,9 +14,13 @@ public class TimeTableServiceImpl implements TimeTableService {
 	TimeTableDAO timeTableDAOImpl = new TimeTableDAOImpl();
 	static Logger logger = Logger.getLogger("TimeTableServiceImpl.class");
 
-	public void addTimeTableDetails() {
+	public void addTimeTableDetails() throws BusinessServiceException {
 		logger.info("In time table DAO -> add method");
-		timeTableDAOImpl.addTimeTableDetails();
+		try {
+			timeTableDAOImpl.addTimeTableDetails();
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
 	public void updateTimeTableDetails(Integer classId, String day) throws BusinessServiceException {
@@ -28,9 +32,13 @@ public class TimeTableServiceImpl implements TimeTableService {
 		}
 	}
 
-	public void deleteTimeTableDetails(Integer classId, String day) {
+	public void deleteTimeTableDetails(Integer classId, String day) throws BusinessServiceException {
 		logger.info("In time table DAO -> delete method");
-		timeTableDAOImpl.deleteTimeTableDetails(classId, day);
+		try {
+			timeTableDAOImpl.deleteTimeTableDetails(classId, day);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
 	public List<TimeTable> getTimeTableDetails() {
@@ -38,20 +46,32 @@ public class TimeTableServiceImpl implements TimeTableService {
 		return timeTableDAOImpl.getTimeTableDetails();
 	}
 
-	public List<TimeTable> getParticularTimeTableDetails(Integer classId, String day) {
+	public List<TimeTable> getParticularTimeTableDetails(Integer classId, String day) throws BusinessServiceException {
 		logger.info("In time table DAO -> get particular time table details method");
-		return timeTableDAOImpl.getParticularTimeTableDetails(classId, day);
+		try {
+			return timeTableDAOImpl.getParticularTimeTableDetails(classId, day);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
-	public void getTimeTableByclassRoom(Integer roomNo) {
+	public void getTimeTableByclassRoom(Integer roomNo) throws BusinessServiceException {
 		logger.info("In time table DAO -> get time table by class room method");
-		timeTableDAOImpl.getTimeTableByclassRoom(roomNo);
+		try {
+			timeTableDAOImpl.getTimeTableByclassRoom(roomNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 
 	}
 
-	public void getTimeTableByclassStandard(Integer roomNo) {
+	public void getTimeTableByclassStandard(Integer roomNo) throws BusinessServiceException {
 		logger.info("In time table DAO -> get time table by standard method");
-		timeTableDAOImpl.getTimeTableByclassStandard(roomNo);
+		try {
+			timeTableDAOImpl.getTimeTableByclassStandard(roomNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
 }

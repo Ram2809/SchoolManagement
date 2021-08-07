@@ -16,5 +16,5 @@ public interface StudentService {
 
 	List<Student> getParticularStudentDetails(Integer id) throws BusinessServiceException;
 
-	void getStudentDetailsByClassRoom(Integer roomNo);
+	void getStudentDetailsByClassRoom(Integer roomNo) throws BusinessServiceException;
 }

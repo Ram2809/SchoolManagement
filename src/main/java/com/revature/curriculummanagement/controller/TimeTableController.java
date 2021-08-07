@@ -14,9 +14,13 @@ public class TimeTableController {
 	TimeTableService timeTableServiceImpl = new TimeTableServiceImpl();
 	static Logger logger = Logger.getLogger("TimeTableController.class");
 
-	public void addTimeTableDetails() {
+	public void addTimeTableDetails() throws ControllerException {
 		logger.info("In time table service -> add method");
-		timeTableServiceImpl.addTimeTableDetails();
+		try {
+			timeTableServiceImpl.addTimeTableDetails();
+		} catch (BusinessServiceException e) {
+			throw new ControllerException(e.getMessage());
+		}
 	}
 
 	public void updateTimeTableDetails(Integer classId, String day) throws ControllerException {
@@ -28,9 +32,13 @@ public class TimeTableController {
 		}
 	}
 
-	public void deleteTimeTableDetails(Integer classId, String day) {
+	public void deleteTimeTableDetails(Integer classId, String day) throws ControllerException {
 		logger.info("In time table service -> delete method");
-		timeTableServiceImpl.deleteTimeTableDetails(classId, day);
+		try {
+			timeTableServiceImpl.deleteTimeTableDetails(classId, day);
+		} catch (BusinessServiceException e) {
+			throw new ControllerException(e.getMessage());
+		}
 	}
 
 	public List<TimeTable> getTimeTableDetails() {
@@ -38,18 +46,30 @@ public class TimeTableController {
 		return timeTableServiceImpl.getTimeTableDetails();
 	}
 
-	public List<TimeTable> getParticularTimeTableDetails(Integer teacherId, String day) {
+	public List<TimeTable> getParticularTimeTableDetails(Integer teacherId, String day) throws ControllerException {
 		logger.info("In time table service -> get particular time table details method");
-		return timeTableServiceImpl.getParticularTimeTableDetails(teacherId, day);
+		try {
+			return timeTableServiceImpl.getParticularTimeTableDetails(teacherId, day);
+		} catch (BusinessServiceException e) {
+			throw new ControllerException(e.getMessage());
+		}
 	}
 
-	public void getTimeTableByclassRoom(Integer roomNo) {
+	public void getTimeTableByclassRoom(Integer roomNo) throws ControllerException {
 		logger.info("In time table service -> get time table for specific class room method");
-		timeTableServiceImpl.getTimeTableByclassRoom(roomNo);
+		try {
+			timeTableServiceImpl.getTimeTableByclassRoom(roomNo);
+		} catch (BusinessServiceException e) {
+			throw new ControllerException(e.getMessage());
+		}
 	}
 
-	public void getTimeTableByclassStandard(Integer roomNo) {
+	public void getTimeTableByclassStandard(Integer roomNo) throws ControllerException {
 		logger.info("In time table service -> get time table for specific standard method");
-		timeTableServiceImpl.getTimeTableByclassStandard(roomNo);
+		try {
+			timeTableServiceImpl.getTimeTableByclassStandard(roomNo);
+		} catch (BusinessServiceException e) {
+			throw new ControllerException(e.getMessage());
+		}
 	}
 }

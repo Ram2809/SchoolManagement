@@ -148,8 +148,13 @@ public class SubjectDAOImpl implements SubjectDAO {
 		return subjectParticularList;
 	}
 
-	public void getSubjectStatus(Integer subjectId) {
-		try (Connection con = DBUtil.getConnection();) {
+	public void getSubjectStatus(Integer subjectId) throws DatabaseException {
+		try {
+			getSubjectId();
+			if (!subjectIdList.contains(subjectId)) {
+				throw new SubjectNotFoundException("Subject not found,Enter the valid id!");
+			}
+			Connection con = DBUtil.getConnection();
 			PreparedStatement pst = null;
 			String query = "SELECT class.RoomNo,class.Standard,class.Section,subject.Id,subject.Name,teacherdetails.teacherId,teacher.name,topics.unitNo,topics.unitName,topics.beginDate,discussion.date AS completedDate,topics.status FROM class JOIN subject ON class.RoomNo=subject.classId JOIN topics ON subject.Id=topics.subjectId JOIN teacherdetails ON topics.subjectId=teacherdetails.subjectId JOIN teacher ON teacherdetails.teacherId=teacher.id JOIN discussion ON topics.unitNo=discussion.unitNo WHERE subject.Id=?";
 			pst = con.prepareStatement(query);
@@ -161,8 +166,8 @@ public class SubjectDAOImpl implements SubjectDAO {
 						+ " " + rs.getString(9) + " " + rs.getString(10) + " " + rs.getString(11) + " "
 						+ rs.getBoolean(12));
 			}
-		} catch (SQLException e) {
-			logger.warn(e.getMessage());
+		} catch (SQLException | SubjectNotFoundException e) {
+			throw new DatabaseException(e.getMessage());
 		}
 
 	}

@@ -16,5 +16,5 @@ public interface StudentDAO {
 
 	List<Student> getParticularStudentDetails(Integer id) throws DatabaseException;
 
-	void getStudentDetailsByClassRoom(Integer roomNo);
+	void getStudentDetailsByClassRoom(Integer roomNo) throws DatabaseException;
 }

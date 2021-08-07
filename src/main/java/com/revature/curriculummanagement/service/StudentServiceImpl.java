@@ -51,9 +51,13 @@ public class StudentServiceImpl implements StudentService {
 		}
 	}
 
-	public void getStudentDetailsByClassRoom(Integer roomNo) {
+	public void getStudentDetailsByClassRoom(Integer roomNo) throws BusinessServiceException {
 		logger.info("In student DAO -> get student details by class room method");
-		studentDAOImpl.getStudentDetailsByClassRoom(roomNo);
+		try {
+			studentDAOImpl.getStudentDetailsByClassRoom(roomNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
 }

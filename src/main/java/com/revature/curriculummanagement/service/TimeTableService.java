@@ -6,17 +6,17 @@ import com.revature.curriculummanagement.exception.BusinessServiceException;
 import com.revature.curriculummanagement.model.TimeTable;
 
 public interface TimeTableService {
-	void addTimeTableDetails();
+	void addTimeTableDetails() throws BusinessServiceException;
 
 	void updateTimeTableDetails(Integer classId, String day) throws BusinessServiceException;
 
-	void deleteTimeTableDetails(Integer classId, String day);
+	void deleteTimeTableDetails(Integer classId, String day) throws BusinessServiceException;
 
 	List<TimeTable> getTimeTableDetails();
 
-	List<TimeTable> getParticularTimeTableDetails(Integer teacherId, String day);
+	List<TimeTable> getParticularTimeTableDetails(Integer teacherId, String day) throws BusinessServiceException;
 
-	void getTimeTableByclassRoom(Integer roomNo);
+	void getTimeTableByclassRoom(Integer roomNo) throws BusinessServiceException;
 
-	void getTimeTableByclassStandard(Integer roomNo);
+	void getTimeTableByclassStandard(Integer roomNo) throws BusinessServiceException;
 }

@@ -274,3 +274,213 @@
 2021-08-06 23:49:35 INFO  class:50 - In student service -> get particular student details method
 2021-08-06 23:49:35 INFO  class:50 - In student DAO -> get particular student details method
 2021-08-06 23:49:41 INFO  class:143 - Exits from student application
+2021-08-07 09:55:23 INFO  class:19 - In Curriculum Management App
+2021-08-07 09:55:30 INFO  class:30 - In head master section
+2021-08-07 09:55:36 INFO  class:73 - In class application
+2021-08-07 09:55:40 INFO  class:98 - In class controller -> get method
+2021-08-07 09:55:40 INFO  class:23 - In class service -> get method
+2021-08-07 09:55:40 INFO  class:39 - In class DAO -> get method
+2021-08-07 09:56:01 INFO  class:102 - Exits from class application
+2021-08-07 09:57:38 INFO  class:121 - In topics controller -> get method
+2021-08-07 09:57:38 INFO  class:23 - In topics service -> get method
+2021-08-07 09:57:38 INFO  class:41 - In topics DAO -> get method
+2021-08-07 09:57:42 INFO  class:125 - In topics controller -> get particular topic method
+2021-08-07 09:57:45 INFO  class:46 - In topics service -> get particular topic details method
+2021-08-07 09:57:45 INFO  class:46 - In topics DAO -> get particular topics details method
+2021-08-07 09:57:45 WARN  class:90 - Topic not found,Enter the valid id!
+2021-08-07 09:58:02 INFO  class:125 - In topics controller -> get particular topic method
+2021-08-07 09:58:08 INFO  class:46 - In topics service -> get particular topic details method
+2021-08-07 09:58:08 INFO  class:46 - In topics DAO -> get particular topics details method
+2021-08-07 09:58:46 INFO  class:129 - Exits from topics application
+2021-08-07 09:59:06 INFO  class:130 - In timetable controller -> get particular time table method
+2021-08-07 09:59:22 INFO  class:42 - In time table service -> get particular time table details method
+2021-08-07 09:59:22 INFO  class:42 - In time table DAO -> get particular time table details method
+2021-08-07 09:59:35 INFO  class:130 - In timetable controller -> get particular time table method
+2021-08-07 09:59:41 INFO  class:42 - In time table service -> get particular time table details method
+2021-08-07 09:59:41 INFO  class:42 - In time table DAO -> get particular time table details method
+2021-08-07 09:59:54 INFO  class:134 - In timetable controller -> get time table by class room method
+2021-08-07 09:59:56 INFO  class:47 - In time table service -> get time table for specific class room method
+2021-08-07 09:59:56 INFO  class:47 - In time table DAO -> get time table by class room method
+2021-08-07 10:00:10 INFO  class:138 - In timetable controller -> get time table by standard method
+2021-08-07 10:00:14 INFO  class:52 - In time table service -> get time table for specific standard method
+2021-08-07 10:00:14 INFO  class:53 - In time table DAO -> get time table by standard method
+2021-08-07 10:00:28 INFO  class:142 - Exits from time table application
+2021-08-07 10:00:42 INFO  class:115 - In teacher assign controller -> get particular teacher assign details method
+2021-08-07 10:00:45 INFO  class:46 - In teacher assign service -> get particular teacher assign details method
+2021-08-07 10:00:45 INFO  class:46 - In teacher assign DAO -> get particular teacher assign details method
+2021-08-07 10:00:46 WARN  class:80 - Teacher not found,Enter the valid id!
+2021-08-07 10:00:55 INFO  class:111 - In teacher assign controller -> get method
+2021-08-07 10:00:55 INFO  class:23 - In teacher assign service -> get method
+2021-08-07 10:00:55 INFO  class:41 - In teacher assign DAO -> get method
+2021-08-07 10:01:05 INFO  class:115 - In teacher assign controller -> get particular teacher assign details method
+2021-08-07 10:01:10 INFO  class:46 - In teacher assign service -> get particular teacher assign details method
+2021-08-07 10:01:10 INFO  class:46 - In teacher assign DAO -> get particular teacher assign details method
+2021-08-07 10:01:33 INFO  class:115 - In teacher assign controller -> get particular teacher assign details method
+2021-08-07 10:01:45 INFO  class:46 - In teacher assign service -> get particular teacher assign details method
+2021-08-07 10:01:45 INFO  class:46 - In teacher assign DAO -> get particular teacher assign details method
+2021-08-07 10:02:01 INFO  class:115 - In teacher assign controller -> get particular teacher assign details method
+2021-08-07 10:02:03 INFO  class:46 - In teacher assign service -> get particular teacher assign details method
+2021-08-07 10:02:03 INFO  class:46 - In teacher assign DAO -> get particular teacher assign details method
+2021-08-07 10:02:03 WARN  class:80 - Teacher not found,Enter the valid id!
+2021-08-07 10:02:21 INFO  class:119 - Exits from teacher assign application
+2021-08-07 10:03:15 INFO  class:133 - In teacher controller -> get particular teacher data method
+2021-08-07 10:03:20 INFO  class:46 - In teacher service -> get particular teacher details method
+2021-08-07 10:03:20 INFO  class:46 - In teacher DAO -> get particular teacher details method
+2021-08-07 10:03:21 WARN  class:91 - Teacher not found,Enter the valid id!
+2021-08-07 10:03:29 INFO  class:129 - In teacher controller -> get method
+2021-08-07 10:03:29 INFO  class:23 - In teacher service -> get method
+2021-08-07 10:03:29 INFO  class:41 - In teacher DAO -> get method
+2021-08-07 10:04:05 INFO  class:133 - In teacher controller -> get particular teacher data method
+2021-08-07 10:04:09 INFO  class:46 - In teacher service -> get particular teacher details method
+2021-08-07 10:04:09 INFO  class:46 - In teacher DAO -> get particular teacher details method
+2021-08-07 10:04:28 INFO  class:137 - In teacher controller -> get teacher for given classroom method
+2021-08-07 10:04:34 INFO  class:55 - In teacher service -> get teacher details by class room method
+2021-08-07 10:04:34 INFO  class:55 - In teacher DAO -> get teacher details by class room method
+2021-08-07 10:04:44 INFO  class:137 - In teacher controller -> get teacher for given classroom method
+2021-08-07 10:04:46 INFO  class:55 - In teacher service -> get teacher details by class room method
+2021-08-07 10:04:46 INFO  class:55 - In teacher DAO -> get teacher details by class room method
+2021-08-07 10:05:01 INFO  class:141 - Exits from teacher application
+2021-08-07 10:05:17 INFO  class:123 - In subject controller -> get method
+2021-08-07 10:05:17 INFO  class:23 - In subject service -> get method
+2021-08-07 10:05:17 INFO  class:41 - In subject DAO -> get method
+2021-08-07 10:05:27 INFO  class:127 - In subject controller -> get particular subject data method
+2021-08-07 10:05:35 INFO  class:46 - In subject service -> get particular subject details method
+2021-08-07 10:05:35 INFO  class:46 - In subject DAO -> get particular subject details method
+2021-08-07 10:05:46 INFO  class:127 - In subject controller -> get particular subject data method
+2021-08-07 10:05:49 INFO  class:46 - In subject service -> get particular subject details method
+2021-08-07 10:05:49 INFO  class:46 - In subject DAO -> get particular subject details method
+2021-08-07 10:05:49 WARN  class:81 - Subject not found,Enter the valid id!
+2021-08-07 10:06:06 INFO  class:131 - In subject controller -> get subject status method
+2021-08-07 10:06:10 INFO  class:55 - In subject service -> get subject status method
+2021-08-07 10:06:10 INFO  class:55 - In subject DAO -> get subject status method
+2021-08-07 10:06:20 WARN  class:142 - Enter the valid choice!
+2021-08-07 10:06:32 INFO  class:131 - In subject controller -> get subject status method
+2021-08-07 10:06:37 INFO  class:55 - In subject service -> get subject status method
+2021-08-07 10:06:37 INFO  class:55 - In subject DAO -> get subject status method
+2021-08-07 10:07:05 INFO  class:135 - Exits from student application
+2021-08-07 10:07:14 INFO  class:131 - In subject controller -> get subject status method
+2021-08-07 10:07:21 INFO  class:55 - In subject service -> get subject status method
+2021-08-07 10:07:21 INFO  class:55 - In subject DAO -> get subject status method
+2021-08-07 10:07:37 INFO  class:131 - In subject controller -> get subject status method
+2021-08-07 10:07:43 INFO  class:55 - In subject service -> get subject status method
+2021-08-07 10:07:43 INFO  class:55 - In subject DAO -> get subject status method
+2021-08-07 10:07:49 INFO  class:131 - In subject controller -> get subject status method
+2021-08-07 10:07:53 INFO  class:55 - In subject service -> get subject status method
+2021-08-07 10:07:53 INFO  class:55 - In subject DAO -> get subject status method
+2021-08-07 10:08:20 INFO  class:127 - In subject controller -> get particular subject data method
+2021-08-07 10:08:29 INFO  class:46 - In subject service -> get particular subject details method
+2021-08-07 10:08:29 INFO  class:46 - In subject DAO -> get particular subject details method
+2021-08-07 10:08:32 INFO  class:123 - In subject controller -> get method
+2021-08-07 10:08:32 INFO  class:23 - In subject service -> get method
+2021-08-07 10:08:32 INFO  class:41 - In subject DAO -> get method
+2021-08-07 10:08:41 INFO  class:135 - Exits from student application
+2021-08-07 10:09:29 INFO  class:129 - In student controller -> get method
+2021-08-07 10:09:29 INFO  class:23 - In student service -> get method
+2021-08-07 10:09:29 INFO  class:41 - In student DAO -> get method
+2021-08-07 10:09:49 INFO  class:133 - In student controller -> get particular student data method
+2021-08-07 10:10:07 INFO  class:46 - In student service -> get particular student details method
+2021-08-07 10:10:07 INFO  class:46 - In student DAO -> get particular student details method
+2021-08-07 10:10:35 INFO  class:133 - In student controller -> get particular student data method
+2021-08-07 10:10:37 INFO  class:46 - In student service -> get particular student details method
+2021-08-07 10:10:37 INFO  class:46 - In student DAO -> get particular student details method
+2021-08-07 10:10:37 WARN  class:87 - Student not found,Enter the valid id!
+2021-08-07 10:10:45 INFO  class:137 - In student controller -> get student by classroom method
+2021-08-07 10:10:47 INFO  class:55 - In student service -> get student details by class room method
+2021-08-07 10:10:47 INFO  class:55 - In student DAO -> get student details by class room method
+2021-08-07 10:10:55 INFO  class:137 - In student controller -> get student by classroom method
+2021-08-07 10:11:01 INFO  class:55 - In student service -> get student details by class room method
+2021-08-07 10:11:01 INFO  class:55 - In student DAO -> get student details by class room method
+2021-08-07 10:11:14 INFO  class:137 - In student controller -> get student by classroom method
+2021-08-07 10:11:19 INFO  class:55 - In student service -> get student details by class room method
+2021-08-07 10:11:19 INFO  class:55 - In student DAO -> get student details by class room method
+2021-08-07 10:11:30 INFO  class:141 - Exits from student application
+2021-08-07 10:14:04 INFO  class:150 - Exits from head master section
+2021-08-07 10:14:25 INFO  class:105 - In discussion application
+2021-08-07 10:14:33 INFO  class:136 - In discussion controller -> get particular discussion method
+2021-08-07 10:14:42 INFO  class:46 - In discussion service -> get particular discussion details method
+2021-08-07 10:14:42 INFO  class:46 - In discussion DAO -> get particular discussion details method
+2021-08-07 10:14:55 INFO  class:124 - In discussion controller -> update method
+2021-08-07 10:15:01 INFO  class:28 - In discussion service -> update method
+2021-08-07 10:15:01 INFO  class:23 - In discussion DAO -> update method
+2021-08-07 10:15:25 INFO  class:132 - In discussion controller -> get method
+2021-08-07 10:15:25 INFO  class:23 - In discussion service -> get method
+2021-08-07 10:15:25 INFO  class:41 - In discussion DAO -> get method
+2021-08-07 10:16:34 INFO  class:140 - In discussion controller -> get discussion by unit method
+2021-08-07 10:16:42 INFO  class:55 - In discussion service -> get discussion status by unit method
+2021-08-07 10:16:42 INFO  class:55 - In discussion DAO -> get discussion status by unit method
+2021-08-07 10:17:19 INFO  class:136 - In discussion controller -> get particular discussion method
+2021-08-07 10:17:23 INFO  class:46 - In discussion service -> get particular discussion details method
+2021-08-07 10:17:23 INFO  class:46 - In discussion DAO -> get particular discussion details method
+2021-08-07 10:17:23 WARN  class:90 - Question not found,Enter the valid id!
+2021-08-07 10:17:30 INFO  class:140 - In discussion controller -> get discussion by unit method
+2021-08-07 10:17:34 INFO  class:55 - In discussion service -> get discussion status by unit method
+2021-08-07 10:17:34 INFO  class:55 - In discussion DAO -> get discussion status by unit method
+2021-08-07 10:27:40 INFO  class:105 - In discussion application
+2021-08-07 10:27:53 INFO  class:140 - In discussion controller -> get discussion by unit method
+2021-08-07 10:27:56 INFO  class:55 - In discussion service -> get discussion status by unit method
+2021-08-07 10:27:56 INFO  class:55 - In discussion DAO -> get discussion status by unit method
+2021-08-07 10:27:57 WARN  class:100 - Subject not found,Enter the valid id!
+2021-08-07 10:28:33 INFO  class:140 - In discussion controller -> get discussion by unit method
+2021-08-07 10:28:36 INFO  class:55 - In discussion service -> get discussion status by unit method
+2021-08-07 10:28:36 INFO  class:55 - In discussion DAO -> get discussion status by unit method
+2021-08-07 10:28:36 WARN  class:100 - Subject not found,Enter the valid id!
+2021-08-07 10:44:55 INFO  class:73 - In class application
+2021-08-07 10:45:09 INFO  class:98 - In class controller -> get method
+2021-08-07 10:45:09 INFO  class:23 - In class service -> get method
+2021-08-07 10:45:09 INFO  class:43 - In class DAO -> get method
+2021-08-07 10:45:14 INFO  class:90 - In class controller -> update method
+2021-08-07 10:45:16 INFO  class:28 - In class service -> update method
+2021-08-07 10:45:16 INFO  class:25 - In class DAO -> update method
+2021-08-07 10:45:16 WARN  class:48 - Class Room No not found, Enter the valid room no!
+2021-08-07 10:45:28 INFO  class:94 - In class controller -> delete method
+2021-08-07 10:45:32 INFO  class:37 - In class service -> delete method
+2021-08-07 10:45:32 INFO  class:34 - In class DAO -> delete method
+2021-08-07 10:45:32 WARN  class:58 - Class Room No not found, Enter the valid room no!
+2021-08-07 10:45:38 INFO  class:102 - Exits from class application
+2021-08-07 11:07:43 INFO  class:131 - In subject controller -> get subject status method
+2021-08-07 11:07:54 INFO  class:55 - In subject service -> get subject status method
+2021-08-07 11:07:54 INFO  class:55 - In subject DAO -> get subject status method
+2021-08-07 11:07:56 WARN  class:91 - Subject not found,Enter the valid id!
+2021-08-07 11:08:01 INFO  class:127 - In subject controller -> get particular subject data method
+2021-08-07 11:08:03 INFO  class:46 - In subject service -> get particular subject details method
+2021-08-07 11:08:03 INFO  class:46 - In subject DAO -> get particular subject details method
+2021-08-07 11:08:03 WARN  class:81 - Subject not found,Enter the valid id!
+2021-08-07 11:08:09 INFO  class:135 - Exits from subject application
+2021-08-07 11:14:18 INFO  class:141 - In teacher controller -> get teacher for given classroom method
+2021-08-07 11:14:20 INFO  class:55 - In teacher service -> get teacher details by class room method
+2021-08-07 11:14:20 INFO  class:55 - In teacher DAO -> get teacher details by class room method
+2021-08-07 11:14:22 WARN  class:101 - Class room no not found,Enter the valid room no!
+2021-08-07 11:14:25 INFO  class:141 - In teacher controller -> get teacher for given classroom method
+2021-08-07 11:14:26 INFO  class:55 - In teacher service -> get teacher details by class room method
+2021-08-07 11:14:26 INFO  class:55 - In teacher DAO -> get teacher details by class room method
+2021-08-07 11:14:31 INFO  class:145 - Exits from teacher application
+2021-08-07 11:15:52 INFO  class:125 - In topics controller -> get particular topic method
+2021-08-07 11:15:55 INFO  class:46 - In topics service -> get particular topic details method
+2021-08-07 11:15:55 INFO  class:46 - In topics DAO -> get particular topics details method
+2021-08-07 11:15:57 WARN  class:90 - Topic not found,Enter the valid id!
+2021-08-07 11:16:01 INFO  class:129 - Exits from topics application
+2021-08-07 11:33:29 INFO  class:134 - In timetable controller -> get particular time table method
+2021-08-07 11:33:35 INFO  class:50 - In time table service -> get particular time table details method
+2021-08-07 11:33:35 INFO  class:50 - In time table DAO -> get particular time table details method
+2021-08-07 11:33:36 WARN  class:77 - Class Room No not found,Enter the valid room no!
+2021-08-07 11:34:02 INFO  class:118 - In timetable controller -> add method
+2021-08-07 11:34:02 INFO  class:18 - In time table service -> add method
+2021-08-07 11:34:02 INFO  class:18 - In time table DAO -> add method
+2021-08-07 11:34:06 WARN  class:28 - Class Room No not found,Enter the valid room no!
+2021-08-07 11:34:12 INFO  class:122 - In timetable controller -> update method
+2021-08-07 11:34:20 INFO  class:27 - In time table service -> update method
+2021-08-07 11:34:20 INFO  class:27 - In time table DAO -> update method
+2021-08-07 11:34:21 WARN  class:40 - Class Room No not found,Enter the valid room no!
+2021-08-07 11:34:24 INFO  class:126 - In timetable controller -> delete method
+2021-08-07 11:34:29 INFO  class:36 - In time table service -> delete method
+2021-08-07 11:34:29 INFO  class:36 - In time table DAO -> delete method
+2021-08-07 11:34:29 WARN  class:52 - Class Room No not found,Enter the valid room no!
+2021-08-07 11:34:35 INFO  class:138 - In timetable controller -> get time table by class room method
+2021-08-07 11:34:38 INFO  class:59 - In time table service -> get time table for specific class room method
+2021-08-07 11:34:38 INFO  class:59 - In time table DAO -> get time table by class room method
+2021-08-07 11:34:38 WARN  class:87 - Class Room No not found,Enter the valid room no!
+2021-08-07 11:34:42 INFO  class:142 - In timetable controller -> get time table by standard method
+2021-08-07 11:34:44 INFO  class:68 - In time table service -> get time table for specific standard method
+2021-08-07 11:34:44 INFO  class:69 - In time table DAO -> get time table by standard method
+2021-08-07 11:34:44 WARN  class:97 - Class Room No not found,Enter the valid room no!
+2021-08-07 11:34:47 INFO  class:146 - Exits from time table application
