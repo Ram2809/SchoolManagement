@@ -16,10 +16,11 @@ import com.revature.curriculummanagement.exception.DatabaseException;
 import com.revature.curriculummanagement.exception.InvalidChoiceException;
 import com.revature.curriculummanagement.exception.QuestionNotFoundException;
 import com.revature.curriculummanagement.exception.SubjectNotFoundException;
+import com.revature.curriculummanagement.exception.TopicNotFoundException;
 import com.revature.curriculummanagement.model.Discussion;
 import com.revature.curriculummanagement.util.DBUtil;
-import static com.revature.curriculummanagement.dao.SubjectDAOImpl.getSubjectId;
-import static com.revature.curriculummanagement.dao.SubjectDAOImpl.subjectIdList;
+import static com.revature.curriculummanagement.dao.TopicsDAOImpl.topicsIdList;
+import static com.revature.curriculummanagement.dao.TopicsDAOImpl.getUnitNo;;
 
 public class DiscussionDAOImpl implements DiscussionDAO {
 	static List<Discussion> discussionList = new ArrayList<>();
@@ -172,9 +173,9 @@ public class DiscussionDAOImpl implements DiscussionDAO {
 
 	public void getDiscussionStatusByUnit(String unitNo) throws DatabaseException {
 		try {
-			getSubjectId();
-			if (!subjectIdList.contains(unitNo)) {
-				throw new SubjectNotFoundException("Subject not found,Enter the valid id!");
+			getUnitNo();
+			if (!topicsIdList.contains(unitNo)) {
+				throw new TopicNotFoundException("Topic not found,Enter the valid id!");
 			}
 			Connection con = DBUtil.getConnection();
 			PreparedStatement pst = null;
@@ -187,7 +188,7 @@ public class DiscussionDAOImpl implements DiscussionDAO {
 						+ " " + rs.getString(5) + " " + rs.getString(6) + " " + rs.getString(7) + " " + rs.getString(8)
 						+ " " + rs.getString(9) + " " + rs.getString(10) + " " + rs.getString(11));
 			}
-		} catch (SQLException | SubjectNotFoundException e) {
+		} catch (SQLException | TopicNotFoundException e) {
 			throw new DatabaseException(e.getMessage());
 		}
 	}
