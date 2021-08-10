@@ -204,10 +204,35 @@ public class TeacherDAOImpl implements TeacherDAO {
 			pst = con.prepareStatement(query);
 			pst.setInt(1, roomNo);
 			ResultSet rs = pst.executeQuery();
+			System.out.println(
+					"-------------------------------------------------------------------------------------------");
 			while (rs.next()) {
 				System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getInt(3) + " " + rs.getString(4));
 			}
+			System.out.println(
+					"-------------------------------------------------------------------------------------------");
 		} catch (SQLException | ClassRoomNotFoundException e) {
+			throw new DatabaseException(e.getMessage());
+		}
+	}
+
+	@Override
+	public void getTeacherDetailsBySubjectName(String subjectName) throws DatabaseException {
+		// TODO Auto-generated method stub
+		try (Connection con = DBUtil.getConnection();) {
+			PreparedStatement pst = null;
+			String query = "select Id,Name from teacher where Subject=?";
+			pst = con.prepareStatement(query);
+			pst.setString(1, subjectName);
+			ResultSet rs = pst.executeQuery();
+			System.out.println(
+					"-------------------------------------------------------------------------------------------");
+			while (rs.next()) {
+				System.out.println(rs.getInt(1) + " " + rs.getString(2));
+			}
+			System.out.println(
+					"-------------------------------------------------------------------------------------------");
+		} catch (SQLException e) {
 			throw new DatabaseException(e.getMessage());
 		}
 	}

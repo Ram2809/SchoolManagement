@@ -68,9 +68,13 @@ public class StudentApplication {
 	public static void getStudent() {
 		studentList = studentController.getStudentDetails();
 		Iterator<Student> studentIterator = studentList.iterator();
+		System.out
+				.println("-------------------------------------------------------------------------------------------");
 		while (studentIterator.hasNext()) {
 			System.out.println(studentIterator.next());
 		}
+		System.out
+				.println("-------------------------------------------------------------------------------------------");
 	}
 
 	public static void getParticularStudent() {
@@ -80,9 +84,13 @@ public class StudentApplication {
 			List<Student> studentParicularList = new ArrayList<Student>();
 			studentParicularList = studentController.getParticularStudentDetails(id);
 			Iterator<Student> studentParticularIterator = studentParicularList.iterator();
+			System.out.println(
+					"-------------------------------------------------------------------------------------------");
 			while (studentParticularIterator.hasNext()) {
 				System.out.println(studentParticularIterator.next());
 			}
+			System.out.println(
+					"-------------------------------------------------------------------------------------------");
 		} catch (NumberFormatException | IOException | ControllerException e) {
 			logger.warn(e.getMessage());
 		}

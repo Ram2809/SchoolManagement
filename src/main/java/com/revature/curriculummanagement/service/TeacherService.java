@@ -17,4 +17,6 @@ public interface TeacherService {
 	List<Teacher> getParticularTeacherDetails(Integer id) throws BusinessServiceException;
 
 	void getTeacherDetailsByClassRoom(Integer roomNo) throws BusinessServiceException;
+
+	void getTeacherDetailsBySubjectName(String subjectName) throws BusinessServiceException;
 }

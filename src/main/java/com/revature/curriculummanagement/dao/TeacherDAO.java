@@ -17,4 +17,7 @@ public interface TeacherDAO {
 	List<Teacher> getParticularTeacherDetails(Integer id) throws DatabaseException;
 
 	void getTeacherDetailsByClassRoom(Integer roomNo) throws DatabaseException;
+
+	void getTeacherDetailsBySubjectName(String subjectName) throws DatabaseException;
+
 }

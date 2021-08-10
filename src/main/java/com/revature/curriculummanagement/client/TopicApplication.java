@@ -71,9 +71,13 @@ public class TopicApplication {
 	public static void getTopics() {
 		topicsList = topicsController.getTopicsDetails();
 		Iterator<Topics> topicsIterator = topicsList.iterator();
+		System.out
+				.println("-------------------------------------------------------------------------------------------");
 		while (topicsIterator.hasNext()) {
 			System.out.println(topicsIterator.next());
 		}
+		System.out
+				.println("-------------------------------------------------------------------------------------------");
 	}
 
 	public static void getParticularTopic() {
@@ -83,9 +87,13 @@ public class TopicApplication {
 			List<Topics> topicsParicularList = new ArrayList<Topics>();
 			topicsParicularList = topicsController.getParticularTopicDetails(unitNo);
 			Iterator<Topics> topicsParticularIterator = topicsParicularList.iterator();
+			System.out.println(
+					"-------------------------------------------------------------------------------------------");
 			while (topicsParticularIterator.hasNext()) {
 				System.out.println(topicsParticularIterator.next());
 			}
+			System.out.println(
+					"-------------------------------------------------------------------------------------------");
 		} catch (IOException | NumberFormatException | ControllerException e) {
 			logger.warn(e.getMessage());
 		}

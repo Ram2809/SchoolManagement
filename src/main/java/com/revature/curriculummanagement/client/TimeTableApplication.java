@@ -56,9 +56,13 @@ public class TimeTableApplication {
 	public static void getTimeTable() {
 		timeTableList = timeTableController.getTimeTableDetails();
 		Iterator<TimeTable> timeTableIterator = timeTableList.iterator();
+		System.out
+				.println("-------------------------------------------------------------------------------------------");
 		while (timeTableIterator.hasNext()) {
 			System.out.println(timeTableIterator.next());
 		}
+		System.out
+				.println("-------------------------------------------------------------------------------------------");
 	}
 
 	public static void getParticularTimeTable() {
@@ -70,9 +74,13 @@ public class TimeTableApplication {
 			List<TimeTable> timeTableParicularList = new ArrayList<TimeTable>();
 			timeTableParicularList = timeTableController.getParticularTimeTableDetails(classId, day);
 			Iterator<TimeTable> timeTableParticularIterator = timeTableParicularList.iterator();
+			System.out.println(
+					"-------------------------------------------------------------------------------------------");
 			while (timeTableParticularIterator.hasNext()) {
 				System.out.println(timeTableParticularIterator.next());
 			}
+			System.out.println(
+					"-------------------------------------------------------------------------------------------");
 		} catch (IOException | NumberFormatException | ControllerException e) {
 			logger.warn(e.getMessage());
 		}
@@ -107,9 +115,8 @@ public class TimeTableApplication {
 			System.out.println("3.Delete");
 			System.out.println("4.Retrieval");
 			System.out.println("5.Paricular class timetable data");
-			System.out.println("6.Get timetable for paticular class");
-			System.out.println("7.Get timetable for paticular standard");
-			System.out.println("8.Exit");
+			System.out.println("6.Get timetable for paticular standard");
+			System.out.println("7.Exit");
 			System.out.println("Enter the choice:");
 			try {
 				Integer userChoice = Integer.parseInt(bufferedReader.readLine());
@@ -134,15 +141,16 @@ public class TimeTableApplication {
 					logger.info("In timetable controller -> get particular time table method");
 					getParticularTimeTable();
 					break;
+				/*
+				 * case 6:
+				 * logger.info("In timetable controller -> get time table by class room method"
+				 * ); timeTableByclassRoom(); break;
+				 */
 				case 6:
-					logger.info("In timetable controller -> get time table by class room method");
-					timeTableByclassRoom();
-					break;
-				case 7:
 					logger.info("In timetable controller -> get time table by standard method");
 					timeTableByclassStandard();
 					break;
-				case 8:
+				case 7:
 					logger.info("Exits from time table application");
 					System.exit(0);
 					break;

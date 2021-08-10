@@ -72,9 +72,13 @@ public class TeacherApplication {
 	public static void getTeacher() {
 		teacherList = teacherController.getTeacherDetails();
 		Iterator<Teacher> teacherIterator = teacherList.iterator();
+		System.out
+				.println("-------------------------------------------------------------------------------------------");
 		while (teacherIterator.hasNext()) {
 			System.out.println(teacherIterator.next());
 		}
+		System.out
+				.println("-------------------------------------------------------------------------------------------");
 	}
 
 	public static void getParticularTeacher() {
@@ -84,9 +88,13 @@ public class TeacherApplication {
 			List<Teacher> teacherParicularList = new ArrayList<Teacher>();
 			teacherParicularList = teacherController.getParticularTeacherDetails(id);
 			Iterator<Teacher> teacherParticularIterator = teacherParicularList.iterator();
+			System.out.println(
+					"-------------------------------------------------------------------------------------------");
 			while (teacherParticularIterator.hasNext()) {
 				System.out.println(teacherParticularIterator.next());
 			}
+			System.out.println(
+					"-------------------------------------------------------------------------------------------");
 		} catch (IOException | NumberFormatException | ControllerException e) {
 			logger.warn(e.getMessage());
 		}
@@ -102,6 +110,16 @@ public class TeacherApplication {
 		}
 	}
 
+	public static void getTeacherBySubject() {
+		try {
+			System.out.println("Enter the subject name:");
+			String subjectName = bufferedReader.readLine();
+			teacherController.getTeacherDetailsBySubjectName(subjectName);
+		} catch (IOException | NumberFormatException | ControllerException e) {
+			logger.warn(e.getMessage());
+		}
+	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		while (true) {
@@ -112,7 +130,8 @@ public class TeacherApplication {
 			System.out.println("4.Retrieval");
 			System.out.println("5.Paricular teacher data");
 			System.out.println("6.Get teachers for particular classroom");
-			System.out.println("7.Exit");
+			System.out.println("7.Get teachers for particular subject");
+			System.out.println("8.Exit");
 			System.out.println("Enter the choice:");
 			try {
 				Integer userChoice = Integer.parseInt(bufferedReader.readLine());
@@ -142,6 +161,10 @@ public class TeacherApplication {
 					getTeacherByClassRoom();
 					break;
 				case 7:
+					logger.info("In teacher controller -> get teacher for given subject method");
+					getTeacherBySubject();
+					break;
+				case 8:
 					logger.info("Exits from teacher application");
 					System.exit(0);
 					break;

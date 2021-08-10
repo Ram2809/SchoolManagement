@@ -60,9 +60,13 @@ public class HeadMaterApplication {
 	public static void getHeadMaster() {
 		headMasterList = headMasterController.getHeadMasterDetails();
 		Iterator<HeadMaster> headMasterIterator = headMasterList.iterator();
+		System.out
+				.println("-------------------------------------------------------------------------------------------");
 		while (headMasterIterator.hasNext()) {
 			System.out.println(headMasterIterator.next());
 		}
+		System.out
+				.println("-------------------------------------------------------------------------------------------");
 	}
 
 	public static void performHMCRUD() {

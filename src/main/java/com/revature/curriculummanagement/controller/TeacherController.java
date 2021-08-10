@@ -59,4 +59,13 @@ public class TeacherController {
 			throw new ControllerException(e.getMessage());
 		}
 	}
+
+	public void getTeacherDetailsBySubjectName(String subjectName) throws ControllerException {
+		logger.info("In teacher service -> get teacher details by subject name method");
+		try {
+			teacherServiceImpl.getTeacherDetailsBySubjectName(subjectName);
+		} catch (BusinessServiceException e) {
+			throw new ControllerException(e.getMessage());
+		}
+	}
 }

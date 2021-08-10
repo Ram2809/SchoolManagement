@@ -589,3 +589,447 @@
 2021-08-08 21:16:14 INFO  class:55 - In discussion service -> get discussion status by unit method
 2021-08-08 21:16:14 INFO  class:55 - In discussion DAO -> get discussion status by unit method
 2021-08-08 21:16:29 INFO  class:144 - Exits from class application
+2021-08-08 23:22:30 WARN  class:148 - null
+2021-08-08 23:22:30 WARN  class:148 - null
+2021-08-08 23:22:30 WARN  class:148 - null
+2021-08-08 23:22:30 WARN  class:148 - null
+2021-08-08 23:22:30 WARN  class:148 - null
+2021-08-08 23:22:30 WARN  class:148 - null
+2021-08-08 23:22:30 WARN  class:148 - null
+2021-08-08 23:22:30 WARN  class:148 - null
+2021-08-08 23:22:30 WARN  class:148 - null
+2021-08-08 23:22:30 WARN  class:148 - null
+2021-08-08 23:22:30 WARN  class:148 - null
+2021-08-08 23:22:30 WARN  class:148 - null
+2021-08-08 23:22:30 WARN  class:148 - null
+2021-08-08 23:22:30 WARN  class:148 - null
+2021-08-08 23:22:30 WARN  class:148 - null
+2021-08-08 23:22:30 WARN  class:148 - null
+2021-08-08 23:22:30 INFO  class:55 - In discussion service -> get discussion status by unit method
+2021-08-08 23:22:30 INFO  class:55 - In discussion DAO -> get discussion status by unit method
+2021-08-09 15:23:35 INFO  class:19 - In Curriculum Management App
+2021-08-09 15:23:38 INFO  class:30 - In head master section
+2021-08-09 15:53:19 INFO  class:129 - In student controller -> get method
+2021-08-09 15:53:19 INFO  class:23 - In student service -> get method
+2021-08-09 15:53:19 INFO  class:41 - In student DAO -> get method
+2021-08-09 15:53:31 INFO  class:117 - In student controller -> add method
+2021-08-09 15:54:14 INFO  class:18 - In student service -> add method
+2021-08-09 15:54:14 INFO  class:18 - In student DAO -> add method
+2021-08-09 15:54:16 INFO  class:117 - In student controller -> add method
+2021-08-09 15:54:36 INFO  class:18 - In student service -> add method
+2021-08-09 15:54:36 INFO  class:18 - In student DAO -> add method
+2021-08-09 15:54:37 INFO  class:117 - In student controller -> add method
+2021-08-09 15:55:07 INFO  class:18 - In student service -> add method
+2021-08-09 15:55:07 INFO  class:18 - In student DAO -> add method
+2021-08-09 15:55:33 INFO  class:117 - In student controller -> add method
+2021-08-09 15:55:58 INFO  class:18 - In student service -> add method
+2021-08-09 15:55:58 INFO  class:18 - In student DAO -> add method
+2021-08-09 15:56:04 INFO  class:117 - In student controller -> add method
+2021-08-09 15:56:23 INFO  class:18 - In student service -> add method
+2021-08-09 15:56:23 INFO  class:18 - In student DAO -> add method
+2021-08-09 15:56:25 INFO  class:117 - In student controller -> add method
+2021-08-09 15:56:51 INFO  class:18 - In student service -> add method
+2021-08-09 15:56:51 INFO  class:18 - In student DAO -> add method
+2021-08-09 15:56:55 INFO  class:133 - In student controller -> get particular student data method
+2021-08-09 15:56:57 INFO  class:46 - In student service -> get particular student details method
+2021-08-09 15:56:57 INFO  class:46 - In student DAO -> get particular student details method
+2021-08-09 15:56:57 WARN  class:87 - Student not found,Enter the valid id!
+2021-08-09 15:57:11 INFO  class:133 - In student controller -> get particular student data method
+2021-08-09 15:57:13 INFO  class:46 - In student service -> get particular student details method
+2021-08-09 15:57:13 INFO  class:46 - In student DAO -> get particular student details method
+2021-08-09 15:57:21 INFO  class:137 - In student controller -> get student by classroom method
+2021-08-09 15:57:23 INFO  class:55 - In student service -> get student details by class room method
+2021-08-09 15:57:23 INFO  class:55 - In student DAO -> get student details by class room method
+2021-08-09 15:57:41 INFO  class:117 - In student controller -> add method
+2021-08-09 15:58:15 INFO  class:18 - In student service -> add method
+2021-08-09 15:58:15 INFO  class:18 - In student DAO -> add method
+2021-08-09 15:58:16 INFO  class:117 - In student controller -> add method
+2021-08-09 15:58:40 INFO  class:18 - In student service -> add method
+2021-08-09 15:58:40 INFO  class:18 - In student DAO -> add method
+2021-08-09 15:58:44 INFO  class:117 - In student controller -> add method
+2021-08-09 15:59:13 INFO  class:18 - In student service -> add method
+2021-08-09 15:59:13 INFO  class:18 - In student DAO -> add method
+2021-08-09 15:59:15 INFO  class:117 - In student controller -> add method
+2021-08-09 16:00:03 INFO  class:18 - In student service -> add method
+2021-08-09 16:00:03 INFO  class:18 - In student DAO -> add method
+2021-08-09 16:00:08 INFO  class:117 - In student controller -> add method
+2021-08-09 16:00:29 INFO  class:18 - In student service -> add method
+2021-08-09 16:00:29 INFO  class:18 - In student DAO -> add method
+2021-08-09 16:00:30 INFO  class:117 - In student controller -> add method
+2021-08-09 16:01:03 INFO  class:18 - In student service -> add method
+2021-08-09 16:01:03 INFO  class:18 - In student DAO -> add method
+2021-08-09 16:01:05 INFO  class:133 - In student controller -> get particular student data method
+2021-08-09 16:01:07 INFO  class:46 - In student service -> get particular student details method
+2021-08-09 16:01:07 INFO  class:46 - In student DAO -> get particular student details method
+2021-08-09 16:01:18 INFO  class:137 - In student controller -> get student by classroom method
+2021-08-09 16:01:20 INFO  class:55 - In student service -> get student details by class room method
+2021-08-09 16:01:20 INFO  class:55 - In student DAO -> get student details by class room method
+2021-08-09 16:01:47 INFO  class:121 - In student controller -> update method
+2021-08-09 16:01:54 INFO  class:28 - In student service -> update method
+2021-08-09 16:01:54 INFO  class:23 - In student DAO -> update method
+2021-08-09 16:03:18 INFO  class:121 - In student controller -> update method
+2021-08-09 16:03:20 INFO  class:28 - In student service -> update method
+2021-08-09 16:03:20 INFO  class:23 - In student DAO -> update method
+2021-08-09 16:03:33 INFO  class:121 - In student controller -> update method
+2021-08-09 16:03:38 INFO  class:28 - In student service -> update method
+2021-08-09 16:03:38 INFO  class:23 - In student DAO -> update method
+2021-08-09 16:04:08 INFO  class:117 - In student controller -> add method
+2021-08-09 16:04:30 INFO  class:18 - In student service -> add method
+2021-08-09 16:04:30 INFO  class:18 - In student DAO -> add method
+2021-08-09 16:04:34 INFO  class:141 - Exits from student application
+2021-08-09 16:04:40 INFO  class:19 - In Curriculum Management App
+2021-08-09 16:04:51 INFO  class:30 - In head master section
+2021-08-09 16:04:58 INFO  class:129 - In student controller -> get method
+2021-08-09 16:04:58 INFO  class:23 - In student service -> get method
+2021-08-09 16:04:58 INFO  class:41 - In student DAO -> get method
+2021-08-09 16:05:11 INFO  class:125 - In student controller -> delete method
+2021-08-09 16:05:13 INFO  class:37 - In student service -> delete method
+2021-08-09 16:05:13 INFO  class:32 - In student DAO -> delete method
+2021-08-09 16:05:21 INFO  class:137 - In student controller -> get student by classroom method
+2021-08-09 16:05:23 INFO  class:55 - In student service -> get student details by class room method
+2021-08-09 16:05:23 INFO  class:55 - In student DAO -> get student details by class room method
+2021-08-09 16:05:42 INFO  class:137 - In student controller -> get student by classroom method
+2021-08-09 16:05:44 INFO  class:55 - In student service -> get student details by class room method
+2021-08-09 16:05:44 INFO  class:55 - In student DAO -> get student details by class room method
+2021-08-09 16:05:59 INFO  class:133 - In student controller -> get particular student data method
+2021-08-09 16:06:00 INFO  class:46 - In student service -> get particular student details method
+2021-08-09 16:06:00 INFO  class:46 - In student DAO -> get particular student details method
+2021-08-09 16:06:06 INFO  class:141 - Exits from student application
+2021-08-09 16:06:28 INFO  class:19 - In Curriculum Management App
+2021-08-09 16:06:31 INFO  class:30 - In head master section
+2021-08-09 16:06:39 INFO  class:133 - In teacher controller -> get method
+2021-08-09 16:06:39 INFO  class:23 - In teacher service -> get method
+2021-08-09 16:06:39 INFO  class:41 - In teacher DAO -> get method
+2021-08-09 16:07:17 INFO  class:141 - In teacher controller -> get teacher for given classroom method
+2021-08-09 16:07:20 INFO  class:55 - In teacher service -> get teacher details by class room method
+2021-08-09 16:07:20 INFO  class:55 - In teacher DAO -> get teacher details by class room method
+2021-08-09 16:19:59 INFO  class:156 - In teacher controller -> get teacher for given subject method
+2021-08-09 16:21:30 INFO  class:156 - In teacher controller -> get teacher for given subject method
+2021-08-09 16:22:26 INFO  class:156 - In teacher controller -> get teacher for given subject method
+2021-08-09 16:22:28 INFO  class:64 - In teacher service -> get teacher details by subject name method
+2021-08-09 16:22:28 INFO  class:65 - In teacher DAO -> get teacher details by subject name method
+2021-08-09 16:22:39 INFO  class:156 - In teacher controller -> get teacher for given subject method
+2021-08-09 16:22:43 INFO  class:64 - In teacher service -> get teacher details by subject name method
+2021-08-09 16:22:43 INFO  class:65 - In teacher DAO -> get teacher details by subject name method
+2021-08-09 16:22:52 INFO  class:160 - Exits from teacher application
+2021-08-09 16:23:03 INFO  class:19 - In Curriculum Management App
+2021-08-09 16:23:05 INFO  class:30 - In head master section
+2021-08-09 16:23:07 INFO  class:73 - In class application
+2021-08-09 16:23:22 INFO  class:98 - In class controller -> get method
+2021-08-09 16:23:22 INFO  class:23 - In class service -> get method
+2021-08-09 16:23:22 INFO  class:43 - In class DAO -> get method
+2021-08-09 16:23:29 INFO  class:102 - Exits from class application
+2021-08-09 16:23:38 INFO  class:19 - In Curriculum Management App
+2021-08-09 16:23:44 INFO  class:30 - In head master section
+2021-08-09 16:23:59 INFO  class:123 - In subject controller -> get method
+2021-08-09 16:23:59 INFO  class:23 - In subject service -> get method
+2021-08-09 16:23:59 INFO  class:41 - In subject DAO -> get method
+2021-08-09 16:24:56 INFO  class:131 - In subject controller -> get subject status method
+2021-08-09 16:24:58 INFO  class:55 - In subject service -> get subject status method
+2021-08-09 16:24:58 INFO  class:55 - In subject DAO -> get subject status method
+2021-08-09 16:25:26 INFO  class:135 - Exits from subject application
+2021-08-09 16:25:32 INFO  class:19 - In Curriculum Management App
+2021-08-09 16:25:34 INFO  class:30 - In head master section
+2021-08-09 16:26:08 INFO  class:138 - In timetable controller -> get time table by class room method
+2021-08-09 16:26:10 INFO  class:59 - In time table service -> get time table for specific class room method
+2021-08-09 16:26:10 INFO  class:59 - In time table DAO -> get time table by class room method
+2021-08-09 16:26:25 INFO  class:142 - In timetable controller -> get time table by standard method
+2021-08-09 16:26:27 INFO  class:68 - In time table service -> get time table for specific standard method
+2021-08-09 16:26:27 INFO  class:69 - In time table DAO -> get time table by standard method
+2021-08-09 16:26:40 INFO  class:146 - Exits from time table application
+2021-08-09 16:28:50 INFO  class:133 - In timetable controller -> get particular time table method
+2021-08-09 16:29:06 INFO  class:50 - In time table service -> get particular time table details method
+2021-08-09 16:29:06 INFO  class:50 - In time table DAO -> get particular time table details method
+2021-08-09 16:30:44 INFO  class:142 - In timetable controller -> get time table by standard method
+2021-08-09 16:30:46 INFO  class:68 - In time table service -> get time table for specific standard method
+2021-08-09 16:30:46 INFO  class:69 - In time table DAO -> get time table by standard method
+2021-08-09 16:32:05 INFO  class:144 - In timetable controller -> get time table by standard method
+2021-08-09 16:32:15 INFO  class:68 - In time table service -> get time table for specific standard method
+2021-08-09 16:32:15 INFO  class:69 - In time table DAO -> get time table by standard method
+2021-08-09 16:33:57 INFO  class:142 - In timetable controller -> get time table by standard method
+2021-08-09 16:33:59 INFO  class:68 - In time table service -> get time table for specific standard method
+2021-08-09 16:33:59 INFO  class:69 - In time table DAO -> get time table by standard method
+2021-08-09 16:34:58 INFO  class:105 - In discussion application
+2021-08-09 16:35:02 INFO  class:140 - In discussion controller -> get discussion by unit method
+2021-08-09 16:35:04 INFO  class:55 - In discussion service -> get discussion status by unit method
+2021-08-09 16:35:04 INFO  class:55 - In discussion DAO -> get discussion status by unit method
+2021-08-09 16:35:56 INFO  class:105 - In discussion application
+2021-08-09 16:35:58 INFO  class:140 - In discussion controller -> get discussion by unit method
+2021-08-09 16:36:00 INFO  class:55 - In discussion service -> get discussion status by unit method
+2021-08-09 16:36:00 INFO  class:55 - In discussion DAO -> get discussion status by unit method
+2021-08-09 16:36:17 INFO  class:144 - Exits from class application
+2021-08-09 16:37:46 INFO  class:137 - In student controller -> get student by classroom method
+2021-08-09 16:37:49 INFO  class:55 - In student service -> get student details by class room method
+2021-08-09 16:37:49 INFO  class:55 - In student DAO -> get student details by class room method
+2021-08-09 16:38:48 INFO  class:131 - In subject controller -> get subject status method
+2021-08-09 16:38:51 WARN  class:91 - For input string: "SU1"
+2021-08-09 16:39:07 INFO  class:131 - In subject controller -> get subject status method
+2021-08-09 16:39:10 INFO  class:55 - In subject service -> get subject status method
+2021-08-09 16:39:10 INFO  class:55 - In subject DAO -> get subject status method
+2021-08-09 16:39:30 INFO  class:135 - Exits from subject application
+2021-08-09 16:40:54 INFO  class:152 - In teacher controller -> get teacher for given classroom method
+2021-08-09 16:40:56 INFO  class:55 - In teacher service -> get teacher details by class room method
+2021-08-09 16:40:56 INFO  class:55 - In teacher DAO -> get teacher details by class room method
+2021-08-09 16:41:07 INFO  class:156 - In teacher controller -> get teacher for given subject method
+2021-08-09 16:41:12 INFO  class:64 - In teacher service -> get teacher details by subject name method
+2021-08-09 16:41:12 INFO  class:65 - In teacher DAO -> get teacher details by subject name method
+2021-08-09 16:41:24 INFO  class:160 - Exits from teacher application
+2021-08-09 16:44:02 INFO  class:152 - In teacher controller -> get method
+2021-08-09 16:44:02 INFO  class:23 - In teacher service -> get method
+2021-08-09 16:44:02 INFO  class:41 - In teacher DAO -> get method
+2021-08-09 16:44:09 INFO  class:160 - In teacher controller -> get teacher for given classroom method
+2021-08-09 16:44:12 INFO  class:55 - In teacher service -> get teacher details by class room method
+2021-08-09 16:44:12 INFO  class:55 - In teacher DAO -> get teacher details by class room method
+2021-08-09 16:44:12 WARN  class:109 - Class room no not found,Enter the valid room no!
+2021-08-09 16:44:20 INFO  class:156 - In teacher controller -> get particular teacher data method
+2021-08-09 16:44:23 INFO  class:46 - In teacher service -> get particular teacher details method
+2021-08-09 16:44:23 INFO  class:46 - In teacher DAO -> get particular teacher details method
+2021-08-09 18:12:03 INFO  class:117 - In topics controller -> add method
+2021-08-09 18:12:32 INFO  class:18 - In topics service -> add method
+2021-08-09 18:12:32 INFO  class:18 - In topics DAO -> add method
+2021-08-09 18:12:38 INFO  class:117 - In topics controller -> add method
+2021-08-09 18:13:16 INFO  class:18 - In topics service -> add method
+2021-08-09 18:13:16 INFO  class:18 - In topics DAO -> add method
+2021-08-09 18:13:17 INFO  class:117 - In topics controller -> add method
+2021-08-09 18:14:05 INFO  class:18 - In topics service -> add method
+2021-08-09 18:14:05 INFO  class:18 - In topics DAO -> add method
+2021-08-09 18:14:06 INFO  class:117 - In topics controller -> add method
+2021-08-09 18:14:56 INFO  class:18 - In topics service -> add method
+2021-08-09 18:14:56 INFO  class:18 - In topics DAO -> add method
+2021-08-09 18:14:57 INFO  class:121 - In topics controller -> update method
+2021-08-09 18:15:02 INFO  class:28 - In topics service -> update method
+2021-08-09 18:15:02 INFO  class:23 - In topics DAO -> update method
+2021-08-09 18:15:14 INFO  class:117 - In topics controller -> add method
+2021-08-09 18:16:17 INFO  class:18 - In topics service -> add method
+2021-08-09 18:16:17 INFO  class:18 - In topics DAO -> add method
+2021-08-09 18:16:19 INFO  class:117 - In topics controller -> add method
+2021-08-09 18:17:09 INFO  class:18 - In topics service -> add method
+2021-08-09 18:17:09 INFO  class:18 - In topics DAO -> add method
+2021-08-09 18:17:11 INFO  class:129 - In topics controller -> get method
+2021-08-09 18:17:11 INFO  class:23 - In topics service -> get method
+2021-08-09 18:17:11 INFO  class:41 - In topics DAO -> get method
+2021-08-09 19:19:19 INFO  class:113 - In discussion application
+2021-08-09 19:19:21 INFO  class:132 - In discussion controller -> update method
+2021-08-09 19:19:34 INFO  class:28 - In discussion service -> update method
+2021-08-09 19:19:34 INFO  class:23 - In discussion DAO -> update method
+2021-08-09 19:19:36 WARN  class:57 - Question not found,Enter the valid id!
+2021-08-09 19:19:45 INFO  class:140 - In discussion controller -> get method
+2021-08-09 19:19:45 INFO  class:23 - In discussion service -> get method
+2021-08-09 19:19:45 INFO  class:41 - In discussion DAO -> get method
+2021-08-09 19:20:22 INFO  class:132 - In discussion controller -> update method
+2021-08-09 19:20:32 INFO  class:28 - In discussion service -> update method
+2021-08-09 19:20:32 INFO  class:23 - In discussion DAO -> update method
+2021-08-09 19:20:45 WARN  class:57 - null
+2021-08-09 23:56:17 WARN  class:152 - null
+2021-08-09 23:56:17 WARN  class:152 - null
+2021-08-09 23:56:17 WARN  class:152 - null
+2021-08-09 23:56:17 WARN  class:152 - null
+2021-08-09 23:56:17 WARN  class:152 - null
+2021-08-09 23:56:17 WARN  class:152 - null
+2021-08-09 23:56:17 WARN  class:152 - null
+2021-08-09 23:56:17 WARN  class:152 - null
+2021-08-09 23:56:17 WARN  class:152 - null
+2021-08-09 23:56:17 WARN  class:152 - null
+2021-08-09 23:56:17 WARN  class:152 - null
+2021-08-09 23:56:17 WARN  class:152 - null
+2021-08-09 23:56:17 WARN  class:152 - null
+2021-08-09 23:56:17 WARN  class:152 - null
+2021-08-09 23:56:17 WARN  class:152 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:155 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:153 - null
+2021-08-09 23:56:17 WARN  class:148 - null
+2021-08-09 23:56:17 WARN  class:148 - null
+2021-08-09 23:56:17 WARN  class:148 - null
+2021-08-09 23:56:17 WARN  class:148 - null
+2021-08-09 23:56:17 WARN  class:148 - null
+2021-08-09 23:56:17 WARN  class:148 - null
+2021-08-09 23:56:17 WARN  class:148 - null
+2021-08-09 23:56:17 WARN  class:148 - null
+2021-08-09 23:56:17 WARN  class:148 - null
+2021-08-09 23:56:17 WARN  class:148 - null
+2021-08-09 23:56:17 WARN  class:148 - null
+2021-08-09 23:56:17 WARN  class:148 - null
+2021-08-09 23:56:17 WARN  class:148 - null
+2021-08-09 23:56:17 WARN  class:148 - null
+2021-08-09 23:56:17 WARN  class:148 - null
+2021-08-09 23:56:17 WARN  class:148 - null
+2021-08-09 23:56:17 WARN  class:148 - null
+2021-08-09 23:56:17 WARN  class:148 - null
+2021-08-09 23:56:17 WARN  class:148 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 WARN  class:175 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-09 23:56:17 INFO  class:144 - null
+2021-08-10 19:38:21 INFO  class:19 - In Curriculum Management App
+2021-08-10 19:38:30 INFO  class:30 - In head master section
+2021-08-10 19:38:50 INFO  class:154 - Exits from head master section

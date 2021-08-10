@@ -62,9 +62,13 @@ public class SubjectApplication {
 	public static void getSubject() {
 		subjectList = subjectController.getSubjectDetails();
 		Iterator<Subject> subjectIterator = subjectList.iterator();
+		System.out
+				.println("-------------------------------------------------------------------------------------------");
 		while (subjectIterator.hasNext()) {
 			System.out.println(subjectIterator.next());
 		}
+		System.out
+				.println("-------------------------------------------------------------------------------------------");
 	}
 
 	public static void getParticularSubject() throws ControllerException {
@@ -74,9 +78,13 @@ public class SubjectApplication {
 			List<Subject> subjectParicularList = new ArrayList<Subject>();
 			subjectParicularList = subjectController.getParticularSubjectDetails(subjectId);
 			Iterator<Subject> subjectParticularIterator = subjectParicularList.iterator();
+			System.out.println(
+					"-------------------------------------------------------------------------------------------");
 			while (subjectParticularIterator.hasNext()) {
 				System.out.println(subjectParticularIterator.next());
 			}
+			System.out.println(
+					"-------------------------------------------------------------------------------------------");
 		} catch (IOException | NumberFormatException | ControllerException e) {
 			logger.warn(e.getMessage());
 		}

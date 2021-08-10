@@ -62,10 +62,13 @@ public class ClassApplication {
 	public static void getClassDetail() {
 		classList = classController.getClassDetails();
 		Iterator<Classes> classIterator = classList.iterator();
+		System.out
+				.println("-------------------------------------------------------------------------------------------");
 		while (classIterator.hasNext()) {
 			System.out.println(classIterator.next());
 		}
-
+		System.out
+				.println("-------------------------------------------------------------------------------------------");
 	}
 
 	public static void main(String[] args) {

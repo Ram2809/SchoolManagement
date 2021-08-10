@@ -60,4 +60,15 @@ public class TeacherServiceImpl implements TeacherService {
 		}
 	}
 
+	@Override
+	public void getTeacherDetailsBySubjectName(String subjectName) throws BusinessServiceException {
+		logger.info("In teacher DAO -> get teacher details by subject name method");
+		try {
+			teacherDAOImpl.getTeacherDetailsBySubjectName(subjectName);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+
+	}
+
 }

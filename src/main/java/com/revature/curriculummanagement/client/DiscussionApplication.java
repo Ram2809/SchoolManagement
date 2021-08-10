@@ -71,9 +71,13 @@ public class DiscussionApplication {
 	public static void getDiscussion() {
 		discussionList = discussionController.getDiscussionDetails();
 		Iterator<Discussion> discussionIterator = discussionList.iterator();
+		System.out
+				.println("-------------------------------------------------------------------------------------------");
 		while (discussionIterator.hasNext()) {
 			System.out.println(discussionIterator.next());
 		}
+		System.out
+				.println("-------------------------------------------------------------------------------------------");
 	}
 
 	public static void getParticularDiscussion() {
@@ -83,9 +87,13 @@ public class DiscussionApplication {
 			List<Discussion> discussionParicularList = new ArrayList<Discussion>();
 			discussionParicularList = discussionController.getParticularDiscussionDetails(questionNo);
 			Iterator<Discussion> discussionParticularIterator = discussionParicularList.iterator();
+			System.out.println(
+					"-------------------------------------------------------------------------------------------");
 			while (discussionParticularIterator.hasNext()) {
 				System.out.println(discussionParticularIterator.next());
 			}
+			System.out.println(
+					"-------------------------------------------------------------------------------------------");
 		} catch (NumberFormatException | IOException | ControllerException e) {
 			logger.warn(e.getMessage());
 		}

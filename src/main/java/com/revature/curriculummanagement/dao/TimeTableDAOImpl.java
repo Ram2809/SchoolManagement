@@ -242,10 +242,12 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 			pst = con.prepareStatement(query);
 			pst.setInt(1, roomNo);
 			ResultSet rs = pst.executeQuery();
+			System.out.println("-----------------------------------------------------------");
 			while (rs.next()) {
 				System.out.println(rs.getString(1) + " " + rs.getString(2) + " " + rs.getString(3) + " "
 						+ rs.getString(4) + " " + rs.getString(5) + " " + rs.getString(6) + " " + rs.getString(7));
 			}
+			System.out.println("-----------------------------------------------------------");
 		} catch (SQLException | ClassRoomNotFoundException e) {
 			throw new DatabaseException(e.getMessage());
 		}
@@ -263,11 +265,13 @@ public class TimeTableDAOImpl implements TimeTableDAO {
 			pst = con.prepareStatement(query);
 			pst.setInt(1, roomNo);
 			ResultSet rs = pst.executeQuery();
+			System.out.println("-----------------------------------------------------------");
 			while (rs.next()) {
 				System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3) + " " + rs.getString(4)
 						+ " " + rs.getString(5) + " " + rs.getString(6) + " " + rs.getString(7) + " " + rs.getString(8)
 						+ " " + rs.getString(9) + " " + rs.getString(10));
 			}
+			System.out.println("-----------------------------------------------------------");
 		} catch (SQLException | ClassRoomNotFoundException e) {
 			throw new DatabaseException(e.getMessage());
 		}
